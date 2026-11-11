@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "references": {
+    "ibni-prototype": {
+      "path": "./DOCS/reference/reference/old-prototypes",
+      "description": "The old messy vibe coding project. Use this to understand logic, features, and page structures to mimic. WARNING: Do not copy its architectural style, messy code, or outdated practices."
+    },
+    "design-docs": {
+      "path": "./DOCS",
+      "description": "Contains architecture plans, specs, screenshots, and UI notes for the clean rebuild."
+    }
+  }
+}

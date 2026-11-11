@@ -1,0 +1,2 @@
+-- Seed data for local development.
+-- Add starter rows here after the first migration.
