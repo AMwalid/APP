@@ -7,17 +7,63 @@
     "eyebrow": "IBNI",
     "title": "نبني قادة الغد. اليوم.",
     "subtitle": "منصة تعليمية متكاملة تربط الأولياء والطلبة والأساتذة والمؤسسات في الجزائر.",
-    "shellNote": "هيكل المشروع جاهز. الصفحة الرئيسية وشريط التنقل قادمان في المرحلة التالية."
+    "shellNote": "شريط التنقل جاهز. الصفحة الرئيسية الكاملة قادمة في المرحلة التالية."
   },
   "Navigation": {
-    "parents": "الأولياء",
-    "students": "الطلبة",
-    "teachers": "الأساتذة",
-    "institutions": "المؤسسات",
-    "store": "المتجر",
-    "about": "من نحن",
-    "login": "تسجيل الدخول",
-    "signup": "إنشاء حساب",
-    "bookDemo": "احجز عرضًا"
+    "items": {
+      "parents": {
+        "label": "الأولياء",
+        "findSchools": "ابحث عن مدارس",
+        "findTeachers": "ابحث عن أساتذة",
+        "trackKid": "تابع تقدّم طفلي",
+        "myCourses": "دورات طفلي"
+      },
+      "students": {
+        "label": "الطلبة",
+        "findSchools": "ابحث عن مدارس",
+        "findTeachers": "ابحث عن أساتذة",
+        "trackProgress": "تابع تقدّمي",
+        "myCourses": "دوراتي"
+      },
+      "teachers": {
+        "label": "الأساتذة",
+        "profile": "ملفي الشخصي",
+        "classes": "إدارة أقسامي"
+      },
+      "institutions": {
+        "label": "المؤسسات",
+        "profile": "ملف المؤسسة",
+        "dashboard": "لوحة المؤسسة"
+      },
+      "store": {
+        "label": "المتجر"
+      },
+      "about": {
+        "label": "من نحن",
+        "aboutUs": "من نحن",
+        "contact": "اتصل بنا",
+        "guide": "دليل الاستخدام",
+        "prices": "أسعارنا",
+        "invest": "استثمر في IBNI"
+      }
+    },
+    "actions": {
+      "login": "تسجيل الدخول",
+      "signup": "إنشاء حساب",
+      "bookDemo": "احجز عرضًا"
+    },
+    "a11y": {
+      "mainNav": "التنقل الرئيسي",
+      "openMenu": "افتح القائمة",
+      "closeMenu": "أغلق القائمة",
+      "menu": "القائمة",
+      "language": "اللغة",
+      "home": "الصفحة الرئيسية",
+      "toggleSubmenu": "افتح قائمة {label}",
+      "languages": {
+        "ar": "العربية",
+        "fr": "الفرنسية"
+      }
+    }
   }
 }

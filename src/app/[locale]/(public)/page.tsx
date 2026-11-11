@@ -11,7 +11,7 @@ export default async function HomePage({
   const t = await getTranslations("HomePage");
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center gap-4 px-6 text-center">
+    <main className="mx-auto flex min-h-[calc(100dvh-var(--header-height))] max-w-3xl flex-col items-center justify-center gap-4 px-6 text-center">
       <p className="text-sm font-semibold tracking-widest text-primary uppercase">
         {t("eyebrow")}
       </p>

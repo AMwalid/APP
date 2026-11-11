@@ -7,17 +7,63 @@
     "eyebrow": "IBNI",
     "title": "Former les leaders de demain. Aujourd'hui.",
     "subtitle": "Une plateforme éducative complète qui relie parents, élèves, enseignants et établissements en Algérie.",
-    "shellNote": "La structure du projet est prête. La page d'accueil et la navigation arrivent à l'étape suivante."
+    "shellNote": "La barre de navigation est prête. La page d'accueil complète arrive à l'étape suivante."
   },
   "Navigation": {
-    "parents": "Parents",
-    "students": "Élèves",
-    "teachers": "Enseignants",
-    "institutions": "Établissements",
-    "store": "Boutique",
-    "about": "À propos",
-    "login": "Connexion",
-    "signup": "Créer un compte",
-    "bookDemo": "Réserver une démo"
+    "items": {
+      "parents": {
+        "label": "Parents",
+        "findSchools": "Trouver des écoles",
+        "findTeachers": "Trouver des enseignants",
+        "trackKid": "Suivre mon enfant",
+        "myCourses": "Cours de mon enfant"
+      },
+      "students": {
+        "label": "Élèves",
+        "findSchools": "Trouver des écoles",
+        "findTeachers": "Trouver des enseignants",
+        "trackProgress": "Suivre ma progression",
+        "myCourses": "Mes cours"
+      },
+      "teachers": {
+        "label": "Enseignants",
+        "profile": "Mon profil",
+        "classes": "Gérer mes classes"
+      },
+      "institutions": {
+        "label": "Établissements",
+        "profile": "Profil de l'établissement",
+        "dashboard": "Tableau de bord"
+      },
+      "store": {
+        "label": "Boutique"
+      },
+      "about": {
+        "label": "À propos",
+        "aboutUs": "À propos",
+        "contact": "Nous contacter",
+        "guide": "Guide d'utilisation",
+        "prices": "Nos tarifs",
+        "invest": "Investir dans IBNI"
+      }
+    },
+    "actions": {
+      "login": "Connexion",
+      "signup": "Créer un compte",
+      "bookDemo": "Réserver une démo"
+    },
+    "a11y": {
+      "mainNav": "Navigation principale",
+      "openMenu": "Ouvrir le menu",
+      "closeMenu": "Fermer le menu",
+      "menu": "Menu",
+      "language": "Langue",
+      "home": "Accueil",
+      "toggleSubmenu": "Ouvrir le sous-menu {label}",
+      "languages": {
+        "ar": "Arabe",
+        "fr": "Français"
+      }
+    }
   }
 }
