@@ -45,3 +45,4 @@ DOCS/reference/reference/old-prototypes/**/.git/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+DOCS/reference/reference/old-prototypes/
