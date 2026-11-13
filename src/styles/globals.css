@@ -55,7 +55,19 @@
   --z-index-modal: 70;
 
   /* Shared by the sticky header, the mobile sheet and page shells. */
+  --top-bar-height: 2.25rem;
   --header-height: 4rem;
+}
+
+/*
+ * The dark utility bar is hidden below `md`, so the sticky header only grows
+ * once it appears. `--header-height` stays the single source of truth for
+ * anything that has to clear the header (page shells, scroll anchors).
+ */
+@media (width >= 48rem) {
+  :root {
+    --header-height: calc(4rem + var(--top-bar-height));
+  }
 }
 
 @keyframes dropdown-in {

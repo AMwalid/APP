@@ -52,8 +52,21 @@
       "signup": "S'inscrire",
       "bookDemo": "Réserver une démo"
     },
+    "topBar": {
+      "contact": "Nous contacter",
+      "about": "À propos d'IBNI",
+      "help": "Aide"
+    },
+    "search": {
+      "title": "Recherche",
+      "placeholder": "Rechercher une école, un enseignant ou un cours",
+      "note": "La recherche globale arrive bientôt.",
+      "close": "Fermer"
+    },
     "a11y": {
       "mainNav": "Navigation principale",
+      "utilityNav": "Liens rapides",
+      "search": "Rechercher",
       "openMenu": "Ouvrir le menu",
       "closeMenu": "Fermer le menu",
       "menu": "Menu",

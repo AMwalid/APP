@@ -11,6 +11,7 @@ import {
   isActiveItem,
   isActiveMenuEntry,
   NAV_ITEMS,
+  NAV_TOP_LINKS,
 } from "@/lib/constants/navigation";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -85,6 +86,19 @@ export function MobileNav() {
                 <X aria-hidden className="size-6 text-primary-hover" />
               </button>
             </Dialog.Close>
+          </div>
+
+          <div className="container-page flex items-center gap-4 border-b border-border py-2">
+            {NAV_TOP_LINKS.map((link) => (
+              <Link
+                key={link.id}
+                href={link.href}
+                onClick={close}
+                className="text-xs font-medium text-muted-foreground transition-colors duration-150 ease-standard hover:text-primary-hover"
+              >
+                {t(link.labelKey)}
+              </Link>
+            ))}
           </div>
 
           <nav aria-label={t("a11y.mainNav")} className="container-page">

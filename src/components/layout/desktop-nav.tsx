@@ -31,7 +31,7 @@ const ROW_BASE =
  * is the section landing link. There is no `Viewport`: each panel is absolutely
  * positioned against its own item so it lines up with the trigger.
  */
-export function DesktopNav() {
+export function DesktopNav({ className }: { className?: string }) {
   const t = useTranslations("Navigation");
   const locale = useLocale();
   const pathname = usePathname();
@@ -42,7 +42,7 @@ export function DesktopNav() {
       dir={locale === "ar" ? "rtl" : "ltr"}
       delayDuration={120}
       skipDelayDuration={300}
-      className="hidden xl:block"
+      className={cn("hidden xl:block", className)}
     >
       <NavigationMenu.List className="flex items-center gap-0.5">
         {NAV_ITEMS.map((item) => {

@@ -98,14 +98,20 @@ The public navbar is inherited from the prototype and is the contract for the re
 | Store | `/store` | — |
 | About | `/about` | About Us (`/about`), Contact Us (`/contact`), User Guide (`/user-guide`), Our Prices (`/prices`), Invest in IBNI (`/invest`) |
 
-Right-side actions: Login (`/login`), Sign Up (`/signup`), Book a Demo (`/book-demo`).
+The header has two tiers, both inside one sticky `<header>`:
+
+1. **Dark utility bar** — `bg-primary-deep`, 2.25rem tall, hidden below `md`. Quick links on the start edge: Contact Us (`/contact`), About IBNI (`/about`), Help (`/help`). Locale switcher and Login (`/login`) on the end edge.
+2. **White main bar** — 4rem tall. Brand on the start edge, the six sections centred in the free space, and on the end edge an icon-only search control (opens a placeholder palette until global search exists) followed by Sign Up (`/signup`, solid) and Book a Demo (`/book-demo`, outlined).
+
+Below `xl` the main bar collapses to brand, search and the hamburger; the sheet carries the sections, the quick links, the locale switcher and all three account actions.
 
 Rules:
 
-- The structure lives in `src/lib/constants/navigation.ts`; labels live in `src/messages/{ar,fr}.json`.
-- The bar is sticky, white with a bottom border; the active section is green-600 and semibold.
+- The structure lives in `src/lib/constants/navigation.ts` (`NAV_ITEMS`, `NAV_TOP_LINKS`, `NAV_LOGIN`, `NAV_CTAS`, `NAV_ACTIONS`); labels live in `src/messages/{ar,fr}.json`.
+- Both tiers are sticky together. `--header-height` is the total height and grows from `md` up; page shells subtract it.
+- The main bar is a `grid-cols-[auto_minmax(0,1fr)_auto]` grid. The navigation is centred in the middle track, not optically centred in the viewport, because the FR action cluster is wider than the brand.
 - Desktop dropdowns open on hover and on keyboard focus; the mobile panel traps focus while open.
-- The visual contract is the prototype's rendered Tailwind values. See `DOCS/decisions/0005-prototype-navigation.md`.
+- The visual contract is the prototype's rendered Tailwind values. See `DOCS/decisions/0005-prototype-navigation.md` and `DOCS/decisions/0007-two-tier-header.md`.
 - Changing this IA is a product decision. Do not rename or reorder items during implementation.
 
 ## 4. Where does X go?

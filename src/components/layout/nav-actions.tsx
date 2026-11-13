@@ -2,11 +2,16 @@
 
 import { useTranslations } from "next-intl";
 import { buttonVariants } from "@/components/ui/button";
-import { NAV_ACTIONS } from "@/lib/constants/navigation";
+import {
+  NAV_ACTIONS,
+  type NavAction,
+} from "@/lib/constants/navigation";
 import { Link } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 type NavActionsProps = {
+  /** Which actions to render. Defaults to every account action. */
+  actions?: readonly NavAction[];
   /** Stack the actions vertically at full width (mobile sheet). */
   fullWidth?: boolean;
   /** Called before the browser navigates (the mobile sheet closes itself). */
@@ -14,8 +19,9 @@ type NavActionsProps = {
   className?: string;
 };
 
-/** Login / Sign Up / Book a Demo — shared by the desktop bar and mobile sheet. */
+/** Account actions — shared by the desktop bar and the mobile sheet. */
 export function NavActions({
+  actions = NAV_ACTIONS,
   fullWidth = false,
   onNavigate,
   className,
@@ -30,7 +36,7 @@ export function NavActions({
         className,
       )}
     >
-      {NAV_ACTIONS.map((action) => (
+      {actions.map((action) => (
         <Link
           key={action.id}
           href={action.href}

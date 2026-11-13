@@ -159,13 +159,32 @@ export const NAV_ITEMS: readonly NavItem[] = [
   },
 ];
 
-export const NAV_ACTIONS: readonly NavAction[] = [
-  {
-    id: "login",
-    labelKey: "actions.login",
-    href: "/login",
-    variant: "ghost",
-  },
+export type NavUtilityLink = {
+  id: string;
+  labelKey: string;
+  href: string;
+};
+
+/**
+ * Quick links in the dark utility bar above the main navigation.
+ * They sit on the start edge, so they mirror with the document direction.
+ */
+export const NAV_TOP_LINKS: readonly NavUtilityLink[] = [
+  { id: "contact", labelKey: "topBar.contact", href: "/contact" },
+  { id: "about", labelKey: "topBar.about", href: "/about" },
+  { id: "help", labelKey: "topBar.help", href: "/help" },
+];
+
+/** Login lives in the utility bar, away from the primary calls to action. */
+export const NAV_LOGIN: NavAction = {
+  id: "login",
+  labelKey: "actions.login",
+  href: "/login",
+  variant: "ghost",
+};
+
+/** Primary calls to action in the main bar, in display order. */
+export const NAV_CTAS: readonly NavAction[] = [
   {
     id: "signup",
     labelKey: "actions.signup",
@@ -179,6 +198,9 @@ export const NAV_ACTIONS: readonly NavAction[] = [
     variant: "outline",
   },
 ];
+
+/** Every account action, in order. The mobile sheet renders all of them. */
+export const NAV_ACTIONS: readonly NavAction[] = [NAV_LOGIN, ...NAV_CTAS];
 
 /**
  * Rows shown in a dropdown: the section landing page first, then its children.
