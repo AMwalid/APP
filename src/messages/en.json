@@ -1,0 +1,83 @@
+{
+  "Metadata": {
+    "title": "IBNI — Algeria's Education Platform",
+    "description": "An Algerian education platform connecting parents, students, teachers, and institutions."
+  },
+  "HomePage": {
+    "eyebrow": "IBNI",
+    "title": "Building the Leaders of Tomorrow. Today.",
+    "subtitle": "A complete education platform connecting parents, students, teachers, and institutions across Algeria.",
+    "shellNote": "The navigation bar is ready. The full homepage arrives in the next phase."
+  },
+  "Navigation": {
+    "items": {
+      "parents": {
+        "label": "Parents",
+        "findSchools": "Find Schools",
+        "findTeachers": "Find Teachers",
+        "trackKid": "Track My Child",
+        "myCourses": "My Child's Courses"
+      },
+      "students": {
+        "label": "Students",
+        "findSchools": "Find Schools",
+        "findTeachers": "Find Teachers",
+        "trackProgress": "Track My Progress",
+        "myCourses": "My Courses"
+      },
+      "teachers": {
+        "label": "Teachers",
+        "profile": "My Profile",
+        "classes": "Manage My Classes"
+      },
+      "institutions": {
+        "label": "Institutions",
+        "profile": "Institution Profile",
+        "dashboard": "Institution Dashboard"
+      },
+      "store": {
+        "label": "Store"
+      },
+      "about": {
+        "label": "About",
+        "aboutUs": "About Us",
+        "contact": "Contact Us",
+        "guide": "User Guide",
+        "prices": "Our Prices",
+        "invest": "Invest in IBNI"
+      }
+    },
+    "actions": {
+      "login": "Log In",
+      "signup": "Sign Up",
+      "bookDemo": "Book a Demo"
+    },
+    "topBar": {
+      "contact": "Contact Us",
+      "about": "About IBNI",
+      "help": "Help"
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search for a school, teacher, or course",
+      "note": "Global search is coming soon.",
+      "close": "Close"
+    },
+    "a11y": {
+      "mainNav": "Main navigation",
+      "utilityNav": "Quick links",
+      "search": "Search",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "menu": "Menu",
+      "language": "Language",
+      "home": "Home",
+      "toggleSubmenu": "Open the {label} submenu",
+      "languages": {
+        "ar": "Arabic",
+        "fr": "French",
+        "en": "English"
+      }
+    }
+  }
+}

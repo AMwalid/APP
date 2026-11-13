@@ -65,7 +65,7 @@ ibni/
    ├─ config/
    │  ├─ env.ts              validates environment variables with Zod
    │  └─ site.ts             site name, URLs, limits
-   ├─ messages/              ar.json, fr.json
+   ├─ messages/              ar.json, fr.json, en.json
    ├─ styles/                globals.css, theme tokens (from DESIGN.md)
    └─ types/
       └─ database.ts         GENERATED from Supabase. Never edit by hand.
@@ -107,7 +107,7 @@ Below `xl` the main bar collapses to brand, search and the hamburger; the sheet 
 
 Rules:
 
-- The structure lives in `src/lib/constants/navigation.ts` (`NAV_ITEMS`, `NAV_TOP_LINKS`, `NAV_LOGIN`, `NAV_CTAS`, `NAV_ACTIONS`); labels live in `src/messages/{ar,fr}.json`.
+- The structure lives in `src/lib/constants/navigation.ts` (`NAV_ITEMS`, `NAV_TOP_LINKS`, `NAV_LOGIN`, `NAV_CTAS`, `NAV_ACTIONS`); labels live in `src/messages/{ar,fr,en}.json`.
 - Both tiers are sticky together. `--header-height` is the total height and grows from `md` up; page shells subtract it.
 - The main bar is a `grid-cols-[auto_minmax(0,1fr)_auto]` grid. The navigation is centred in the middle track, not optically centred in the viewport, because the FR action cluster is wider than the brand.
 - Desktop dropdowns open on hover and on keyboard focus; the mobile panel traps focus while open.
@@ -131,7 +131,7 @@ Rules:
 | List of wilayas or levels | `lib/constants` |
 | A tiny pure function | `lib/utils` |
 | A table change | new file in `supabase/migrations` |
-| Any visible text | `messages/ar.json` + `messages/fr.json` |
+| Any visible text | `messages/ar.json` + `messages/fr.json` + `messages/en.json` |
 | A big technical decision | `DOCS/decisions/` |
 | A feature idea not in the MVP | `DOCS/backlog.md` |
 

@@ -75,7 +75,8 @@
       "toggleSubmenu": "Ouvrir le sous-menu {label}",
       "languages": {
         "ar": "Arabe",
-        "fr": "Français"
+        "fr": "Français",
+        "en": "Anglais"
       }
     }
   }

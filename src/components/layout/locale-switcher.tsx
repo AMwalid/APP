@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 const LOCALE_LABELS: Record<string, string> = {
   ar: "AR",
   fr: "FR",
+  en: "EN",
 };
 
 type LocaleSwitcherProps = {
