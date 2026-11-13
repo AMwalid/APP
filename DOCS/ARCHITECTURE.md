@@ -87,7 +87,7 @@ Not every feature needs every file. Create a file only when it has content.
 
 ## 3. Navigation and information architecture
 
-The public navbar is inherited from the prototype and is the contract for the rebuild. Top-level items with a dropdown are disclosure buttons: the whole item is the trigger, and the first row of its panel is the section landing link. Items without a dropdown (Store) are plain links. Never nest a button inside a link.
+The public navbar is inherited from the prototype and is the contract for the rebuild. Top-level items with a dropdown use Option (A): the whole item is the trigger (disclosure button), and the first row of its dropdown panel is the section landing link (e.g. clicking Parents opens the menu, where the first item is Parents pointing to `/parents`). Items without a dropdown (Store) are plain links. Never nest a button inside a link.
 
 | Top-level | Landing route | Dropdown |
 |---|---|---|

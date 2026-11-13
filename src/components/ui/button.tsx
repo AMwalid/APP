@@ -21,7 +21,7 @@ const buttonVariants = cva(
         ghost: "text-primary-hover hover:text-primary-deep",
       },
       size: {
-        sm: "px-4 py-2",
+        sm: "px-3 py-2",
         md: "px-4 py-2.5",
       },
     },

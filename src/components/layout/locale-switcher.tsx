@@ -50,7 +50,7 @@ export function LocaleSwitcher({
             aria-current={isActive ? "true" : undefined}
             aria-label={t(`a11y.languages.${item}`)}
             className={cn(
-              "rounded-[calc(var(--radius-control)-2px)] px-2.5 py-1 text-xs font-semibold tracking-wide transition-colors duration-150 ease-standard",
+              "rounded-[calc(var(--radius-control)-2px)] px-2 py-1 text-xs font-semibold tracking-wide transition-colors duration-150 ease-standard",
               isActive
                 ? "bg-primary-soft text-primary-hover"
                 : "text-muted-foreground hover:text-primary-hover",

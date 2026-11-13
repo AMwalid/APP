@@ -13,7 +13,7 @@ import { Link, usePathname } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 const TOP_LEVEL_BASE =
-  "inline-flex items-center gap-1 rounded-nav px-3 py-2 text-sm font-medium transition-colors duration-150 ease-standard";
+  "inline-flex items-center gap-1 rounded-nav px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-150 ease-standard";
 
 function topLevelTone(active: boolean) {
   return active
@@ -42,9 +42,9 @@ export function DesktopNav() {
       dir={locale === "ar" ? "rtl" : "ltr"}
       delayDuration={120}
       skipDelayDuration={300}
-      className="hidden md:block"
+      className="hidden xl:block"
     >
-      <NavigationMenu.List className="flex items-center gap-1">
+      <NavigationMenu.List className="flex items-center gap-0.5">
         {NAV_ITEMS.map((item) => {
           const active = isActiveItem(pathname, item);
 
@@ -75,8 +75,8 @@ export function DesktopNav() {
                 />
               </NavigationMenu.Trigger>
 
-              <NavigationMenu.Content className="absolute start-0 top-full z-dropdown w-64 animate-dropdown-in pt-1">
-                <ul className="rounded-control border border-border bg-surface p-2 shadow-panel">
+              <NavigationMenu.Content className="absolute top-full start-0 z-dropdown pt-1 animate-dropdown-in">
+                <ul className="w-64 rounded-control border border-border bg-surface p-2 shadow-panel">
                   {getMenuEntries(item).map((entry) => {
                     const entryActive = isActiveMenuEntry(pathname, entry.href);
 

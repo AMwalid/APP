@@ -47,26 +47,26 @@ export function MobileNav() {
         <button
           type="button"
           aria-label={t(open ? "a11y.closeMenu" : "a11y.openMenu")}
-          className="rounded-control p-2 text-primary-hover transition-colors duration-150 ease-standard hover:bg-surface-muted md:hidden"
+          className="rounded-nav p-2 text-primary-hover transition-colors duration-150 ease-standard hover:bg-surface-subtle xl:hidden"
         >
           {open ? (
-            <X aria-hidden className="size-6" />
+            <X aria-hidden className="size-6 text-primary-hover" />
           ) : (
-            <Menu aria-hidden className="size-6" />
+            <Menu aria-hidden className="size-6 text-primary-hover" />
           )}
         </button>
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-overlay animate-overlay-in bg-foreground/30 backdrop-blur-[2px] md:hidden" />
+        <Dialog.Overlay className="fixed inset-0 z-overlay animate-overlay-in bg-foreground/30 backdrop-blur-[2px] xl:hidden" />
 
-        <Dialog.Content className="fixed inset-x-0 top-0 z-modal flex max-h-dvh animate-sheet-in flex-col overflow-y-auto bg-surface shadow-panel md:hidden">
+        <Dialog.Content className="fixed inset-x-0 top-0 z-modal flex max-h-dvh animate-sheet-in flex-col overflow-y-auto bg-surface shadow-panel xl:hidden">
           <Dialog.Title className="sr-only">{t("a11y.menu")}</Dialog.Title>
           <Dialog.Description className="sr-only">
             {t("a11y.mainNav")}
           </Dialog.Description>
 
-          <div className="container-page sticky top-0 flex h-[var(--header-height)] items-center justify-between gap-4 border-b border-border bg-surface">
+          <div className="container-page sticky top-0 flex h-16 items-center justify-between gap-4 border-b border-border bg-surface">
             <Link
               href="/"
               aria-label={t("a11y.home")}
@@ -80,9 +80,9 @@ export function MobileNav() {
               <button
                 type="button"
                 aria-label={t("a11y.closeMenu")}
-                className="rounded-control p-2 text-primary-hover transition-colors duration-150 ease-standard hover:bg-surface-muted"
+                className="rounded-nav p-2 text-primary-hover transition-colors duration-150 ease-standard hover:bg-surface-subtle"
               >
-                <X aria-hidden className="size-6" />
+                <X aria-hidden className="size-6 text-primary-hover" />
               </button>
             </Dialog.Close>
           </div>
@@ -102,10 +102,8 @@ export function MobileNav() {
                         onClick={close}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                          "block p-4 text-base font-medium transition-colors duration-150 ease-standard",
-                          active
-                            ? "text-primary"
-                            : "text-foreground-secondary hover:bg-surface-muted",
+                          "block p-4 text-base font-medium transition-colors duration-150 ease-standard hover:bg-surface-muted",
+                          active ? "text-primary" : "text-foreground-secondary",
                         )}
                       >
                         {t(item.labelKey)}
@@ -139,7 +137,7 @@ export function MobileNav() {
                     {isExpanded && (
                       <ul
                         id={submenuId}
-                        className="flex flex-col gap-1 bg-surface-muted px-4 pb-3"
+                        className="space-y-1 bg-surface-muted ps-4 pe-4 pb-3"
                       >
                         {getMenuEntries(item).map((entry) => {
                           const entryActive = isActiveMenuEntry(

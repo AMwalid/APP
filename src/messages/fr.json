@@ -49,7 +49,7 @@
     },
     "actions": {
       "login": "Connexion",
-      "signup": "Créer un compte",
+      "signup": "S'inscrire",
       "bookDemo": "Réserver une démo"
     },
     "a11y": {

@@ -13,8 +13,8 @@ export async function SiteHeader() {
   const t = await getTranslations("Navigation");
 
   return (
-    <header className="sticky top-0 z-header border-b border-border bg-background/95 shadow-header backdrop-blur-sm">
-      <div className="container-page flex h-[var(--header-height)] items-center justify-between gap-4">
+    <header className="sticky top-0 z-header border-b border-border bg-surface/95 shadow-header backdrop-blur-sm">
+      <div className="container-page flex h-16 items-center justify-between gap-3">
         <Link
           href="/"
           aria-label={t("a11y.home")}
@@ -25,7 +25,7 @@ export async function SiteHeader() {
 
         <DesktopNav />
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <LocaleSwitcher />
           <NavActions />
         </div>
