@@ -1,7 +1,14 @@
 # 0004 — Arabic-first locale with RTL
 
-- **Status:** Accepted
+- **Status:** Accepted, amended by [0008](./0008-english-locale.md)
 - **Date:** 2026-11-11
+
+> **Update — 2026-11-13.** The locale set is now `["ar", "fr", "en"]` and the
+> platform supports English as well as French. Arabic remains the default and
+> `/` still resolves to `/ar`; `localeDetection` is still off. Direction is
+> unchanged: `ar` is `rtl`, `fr` and `en` are `ltr`. Copy now lives in
+> `src/messages/ar.json`, `fr.json` and `en.json`. Everything else in this
+> decision still applies. See [0008](./0008-english-locale.md).
 
 ## Context
 
@@ -19,4 +26,4 @@
 
 - Every page and test must run in both directions.
 - The navbar's dropdowns and mobile panel must mirror correctly in RTL.
-- Translation keys live in `src/messages/ar.json` and `src/messages/fr.json`; no user-visible string is hardcoded.
+- Translation keys live in `src/messages/ar.json`, `src/messages/fr.json` and `src/messages/en.json`; no user-visible string is hardcoded.
