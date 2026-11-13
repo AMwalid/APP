@@ -11,10 +11,11 @@ import { Link } from "@/lib/i18n/navigation";
  * Sticky site header: a dark utility bar stacked on the white main bar.
  *
  * Both tiers live inside one sticky `<header>`, so the whole block stays on
- * screen. The main bar is a three-track grid — brand, navigation, actions —
- * where the middle track absorbs the free space and the navigation is centred
- * inside it. Every edge is expressed with `justify-self`, so the layout mirrors
- * in RTL without a single directional utility.
+ * screen. The main bar is a three-track grid with two equal `1fr` side tracks
+ * around an `auto` navigation track, so the navigation is centred on the
+ * container's axis no matter how wide the brand or the action cluster are.
+ * Every edge is expressed with `justify-self`, so the layout mirrors in RTL
+ * without a single directional utility.
  */
 export async function SiteHeader() {
   const t = await getTranslations("Navigation");
@@ -24,7 +25,7 @@ export async function SiteHeader() {
       <TopBar />
 
       <div className="border-b border-border bg-surface/95 shadow-header backdrop-blur-sm">
-        <div className="container-page grid h-16 grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3">
+        <div className="container-page grid h-16 grid-cols-[1fr_auto_1fr] items-center gap-3">
           <Link
             href="/"
             aria-label={t("a11y.home")}

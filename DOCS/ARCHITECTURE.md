@@ -109,7 +109,15 @@ Rules:
 
 - The structure lives in `src/lib/constants/navigation.ts` (`NAV_ITEMS`, `NAV_TOP_LINKS`, `NAV_LOGIN`, `NAV_CTAS`, `NAV_ACTIONS`); labels live in `src/messages/{ar,fr,en}.json`.
 - Both tiers are sticky together. `--header-height` is the total height and grows from `md` up; page shells subtract it.
-- The main bar is a `grid-cols-[auto_minmax(0,1fr)_auto]` grid. The navigation is centred in the middle track, not optically centred in the viewport, because the FR action cluster is wider than the brand.
+- The main bar is a `grid-cols-[1fr_auto_1fr]` grid: two equal side tracks
+  around an `auto` navigation track, so the navigation is centred on the
+  container's axis by construction. At 1280px the container's content box is
+  1201px, which is enough for Arabic and English (offset 0.0px) but not for
+  French: a centred 651.9px navigation plus the 299.6px action cluster on each
+  side needs 1275.2px. The side tracks therefore fall back to the cluster's
+  min-content width and the French navigation sits 37.1px off centre. Making
+  French exact would mean shrinking the navigation's horizontal padding, its
+  item gaps, or the CTA cluster — a visual change, not a grid change.
 - Desktop dropdowns open on hover and on keyboard focus; the mobile panel traps focus while open.
 - The visual contract is the prototype's rendered Tailwind values. See `DOCS/decisions/0005-prototype-navigation.md` and `DOCS/decisions/0007-two-tier-header.md`.
 - Changing this IA is a product decision. Do not rename or reorder items during implementation.

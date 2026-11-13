@@ -38,11 +38,13 @@ Adopt the reference's structure, keep IBNI's visual language.
 - Colours, radii, shadows, fonts and motion still come only from
   `src/styles/globals.css`. The dark bar reuses `primary-deep`; no new colour
   token was added.
-- The navigation is centred inside the grid's middle track, not optically
-  centred in the viewport. True centring needs equal side tracks, and at 1280px
-  the French action cluster (~300px) is wider than the brand (~48px), which
-  would leave the nav about 5px short of fitting. The middle-track approach
-  keeps ~240px of slack and degrades gracefully when copy changes.
+- The navigation is centred by construction: the main bar is
+  `grid-cols-[1fr_auto_1fr]`, so the two side tracks are equal and the `auto`
+  navigation track lands on the container's axis. At 1280px the content box is
+  1201px; Arabic (521.9px nav) and English (576.3px nav) centre exactly, but
+  French (651.9px nav) plus its 299.6px action cluster needs 1275.2px, so the
+  side tracks hit the cluster's min-content floor and French sits 37.1px off
+  centre. Closing that gap means tightening the navigation or the CTAs.
 - Below `xl` the sheet is the only navigation surface, so it must also carry
   the utility links or they become unreachable on phones.
 - Replacing the placeholder palette with real search only touches
