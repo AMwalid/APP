@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import {
   AudienceSection,
+  CtaSection,
   HeroSection,
   HowItWorksSection,
   StatsBand,
@@ -20,6 +21,7 @@ export default async function HomePage({
       <AudienceSection />
       <StatsBand />
       <HowItWorksSection />
+      <CtaSection />
     </main>
   );
 }

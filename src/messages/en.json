@@ -75,7 +75,31 @@
           "description": "Find tutoring, courses, books, and school supplies from verified teachers and institutions."
         }
       }
+    },
+    "Cta": {
+      "title": "Ready to transform your school experience?",
+      "subtitle": "Join thousands of parents, students, teachers, and institutions already building a better school day on IBNI.",
+      "button": "Get Started"
     }
+  },
+  "Footer": {
+    "description": "Algeria's education platform, connecting parents, students, teachers, and institutions in one place.",
+    "columns": {
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "links": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "store": "Store",
+      "about": "About",
+      "contact": "Contact",
+      "careers": "Careers",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "copyright": "© {year} IBNI. All rights reserved."
   },
   "Navigation": {
     "items": {

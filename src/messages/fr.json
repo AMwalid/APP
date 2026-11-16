@@ -75,7 +75,31 @@
           "description": "Trouvez soutien scolaire, cours, livres et fournitures auprès d'enseignants et d'établissements vérifiés."
         }
       }
+    },
+    "Cta": {
+      "title": "Prêt à transformer l'expérience scolaire\u00a0?",
+      "subtitle": "Rejoignez des milliers de parents, d'élèves, d'enseignants et d'établissements qui construisent déjà une meilleure journée d'école sur IBNI.",
+      "button": "Commencer"
     }
+  },
+  "Footer": {
+    "description": "La plateforme éducative algérienne qui relie parents, élèves, enseignants et établissements au même endroit.",
+    "columns": {
+      "product": "Produit",
+      "company": "Entreprise",
+      "legal": "Légal"
+    },
+    "links": {
+      "features": "Fonctionnalités",
+      "pricing": "Tarifs",
+      "store": "Boutique",
+      "about": "À propos",
+      "contact": "Contact",
+      "careers": "Carrières",
+      "privacy": "Confidentialité",
+      "terms": "Conditions"
+    },
+    "copyright": "© {year} IBNI. Tous droits réservés."
   },
   "Navigation": {
     "items": {
