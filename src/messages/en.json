@@ -57,6 +57,24 @@
           "label": "Support"
         }
       }
+    },
+    "HowItWorks": {
+      "title": "How IBNI Works",
+      "subtitle": "Three steps that turn a scattered school week into one connected platform.",
+      "items": {
+        "track": {
+          "title": "Track Progress",
+          "description": "Follow attendance, grades, and behavior as they happen, so nothing important waits for a term report."
+        },
+        "communicate": {
+          "title": "Direct Communication",
+          "description": "Message teachers and institutions in one place, with announcements and alerts that reach the right people."
+        },
+        "store": {
+          "title": "Educational Store",
+          "description": "Find tutoring, courses, books, and school supplies from verified teachers and institutions."
+        }
+      }
     }
   },
   "Navigation": {

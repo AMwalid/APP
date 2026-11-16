@@ -1,5 +1,10 @@
 import { setRequestLocale } from "next-intl/server";
-import { AudienceSection, HeroSection, StatsBand } from "@/features/home";
+import {
+  AudienceSection,
+  HeroSection,
+  HowItWorksSection,
+  StatsBand,
+} from "@/features/home";
 
 export default async function HomePage({
   params,
@@ -14,6 +19,7 @@ export default async function HomePage({
       <HeroSection />
       <AudienceSection />
       <StatsBand />
+      <HowItWorksSection />
     </main>
   );
 }

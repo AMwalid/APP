@@ -53,7 +53,10 @@ export async function AudienceSection() {
           </p>
         </div>
 
-        <ul className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <ul
+          role="list"
+          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+        >
           {AUDIENCES.map(({ id, href, icon }) => (
             <li key={id}>
               <AudienceCard

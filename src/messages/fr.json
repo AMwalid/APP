@@ -57,6 +57,24 @@
           "label": "Assistance"
         }
       }
+    },
+    "HowItWorks": {
+      "title": "Comment fonctionne IBNI",
+      "subtitle": "Trois étapes qui transforment une semaine scolaire éparpillée en une seule plateforme.",
+      "items": {
+        "track": {
+          "title": "Suivi des progrès",
+          "description": "Suivez l'assiduité, les notes et le comportement en temps réel\u00a0: plus rien d'important n'attend le bulletin."
+        },
+        "communicate": {
+          "title": "Communication directe",
+          "description": "Échangez avec les enseignants et les établissements au même endroit, avec des annonces et des alertes qui touchent les bonnes personnes."
+        },
+        "store": {
+          "title": "Boutique éducative",
+          "description": "Trouvez soutien scolaire, cours, livres et fournitures auprès d'enseignants et d'établissements vérifiés."
+        }
+      }
     }
   },
   "Navigation": {
