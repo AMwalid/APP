@@ -13,6 +13,29 @@
       "searchButton": "Search",
       "primaryCta": "Find Institutions",
       "secondaryCta": "Explore Store"
+    },
+    "Audience": {
+      "title": "Built for Everyone in Education",
+      "subtitle": "One platform, four journeys — each with the tools it actually needs.",
+      "learnMore": "Learn more",
+      "items": {
+        "parents": {
+          "title": "Parents",
+          "description": "Track each child's attendance, behavior, academic performance, and school communications in one view."
+        },
+        "students": {
+          "title": "Students",
+          "description": "See assignments, deadlines, achievements, and recommended next steps in one dashboard."
+        },
+        "teachers": {
+          "title": "Teachers",
+          "description": "Manage classes, record attendance, grades and behavior, and publish a CV-style profile."
+        },
+        "institutions": {
+          "title": "Institutions",
+          "description": "Publish a verified profile and make your school discoverable by location, type, specialization, and language."
+        }
+      }
     }
   },
   "Navigation": {

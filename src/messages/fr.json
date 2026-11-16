@@ -13,6 +13,29 @@
       "searchButton": "Rechercher",
       "primaryCta": "Trouver des établissements",
       "secondaryCta": "Explorer la boutique"
+    },
+    "Audience": {
+      "title": "Conçue pour tous les acteurs de l'éducation",
+      "subtitle": "Une plateforme, quatre parcours — chacun avec les outils dont il a besoin.",
+      "learnMore": "En savoir plus",
+      "items": {
+        "parents": {
+          "title": "Parents",
+          "description": "Suivez l'assiduité, le comportement, les résultats scolaires et les communications de l'école de chaque enfant en une seule vue."
+        },
+        "students": {
+          "title": "Élèves",
+          "description": "Retrouvez devoirs, échéances, réussites et prochaines étapes recommandées dans un seul tableau de bord."
+        },
+        "teachers": {
+          "title": "Enseignants",
+          "description": "Gérez vos classes, consignez l'assiduité, les notes et le comportement, et publiez un profil de type CV."
+        },
+        "institutions": {
+          "title": "Établissements",
+          "description": "Publiez un profil vérifié et rendez votre établissement visible par lieu, type, spécialité et langue."
+        }
+      }
     }
   },
   "Navigation": {
