@@ -3,11 +3,17 @@
     "title": "IBNI — Algeria's Education Platform",
     "description": "An Algerian education platform connecting parents, students, teachers, and institutions."
   },
-  "HomePage": {
-    "eyebrow": "IBNI",
-    "title": "Building the Leaders of Tomorrow. Today.",
-    "subtitle": "A complete education platform connecting parents, students, teachers, and institutions across Algeria.",
-    "shellNote": "The navigation bar is ready. The full homepage arrives in the next phase."
+  "Home": {
+    "Hero": {
+      "badge": "IBNI",
+      "title": "Crafting the Leaders of Tomorrow. Today.",
+      "subtitle": "A complete education platform connecting parents, students, teachers, and institutions across Algeria.",
+      "searchLabel": "Search IBNI",
+      "searchPlaceholder": "Search for schools, teachers, or resources...",
+      "searchButton": "Search",
+      "primaryCta": "Find Institutions",
+      "secondaryCta": "Explore Store"
+    }
   },
   "Navigation": {
     "items": {

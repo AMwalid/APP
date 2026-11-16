@@ -3,11 +3,17 @@
     "title": "IBNI — Plateforme éducative algérienne",
     "description": "Une plateforme éducative algérienne qui relie parents, élèves, enseignants et établissements."
   },
-  "HomePage": {
-    "eyebrow": "IBNI",
-    "title": "Former les leaders de demain. Aujourd'hui.",
-    "subtitle": "Une plateforme éducative complète qui relie parents, élèves, enseignants et établissements en Algérie.",
-    "shellNote": "La barre de navigation est prête. La page d'accueil complète arrive à l'étape suivante."
+  "Home": {
+    "Hero": {
+      "badge": "IBNI",
+      "title": "Former les leaders de demain. Aujourd'hui.",
+      "subtitle": "Une plateforme éducative complète qui relie parents, élèves, enseignants et établissements en Algérie.",
+      "searchLabel": "Rechercher dans IBNI",
+      "searchPlaceholder": "Rechercher des écoles, des enseignants ou des ressources...",
+      "searchButton": "Rechercher",
+      "primaryCta": "Trouver des établissements",
+      "secondaryCta": "Explorer la boutique"
+    }
   },
   "Navigation": {
     "items": {
