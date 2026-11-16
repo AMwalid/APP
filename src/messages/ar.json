@@ -101,6 +101,42 @@
     },
     "copyright": "© {year} IBNI. جميع الحقوق محفوظة."
   },
+  "Auth": {
+    "Login": {
+      "metaTitle": "تسجيل الدخول — IBNI",
+      "title": "مرحبًا بعودتك",
+      "subtitle": "سجّل الدخول للمتابعة إلى حسابك على IBNI.",
+      "submit": "تسجيل الدخول",
+      "noAccount": "ليس لديك حساب؟",
+      "signupLink": "أنشئ حسابًا"
+    },
+    "Signup": {
+      "metaTitle": "إنشاء حساب — IBNI",
+      "title": "أنشئ حسابك",
+      "subtitle": "ابدأ ببريدك الإلكتروني وكلمة مرور، ويمكنك إكمال تفاصيل حسابك لاحقًا.",
+      "submit": "إنشاء الحساب",
+      "haveAccount": "لديك حساب بالفعل؟",
+      "loginLink": "سجّل الدخول",
+      "passwordHint": "استخدم 8 أحرف على الأقل."
+    },
+    "fields": {
+      "email": {
+        "label": "البريد الإلكتروني",
+        "placeholder": "name@example.com"
+      },
+      "password": {
+        "label": "كلمة المرور",
+        "placeholder": "••••••••"
+      }
+    },
+    "errors": {
+      "emailRequired": "أدخل بريدك الإلكتروني.",
+      "emailInvalid": "أدخل بريدًا إلكترونيًا صالحًا.",
+      "passwordRequired": "أدخل كلمة المرور.",
+      "passwordTooShort": "استخدم 8 أحرف على الأقل."
+    },
+    "notice": "لم يتم ربط المصادقة بعد — هذا النموذج يتحقق من المدخلات فقط."
+  },
   "Navigation": {
     "items": {
       "parents": {

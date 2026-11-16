@@ -101,6 +101,42 @@
     },
     "copyright": "© {year} IBNI. All rights reserved."
   },
+  "Auth": {
+    "Login": {
+      "metaTitle": "Log in — IBNI",
+      "title": "Welcome back",
+      "subtitle": "Log in to continue to your IBNI account.",
+      "submit": "Log in",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up"
+    },
+    "Signup": {
+      "metaTitle": "Create your account — IBNI",
+      "title": "Create your account",
+      "subtitle": "Start with your email and a password. You can complete your account details later.",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Log in",
+      "passwordHint": "Use at least 8 characters."
+    },
+    "fields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "name@example.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••"
+      }
+    },
+    "errors": {
+      "emailRequired": "Enter your email address.",
+      "emailInvalid": "Enter a valid email address.",
+      "passwordRequired": "Enter your password.",
+      "passwordTooShort": "Use at least 8 characters."
+    },
+    "notice": "Authentication is not connected yet — this form only validates your input."
+  },
   "Navigation": {
     "items": {
       "parents": {

@@ -20,6 +20,9 @@
   --color-muted-foreground: #4b5563;
   --color-border: #e5e7eb;
 
+  /* Feedback — red-600. 4.83:1 on white, so form errors stay readable. */
+  --color-destructive: #dc2626;
+
   /* Radius — the prototype's `rounded` and `rounded-md`. */
   --radius-nav: 0.25rem;
   --radius-control: 0.375rem;
