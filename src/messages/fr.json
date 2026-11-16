@@ -36,6 +36,27 @@
           "description": "Publiez un profil vérifié et rendez votre établissement visible par lieu, type, spécialité et langue."
         }
       }
+    },
+    "Stats": {
+      "title": "IBNI en chiffres",
+      "items": {
+        "students": {
+          "value": "10\u00a0000+",
+          "label": "élèves actifs"
+        },
+        "teachers": {
+          "value": "500+",
+          "label": "enseignants vérifiés"
+        },
+        "institutions": {
+          "value": "50+",
+          "label": "établissements partenaires"
+        },
+        "support": {
+          "value": "24/7",
+          "label": "Assistance"
+        }
+      }
     }
   },
   "Navigation": {

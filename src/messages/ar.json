@@ -36,6 +36,27 @@
           "description": "انشر ملفًا موثّقًا لمؤسستك واجعلها مرئية حسب الموقع والنوع والتخصص واللغة."
         }
       }
+    },
+    "Stats": {
+      "title": "IBNI بالأرقام",
+      "items": {
+        "students": {
+          "value": "10,000+",
+          "label": "طالب نشط"
+        },
+        "teachers": {
+          "value": "500+",
+          "label": "أستاذ موثّق"
+        },
+        "institutions": {
+          "value": "50+",
+          "label": "مؤسسة شريكة"
+        },
+        "support": {
+          "value": "24/7",
+          "label": "دعم متواصل"
+        }
+      }
     }
   },
   "Navigation": {

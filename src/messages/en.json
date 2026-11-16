@@ -36,6 +36,27 @@
           "description": "Publish a verified profile and make your school discoverable by location, type, specialization, and language."
         }
       }
+    },
+    "Stats": {
+      "title": "IBNI in numbers",
+      "items": {
+        "students": {
+          "value": "10,000+",
+          "label": "Active Students"
+        },
+        "teachers": {
+          "value": "500+",
+          "label": "Verified Teachers"
+        },
+        "institutions": {
+          "value": "50+",
+          "label": "Partner Institutions"
+        },
+        "support": {
+          "value": "24/7",
+          "label": "Support"
+        }
+      }
     }
   },
   "Navigation": {
