@@ -44,3 +44,17 @@ export type Child = {
   gradeValueKey: string;
   gradeCaptionKey: string;
 };
+
+/**
+ * The "add child" form state.
+ *
+ * `age` is a string here because that is what an `<input>` produces; the schema
+ * validates it and the submit handler converts it once. See `./schemas`.
+ */
+export type AddChildValues = {
+  name: string;
+  age: string;
+  school: string;
+};
+
+export type AddChildField = keyof AddChildValues;

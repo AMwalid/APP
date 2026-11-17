@@ -1,7 +1,5 @@
-import { Plus } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Button } from "@/components/ui/button";
-import { ChildCard, getChildren } from "@/features/parents";
+import { AddChildDialog, ChildCard, getChildren } from "@/features/parents";
 
 /**
  * PAR-03 — the parent's children.
@@ -36,15 +34,7 @@ export default async function ParentChildrenPage({
           </p>
         </div>
 
-        {/*
-          Primary button, deliberately without a handler: it is the place the
-          creation dialog will hang from. `type="button"` keeps it from
-          submitting anything if it ever lands inside a form.
-        */}
-        <Button type="button" variant="primary" size="sm" className="shrink-0">
-          <Plus aria-hidden className="size-4" />
-          {t("children.addChild")}
-        </Button>
+        <AddChildDialog />
       </header>
 
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">

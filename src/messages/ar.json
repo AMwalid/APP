@@ -187,6 +187,38 @@
           "gradeValue": "14/20",
           "gradeCaption": "علوم · الأسبوع الماضي"
         }
+      },
+      "addChildDialog": {
+        "title": "إضافة طفل",
+        "description": "أدخل بيانات طفلك لإضافته إلى حسابك.",
+        "close": "إغلاق",
+        "cancel": "إلغاء",
+        "submit": "حفظ الطفل",
+        "fields": {
+          "name": {
+            "label": "الاسم الكامل",
+            "placeholder": "مثال: ياسمين بن علي"
+          },
+          "age": {
+            "label": "العمر",
+            "placeholder": "9"
+          },
+          "school": {
+            "label": "المدرسة",
+            "placeholder": "مثال: مدرسة الأمير عبد القادر"
+          }
+        },
+        "errors": {
+          "nameRequired": "أدخل اسم الطفل.",
+          "nameTooShort": "الاسم قصير جدًا.",
+          "nameTooLong": "الاسم طويل جدًا.",
+          "ageRequired": "أدخل عمر الطفل.",
+          "ageInvalid": "أدخل العمر بالأرقام فقط.",
+          "ageRange": "يجب أن يكون العمر بين 3 و25 سنة.",
+          "schoolRequired": "أدخل اسم المدرسة.",
+          "schoolTooShort": "اسم المدرسة قصير جدًا.",
+          "schoolTooLong": "اسم المدرسة طويل جدًا."
+        }
       }
     },
     "overview": {

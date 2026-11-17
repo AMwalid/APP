@@ -187,6 +187,38 @@
           "gradeValue": "14/20",
           "gradeCaption": "Sciences · la semaine dernière"
         }
+      },
+      "addChildDialog": {
+        "title": "Ajouter un enfant",
+        "description": "Renseignez les informations de votre enfant pour l'ajouter à votre compte.",
+        "close": "Fermer",
+        "cancel": "Annuler",
+        "submit": "Enregistrer l'enfant",
+        "fields": {
+          "name": {
+            "label": "Nom complet",
+            "placeholder": "Ex. : Yasmine Benali"
+          },
+          "age": {
+            "label": "Âge",
+            "placeholder": "9"
+          },
+          "school": {
+            "label": "École",
+            "placeholder": "Ex. : École Émir Abdelkader"
+          }
+        },
+        "errors": {
+          "nameRequired": "Saisissez le nom de l'enfant.",
+          "nameTooShort": "Ce nom est trop court.",
+          "nameTooLong": "Ce nom est trop long.",
+          "ageRequired": "Saisissez l'âge de l'enfant.",
+          "ageInvalid": "Saisissez l'âge en chiffres uniquement.",
+          "ageRange": "L'âge doit être compris entre 3 et 25 ans.",
+          "schoolRequired": "Saisissez le nom de l'école.",
+          "schoolTooShort": "Ce nom d'école est trop court.",
+          "schoolTooLong": "Ce nom d'école est trop long."
+        }
       }
     },
     "overview": {

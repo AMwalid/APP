@@ -187,6 +187,38 @@
           "gradeValue": "14/20",
           "gradeCaption": "Science · last week"
         }
+      },
+      "addChildDialog": {
+        "title": "Add a child",
+        "description": "Enter your child's details to add them to your account.",
+        "close": "Close",
+        "cancel": "Cancel",
+        "submit": "Save child",
+        "fields": {
+          "name": {
+            "label": "Full name",
+            "placeholder": "e.g. Yasmine Benali"
+          },
+          "age": {
+            "label": "Age",
+            "placeholder": "9"
+          },
+          "school": {
+            "label": "School",
+            "placeholder": "e.g. Emir Abdelkader School"
+          }
+        },
+        "errors": {
+          "nameRequired": "Enter the child's name.",
+          "nameTooShort": "That name is too short.",
+          "nameTooLong": "That name is too long.",
+          "ageRequired": "Enter the child's age.",
+          "ageInvalid": "Enter the age in digits only.",
+          "ageRange": "The age must be between 3 and 25.",
+          "schoolRequired": "Enter the school name.",
+          "schoolTooShort": "That school name is too short.",
+          "schoolTooLong": "That school name is too long."
+        }
       }
     },
     "overview": {
