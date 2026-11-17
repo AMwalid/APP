@@ -28,7 +28,7 @@ const TONES = {
   dark: {
     group: "border-primary-foreground/25",
     active: "bg-primary-foreground/15 text-primary-foreground",
-    idle: "text-primary-foreground/70 hover:text-primary-foreground",
+    idle: "text-primary-foreground/80 hover:text-primary-foreground",
   },
 } as const;
 
