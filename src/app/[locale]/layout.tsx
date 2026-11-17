@@ -56,6 +56,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
       className={`${latin.variable} ${arabic.variable}`}
+      suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col bg-background text-foreground antialiased">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>

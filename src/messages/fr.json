@@ -107,6 +107,7 @@
       "title": "Bon retour",
       "subtitle": "Connectez-vous pour accéder à votre compte IBNI.",
       "submit": "Se connecter",
+      "submitting": "Connexion…",
       "noAccount": "Pas encore de compte\u00a0?",
       "signupLink": "Créer un compte"
     },
@@ -115,9 +116,11 @@
       "title": "Créez votre compte",
       "subtitle": "Commencez par votre adresse e-mail et un mot de passe\u00a0; vous pourrez compléter votre profil plus tard.",
       "submit": "Créer le compte",
+      "submitting": "Création du compte…",
       "haveAccount": "Vous avez déjà un compte\u00a0?",
       "loginLink": "Se connecter",
-      "passwordHint": "Utilisez au moins 8 caractères."
+      "passwordHint": "Utilisez au moins 8 caractères.",
+      "checkEmail": "Vérifiez votre adresse e-mail pour confirmer votre compte, puis connectez-vous."
     },
     "fields": {
       "email": {
@@ -133,9 +136,19 @@
       "emailRequired": "Saisissez votre adresse e-mail.",
       "emailInvalid": "Saisissez une adresse e-mail valide.",
       "passwordRequired": "Saisissez votre mot de passe.",
-      "passwordTooShort": "Utilisez au moins 8 caractères."
+      "passwordTooShort": "Utilisez au moins 8 caractères.",
+      "invalidCredentials": "Adresse e-mail ou mot de passe incorrect.",
+      "emailNotConfirmed": "Confirmez votre adresse e-mail avant de vous connecter.",
+      "emailInUse": "Un compte existe déjà avec cette adresse e-mail.",
+      "weakPassword": "Choisissez un mot de passe plus robuste.",
+      "rateLimited": "Trop de tentatives. Réessayez dans un instant.",
+      "unknown": "Une erreur est survenue. Veuillez réessayer."
     },
-    "notice": "L'authentification n'est pas encore connectée — ce formulaire valide seulement votre saisie."
+    "Dashboard": {
+      "title": "Tableau de bord",
+      "signedInAs": "Connecté en tant que",
+      "signOut": "Se déconnecter"
+    }
   },
   "Navigation": {
     "items": {

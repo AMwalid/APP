@@ -107,6 +107,7 @@
       "title": "Welcome back",
       "subtitle": "Log in to continue to your IBNI account.",
       "submit": "Log in",
+      "submitting": "Signing in…",
       "noAccount": "Don't have an account?",
       "signupLink": "Sign up"
     },
@@ -115,9 +116,11 @@
       "title": "Create your account",
       "subtitle": "Start with your email and a password. You can complete your account details later.",
       "submit": "Create account",
+      "submitting": "Creating account…",
       "haveAccount": "Already have an account?",
       "loginLink": "Log in",
-      "passwordHint": "Use at least 8 characters."
+      "passwordHint": "Use at least 8 characters.",
+      "checkEmail": "Check your email to confirm your account, then log in."
     },
     "fields": {
       "email": {
@@ -133,9 +136,19 @@
       "emailRequired": "Enter your email address.",
       "emailInvalid": "Enter a valid email address.",
       "passwordRequired": "Enter your password.",
-      "passwordTooShort": "Use at least 8 characters."
+      "passwordTooShort": "Use at least 8 characters.",
+      "invalidCredentials": "Incorrect email or password.",
+      "emailNotConfirmed": "Confirm your email before logging in.",
+      "emailInUse": "An account with this email already exists.",
+      "weakPassword": "Choose a stronger password.",
+      "rateLimited": "Too many attempts. Try again in a moment.",
+      "unknown": "Something went wrong. Please try again."
     },
-    "notice": "Authentication is not connected yet — this form only validates your input."
+    "Dashboard": {
+      "title": "Dashboard",
+      "signedInAs": "Signed in as",
+      "signOut": "Sign out"
+    }
   },
   "Navigation": {
     "items": {

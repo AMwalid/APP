@@ -18,11 +18,16 @@ export async function generateMetadata({
 
 export default async function LoginPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ next?: string | string[] }>;
 }) {
   const { locale } = await params;
+  const { next } = await searchParams;
   setRequestLocale(locale);
 
-  return <LoginForm />;
+  // The middleware sends the intercepted path as `next`; the form re-adds the
+  // locale when it navigates, so only the locale-less value is passed down.
+  return <LoginForm nextPath={typeof next === "string" ? next : undefined} />;
 }

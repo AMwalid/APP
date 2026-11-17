@@ -20,8 +20,12 @@
   --color-muted-foreground: #4b5563;
   --color-border: #e5e7eb;
 
-  /* Feedback — red-600. 4.83:1 on white, so form errors stay readable. */
+  /* Feedback — red-600. 4.83:1 on white, so form errors stay readable.
+     `destructive-deep` (red-700) is the text tone for `destructive-soft`
+     backgrounds: 5.96:1, where red-600 on the tint would sit at 4.40:1. */
   --color-destructive: #dc2626;
+  --color-destructive-deep: #b91c1c;
+  --color-destructive-soft: #fef2f2;
 
   /* Radius — the prototype's `rounded` and `rounded-md`. */
   --radius-nav: 0.25rem;

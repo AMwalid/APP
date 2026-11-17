@@ -14,28 +14,79 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "@/lib/i18n/navigation";
+import { routing } from "@/lib/i18n/routing";
+import { login } from "../actions";
 import { createLoginSchema } from "../schemas";
-import type { LoginValues } from "../types";
+import type { AuthField, LoginValues } from "../types";
 import { AuthCard } from "./auth-card";
+import { FormAlert } from "./form-alert";
+
+const DEFAULT_TARGET = "/dashboard";
 
 /**
- * Login form shell.
- *
- * Validation is real; submission is not wired yet. `noValidate` keeps the
- * browser's unlocalised bubbles out of the way so every message comes from the
- * translated Zod schema. The email field is forced to `dir="ltr"` because an
- * address is Latin text even when the page is Arabic; the label and any error
- * still follow the document direction.
+ * The middleware stores the intercepted path without a locale prefix, because
+ * the locale-aware router adds it back. A hand-edited `?next=` must not be able
+ * to leave the site or double the prefix.
  */
-export function LoginForm() {
+function safeNextPath(value: string | undefined): string {
+  if (!value || !value.startsWith("/") || value.startsWith("//")) {
+    return DEFAULT_TARGET;
+  }
+
+  const [, first, ...rest] = value.split("/");
+
+  return routing.locales.some((locale) => locale === first)
+    ? `/${rest.join("/")}`
+    : value;
+}
+
+type LoginFormProps = {
+  /** Path the middleware intercepted, e.g. `/parents/track-kid`. */
+  nextPath?: string;
+};
+
+/**
+ * Login form.
+ *
+ * Validation runs twice: here through the zod resolver, and again inside the
+ * Server Action. `noValidate` keeps the browser's unlocalised bubbles out of the
+ * way so every message comes from the translated schema. The email field is
+ * forced to `dir="ltr"` because an address is Latin text even when the page is
+ * Arabic; the label and any error still follow the document direction.
+ */
+export function LoginForm({ nextPath }: LoginFormProps) {
   const t = useTranslations("Auth");
+  const router = useRouter();
   const schema = useMemo(() => createLoginSchema(t), [t]);
-  const [submitted, setSubmitted] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   const form = useForm<LoginValues>({
     resolver: zodResolver(schema),
     defaultValues: { email: "", password: "" },
   });
+
+  const onSubmit = form.handleSubmit(async (values) => {
+    setFormError(null);
+
+    const result = await login(values);
+
+    if (result.status === "success") {
+      router.replace(safeNextPath(nextPath));
+      router.refresh();
+      return;
+    }
+
+    if (result.status === "error") {
+      setFormError(result.formError ?? null);
+
+      for (const [field, message] of Object.entries(result.fieldErrors ?? {})) {
+        form.setError(field as AuthField, { message });
+      }
+    }
+  });
+
+  const isSubmitting = form.formState.isSubmitting;
 
   return (
     <AuthCard
@@ -46,11 +97,7 @@ export function LoginForm() {
       footerHref="/signup"
     >
       <Form {...form}>
-        <form
-          noValidate
-          onSubmit={form.handleSubmit(() => setSubmitted(true))}
-          className="space-y-5"
-        >
+        <form noValidate onSubmit={onSubmit} className="space-y-5">
           <FormField
             control={form.control}
             name="email"
@@ -90,18 +137,17 @@ export function LoginForm() {
             )}
           />
 
-          <Button type="submit" size="md" className="w-full">
-            {t("Login.submit")}
-          </Button>
+          {formError ? <FormAlert tone="error">{formError}</FormAlert> : null}
 
-          {submitted ? (
-            <p
-              role="status"
-              className="rounded-control bg-primary-soft p-3 text-sm leading-relaxed text-primary-deep"
-            >
-              {t("notice")}
-            </p>
-          ) : null}
+          <Button
+            type="submit"
+            size="md"
+            className="w-full"
+            disabled={isSubmitting}
+            aria-busy={isSubmitting}
+          >
+            {isSubmitting ? t("Login.submitting") : t("Login.submit")}
+          </Button>
         </form>
       </Form>
     </AuthCard>
