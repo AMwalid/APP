@@ -143,11 +143,68 @@
       "weakPassword": "Choose a stronger password.",
       "rateLimited": "Too many attempts. Try again in a moment.",
       "unknown": "Something went wrong. Please try again."
+    }
+  },
+  "Dashboard": {
+    "nav": {
+      "label": "Dashboard sections",
+      "overview": "Overview",
+      "children": "Children",
+      "messages": "Messages",
+      "settings": "Settings"
     },
-    "Dashboard": {
-      "title": "Dashboard",
+    "shell": {
       "signedInAs": "Signed in as",
       "signOut": "Sign out"
+    },
+    "welcome": {
+      "title": "Welcome back",
+      "subtitle": "Pick a section from the sidebar to get started."
+    },
+    "comingSoon": {
+      "title": "Coming soon",
+      "body": "This section is not built yet. It will appear here as soon as it ships."
+    },
+    "overview": {
+      "title": "Parent overview",
+      "subtitle": "A snapshot of your child's progress and school updates.",
+      "cards": {
+        "attendance": {
+          "label": "Attendance",
+          "value": "95%",
+          "caption": "This term"
+        },
+        "behavior": {
+          "label": "Behavior",
+          "value": "Excellent",
+          "caption": "No flags this month"
+        },
+        "nextExam": {
+          "label": "Next exam",
+          "value": "Math — Nov 20",
+          "caption": "Chapter 4: Fractions"
+        }
+      },
+      "communications": {
+        "title": "Recent communications",
+        "items": {
+          "m1": {
+            "from": "Mrs. Amrani",
+            "subject": "Math homework for Thursday",
+            "when": "2 hours ago"
+          },
+          "m2": {
+            "from": "School office",
+            "subject": "Parent-teacher meeting on Nov 22",
+            "when": "Yesterday"
+          },
+          "m3": {
+            "from": "Mr. Bensalem",
+            "subject": "Great progress in science",
+            "when": "3 days ago"
+          }
+        }
+      }
     }
   },
   "Navigation": {

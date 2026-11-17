@@ -11,6 +11,10 @@
  */
 export const PROTECTED_PREFIXES = [
   "/dashboard",
+  "/parents/overview",
+  "/parents/children",
+  "/parents/messages",
+  "/parents/settings",
   "/parents/track-kid",
   "/parents/my-courses",
   "/students/track-progress",

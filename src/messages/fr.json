@@ -143,11 +143,68 @@
       "weakPassword": "Choisissez un mot de passe plus robuste.",
       "rateLimited": "Trop de tentatives. Réessayez dans un instant.",
       "unknown": "Une erreur est survenue. Veuillez réessayer."
+    }
+  },
+  "Dashboard": {
+    "nav": {
+      "label": "Sections du tableau de bord",
+      "overview": "Aperçu",
+      "children": "Enfants",
+      "messages": "Messages",
+      "settings": "Paramètres"
     },
-    "Dashboard": {
-      "title": "Tableau de bord",
+    "shell": {
       "signedInAs": "Connecté en tant que",
       "signOut": "Se déconnecter"
+    },
+    "welcome": {
+      "title": "Bon retour",
+      "subtitle": "Choisissez une section dans le menu pour commencer."
+    },
+    "comingSoon": {
+      "title": "Bientôt disponible",
+      "body": "Cette section n'est pas encore prête. Elle apparaîtra ici dès sa mise en ligne."
+    },
+    "overview": {
+      "title": "Aperçu du parent",
+      "subtitle": "Un instantané des progrès de votre enfant et des nouvelles de l'école.",
+      "cards": {
+        "attendance": {
+          "label": "Présence",
+          "value": "95 %",
+          "caption": "Ce trimestre"
+        },
+        "behavior": {
+          "label": "Comportement",
+          "value": "Excellent",
+          "caption": "Aucun signalement ce mois-ci"
+        },
+        "nextExam": {
+          "label": "Prochain examen",
+          "value": "Maths — 20 nov.",
+          "caption": "Chapitre 4 : les fractions"
+        }
+      },
+      "communications": {
+        "title": "Communications récentes",
+        "items": {
+          "m1": {
+            "from": "Mme Amrani",
+            "subject": "Devoirs de maths pour jeudi",
+            "when": "Il y a 2 heures"
+          },
+          "m2": {
+            "from": "Le secrétariat",
+            "subject": "Réunion parents-professeurs le 22 nov.",
+            "when": "Hier"
+          },
+          "m3": {
+            "from": "M. Bensalem",
+            "subject": "Bons progrès en sciences",
+            "when": "Il y a 3 jours"
+          }
+        }
+      }
     }
   },
   "Navigation": {
