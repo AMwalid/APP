@@ -165,6 +165,30 @@
       "title": "Bientôt disponible",
       "body": "Cette section n'est pas encore prête. Elle apparaîtra ici dès sa mise en ligne."
     },
+    "children": {
+      "title": "Enfants",
+      "subtitle": "Suivez vos enfants et leurs derniers résultats en un coup d'œil.",
+      "addChild": "Ajouter un enfant",
+      "card": {
+        "age": "{years, plural, one {# an} other {# ans}}",
+        "school": "École",
+        "latestGrade": "Dernière note"
+      },
+      "items": {
+        "c1": {
+          "name": "Yasmine Benali",
+          "school": "École Émir Abdelkader",
+          "gradeValue": "17/20",
+          "gradeCaption": "Maths · la semaine dernière"
+        },
+        "c2": {
+          "name": "Adam Benali",
+          "school": "École Émir Abdelkader",
+          "gradeValue": "14/20",
+          "gradeCaption": "Sciences · la semaine dernière"
+        }
+      }
+    },
     "overview": {
       "title": "Aperçu du parent",
       "subtitle": "Un instantané des progrès de votre enfant et des nouvelles de l'école.",

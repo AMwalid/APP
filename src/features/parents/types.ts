@@ -27,3 +27,20 @@ export type ParentOverview = {
   cards: SummaryCardData[];
   communications: Communication[];
 };
+
+/**
+ * One child, as listed on the children page (PAR-03).
+ *
+ * `age` is a number rather than a key because it is a quantity, not text: the
+ * card renders it through an ICU plural so Arabic picks the right word form
+ * ("سنتان" for two, "9 سنوات" for nine) instead of reading as translated
+ * English.
+ */
+export type Child = {
+  id: string;
+  nameKey: string;
+  age: number;
+  schoolKey: string;
+  gradeValueKey: string;
+  gradeCaptionKey: string;
+};

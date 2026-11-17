@@ -1,4 +1,4 @@
-import type { ParentOverview } from "./types";
+import type { Child, ParentOverview } from "./types";
 
 /**
  * The parent overview.
@@ -56,4 +56,32 @@ export async function getParentOverview(): Promise<ParentOverview> {
       },
     ],
   };
+}
+
+/**
+ * The parent's children.
+ *
+ * Placeholder until the schema exists: PAR-03 reads the children linked to the
+ * signed-in guardian, their school and their most recent graded work. The
+ * `*Key` fields are translation keys; `age` is a number (see `./types`).
+ */
+export async function getChildren(): Promise<Child[]> {
+  return [
+    {
+      id: "c1",
+      nameKey: "children.items.c1.name",
+      age: 9,
+      schoolKey: "children.items.c1.school",
+      gradeValueKey: "children.items.c1.gradeValue",
+      gradeCaptionKey: "children.items.c1.gradeCaption",
+    },
+    {
+      id: "c2",
+      nameKey: "children.items.c2.name",
+      age: 12,
+      schoolKey: "children.items.c2.school",
+      gradeValueKey: "children.items.c2.gradeValue",
+      gradeCaptionKey: "children.items.c2.gradeCaption",
+    },
+  ];
 }
