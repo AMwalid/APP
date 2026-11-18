@@ -7,7 +7,8 @@ import {
 import { DashboardTopBar } from "@/components/layout/dashboard-top-bar";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { Button } from "@/components/ui/button";
-import { getCurrentUser, signOut } from "@/features/auth";
+import { signOut } from "@/features/auth";
+import { getViewer } from "@/features/profile";
 import { Link } from "@/lib/i18n/navigation";
 
 /**
@@ -16,7 +17,7 @@ import { Link } from "@/lib/i18n/navigation";
  * The layout checks the session again rather than trusting the middleware: the
  * middleware protects by URL prefix, and a page added under `(dashboard)` but
  * missing from `PROTECTED_PREFIXES` would otherwise render for anyone. One
- * `getUser()` here covers the whole subtree, so pages can assume a user.
+ * `getViewer()` here covers the whole subtree, so pages can assume a user.
  *
  * Sidebar on the start edge, content on the end edge. `border-e` is the only
  * directional border in the shell, so it mirrors in Arabic without a single
@@ -32,12 +33,14 @@ export default async function DashboardLayout({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const user = await getCurrentUser();
+  const viewer = await getViewer();
 
-  if (!user) {
+  if (!viewer) {
     redirect(`/${locale}/login`);
   }
 
+  // The profile read is part of `getViewer`, so the name in the top bar costs
+  // no extra token verification.
   const t = await getTranslations({ locale, namespace: "Dashboard" });
 
   return (
@@ -57,7 +60,8 @@ export default async function DashboardLayout({
       <div className="flex min-w-0 flex-1 flex-col">
         <DashboardTopBar
           locale={locale}
-          email={user.email ?? ""}
+          email={viewer.email ?? ""}
+          name={viewer.fullName}
           actions={
             <form action={signOut}>
               <Button type="submit" variant="outline" size="sm">

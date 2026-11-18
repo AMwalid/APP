@@ -155,7 +155,8 @@
     },
     "shell": {
       "signedInAs": "Connecté en tant que",
-      "signOut": "Se déconnecter"
+      "signOut": "Se déconnecter",
+      "greeting": "Bienvenue, {name}"
     },
     "welcome": {
       "title": "Bon retour",
@@ -230,6 +231,37 @@
         "description": "Cet enfant sera définitivement supprimé. Cette action est irréversible.",
         "confirm": "Supprimer l'enfant",
         "deleting": "Suppression…"
+      }
+    },
+    "settings": {
+      "title": "Paramètres du compte",
+      "subtitle": "Gérez le nom et le rôle affichés dans votre tableau de bord.",
+      "accountLabel": "Compte",
+      "form": {
+        "fullName": "Nom complet",
+        "fullNamePlaceholder": "ex. Amina Benali",
+        "fullNameHint": "Affiché dans votre tableau de bord et auprès des enseignants que vous contactez.",
+        "role": "Rôle",
+        "roleHint": "Choisissez comment vous utilisez IBNI. Vous pourrez modifier ce choix plus tard.",
+        "roles": {
+          "parent": "Parent",
+          "teacher": "Enseignant",
+          "student": "Élève"
+        },
+        "submit": "Enregistrer les modifications",
+        "submitBusy": "Enregistrement…",
+        "success": "Votre profil a été mis à jour.",
+        "errors": {
+          "fullNameRequired": "Saisissez votre nom complet.",
+          "fullNameTooShort": "Ce nom est trop court.",
+          "fullNameTooLong": "Ce nom est trop long.",
+          "roleInvalid": "Choisissez un rôle."
+        }
+      },
+      "errors": {
+        "notSignedIn": "Votre session a expiré. Reconnectez-vous pour continuer.",
+        "notFound": "Votre profil n'est pas encore configuré. Déconnectez-vous puis reconnectez-vous, et réessayez.",
+        "saveFailed": "Impossible d'enregistrer votre profil. Veuillez réessayer."
       }
     },
     "overview": {

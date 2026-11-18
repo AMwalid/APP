@@ -155,7 +155,8 @@
     },
     "shell": {
       "signedInAs": "Signed in as",
-      "signOut": "Sign out"
+      "signOut": "Sign out",
+      "greeting": "Welcome, {name}"
     },
     "welcome": {
       "title": "Welcome back",
@@ -230,6 +231,37 @@
         "description": "This child will be permanently deleted. This can't be undone.",
         "confirm": "Delete child",
         "deleting": "Deleting…"
+      }
+    },
+    "settings": {
+      "title": "Account settings",
+      "subtitle": "Manage the name and role shown across your dashboard.",
+      "accountLabel": "Account",
+      "form": {
+        "fullName": "Full name",
+        "fullNamePlaceholder": "e.g. Amina Benali",
+        "fullNameHint": "Shown on your dashboard and to the teachers you contact.",
+        "role": "Role",
+        "roleHint": "Choose how you use IBNI. You can change this later.",
+        "roles": {
+          "parent": "Parent",
+          "teacher": "Teacher",
+          "student": "Student"
+        },
+        "submit": "Save changes",
+        "submitBusy": "Saving…",
+        "success": "Your profile has been updated.",
+        "errors": {
+          "fullNameRequired": "Enter your full name.",
+          "fullNameTooShort": "That name is too short.",
+          "fullNameTooLong": "That name is too long.",
+          "roleInvalid": "Choose a role."
+        }
+      },
+      "errors": {
+        "notSignedIn": "Your session expired. Sign in again to continue.",
+        "notFound": "Your profile isn't set up yet. Sign out and back in, then try again.",
+        "saveFailed": "Couldn't save your profile. Please try again."
       }
     },
     "overview": {
