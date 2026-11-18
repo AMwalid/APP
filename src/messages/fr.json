@@ -151,6 +151,8 @@
       "overview": "Aperçu",
       "children": "Enfants",
       "messages": "Messages",
+      "classes": "Mes classes",
+      "profile": "Mon profil",
       "settings": "Paramètres"
     },
     "shell": {
@@ -302,6 +304,24 @@
             "subject": "Bons progrès en sciences",
             "when": "Il y a 3 jours"
           }
+        }
+      }
+    },
+    "teacherOverview": {
+      "title": "Vue d'ensemble de l'enseignant",
+      "subtitle": "Un aperçu rapide de vos classes, de vos élèves et des corrections en attente.",
+      "cards": {
+        "students": {
+          "label": "Total des élèves",
+          "caption": "Dans toutes vos classes"
+        },
+        "classes": {
+          "label": "Classes",
+          "caption": "Actives ce trimestre"
+        },
+        "grading": {
+          "label": "Corrections en attente",
+          "caption": "Copies à corriger"
         }
       }
     }

@@ -1,5 +1,6 @@
 import "server-only";
 
+import { cache } from "react";
 import { getCurrentUser } from "@/lib/supabase/session";
 import { createClient } from "@/lib/supabase/server";
 import { isUserRole, type Profile, type ProfileRow, type Viewer } from "./types";
@@ -61,9 +62,11 @@ export async function getProfile(): Promise<Profile | null> {
  * settings page that has to say so on save.
  *
  * `getCurrentUser` is cached per request, so the call inside `getProfile` is
- * free here rather than a second token check.
+ * free here rather than a second token check. `getViewer` itself is cached too:
+ * the shell and the section guard both ask for it on the same render, and
+ * without this the profile row would be read twice.
  */
-export async function getViewer(): Promise<Viewer | null> {
+export const getViewer = cache(async (): Promise<Viewer | null> => {
   const user = await getCurrentUser();
 
   if (!user) {
@@ -78,4 +81,4 @@ export async function getViewer(): Promise<Viewer | null> {
     fullName: profile?.fullName ?? null,
     role: profile?.role ?? "parent",
   };
-}
+});

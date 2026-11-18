@@ -19,6 +19,10 @@ import { Link } from "@/lib/i18n/navigation";
  * missing from `PROTECTED_PREFIXES` would otherwise render for anyone. One
  * `getViewer()` here covers the whole subtree, so pages can assume a user.
  *
+ * The nav is chosen from the viewer's role, and the section layouts
+ * (`parents/`, `teachers/`, `students/`) are the guards that keep the role and
+ * the URL in agreement. The shell itself stays role-agnostic.
+ *
  * Sidebar on the start edge, content on the end edge. `border-e` is the only
  * directional border in the shell, so it mirrors in Arabic without a single
  * `left`/`right`.
@@ -51,7 +55,7 @@ export default async function DashboardLayout({
             IBNI
           </Link>
         </div>
-        <DashboardSidebarNav />
+        <DashboardSidebarNav role={viewer.role} />
         <div className="border-t border-border p-3">
           <LocaleSwitcher />
         </div>
@@ -70,7 +74,7 @@ export default async function DashboardLayout({
             </form>
           }
         />
-        <DashboardMobileNav />
+        <DashboardMobileNav role={viewer.role} />
         <main className="flex-1 bg-surface-muted px-4 py-6 sm:px-6 lg:px-8">
           {children}
         </main>

@@ -5,6 +5,7 @@ import { DASHBOARD_NAV } from "@/lib/constants/dashboard-nav";
 import { isActiveHref } from "@/lib/constants/navigation";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/utils";
+import type { UserRole } from "@/types/roles";
 
 /**
  * The dashboard navigation, in two shapes.
@@ -14,25 +15,28 @@ import { cn } from "@/lib/utils";
  * the locale prefix, which is exactly the form `DASHBOARD_NAV` stores — no
  * prefix stripping here.
  *
+ * The role is a prop, not a context: the server layout already has the viewer,
+ * and passing one string is clearer than a provider for four links.
+ *
  * The vertical list lives in the sidebar; the horizontal one is the same links
  * for narrow screens, where the sidebar is hidden. Nothing is `order-*` or
  * `left/right`: the row direction follows the document, so it mirrors in
  * Arabic by construction.
  */
-function useNavItems() {
+function useNavItems(role: UserRole) {
   const t = useTranslations("Dashboard");
   const pathname = usePathname();
 
-  return DASHBOARD_NAV.map((item) => ({
+  return DASHBOARD_NAV[role].map((item) => ({
     ...item,
     label: t(item.labelKey),
     active: isActiveHref(pathname, item.href),
   }));
 }
 
-export function DashboardSidebarNav() {
+export function DashboardSidebarNav({ role }: { role: UserRole }) {
   const t = useTranslations("Dashboard");
-  const items = useNavItems();
+  const items = useNavItems(role);
 
   return (
     <nav aria-label={t("nav.label")} className="flex-1 overflow-y-auto p-3">
@@ -58,9 +62,9 @@ export function DashboardSidebarNav() {
   );
 }
 
-export function DashboardMobileNav() {
+export function DashboardMobileNav({ role }: { role: UserRole }) {
   const t = useTranslations("Dashboard");
-  const items = useNavItems();
+  const items = useNavItems(role);
 
   return (
     <nav

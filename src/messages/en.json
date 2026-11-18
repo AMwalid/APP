@@ -151,6 +151,8 @@
       "overview": "Overview",
       "children": "Children",
       "messages": "Messages",
+      "classes": "My Classes",
+      "profile": "Profile",
       "settings": "Settings"
     },
     "shell": {
@@ -302,6 +304,24 @@
             "subject": "Great progress in science",
             "when": "3 days ago"
           }
+        }
+      }
+    },
+    "teacherOverview": {
+      "title": "Teacher overview",
+      "subtitle": "A quick snapshot of your classes, students and marking queue.",
+      "cards": {
+        "students": {
+          "label": "Total students",
+          "caption": "Across all your classes"
+        },
+        "classes": {
+          "label": "Classes",
+          "caption": "Active this term"
+        },
+        "grading": {
+          "label": "Pending grading",
+          "caption": "Submissions to review"
         }
       }
     }

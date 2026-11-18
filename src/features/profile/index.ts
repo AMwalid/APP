@@ -1,4 +1,5 @@
 export { updateProfile } from "./actions";
+export { AccountSettings } from "./components/account-settings";
 export { ProfileForm } from "./components/profile-form";
 export { getProfile, getViewer } from "./queries";
 export { createProfileSchema } from "./schemas";

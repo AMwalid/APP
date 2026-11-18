@@ -1,3 +1,5 @@
+import type { UserRole } from "@/types/roles";
+
 /**
  * The signed-in navigation, shown in the dashboard sidebar.
  *
@@ -5,8 +7,13 @@
  * adds the prefix) and labels are keys resolved against the `Dashboard`
  * namespace.
  *
- * These are the parent-space routes for now. When students and teachers get
- * their own dashboards, this becomes a per-role list rather than a constant.
+ * One list per role. The shell asks for `DASHBOARD_NAV[viewer.role]`, so the
+ * parent sidebar never offers a teacher route and vice versa. The section
+ * guards are what make the role and the URL agree; this map only decides what
+ * is visible once they do.
+ *
+ * The student list is intentionally short: the student dashboard is not built
+ * yet, and inventing sections before the product does would be a guess.
  */
 export type DashboardNavItem = {
   id: string;
@@ -14,9 +21,24 @@ export type DashboardNavItem = {
   href: string;
 };
 
-export const DASHBOARD_NAV: readonly DashboardNavItem[] = [
-  { id: "overview", labelKey: "nav.overview", href: "/parents/overview" },
-  { id: "children", labelKey: "nav.children", href: "/parents/children" },
-  { id: "messages", labelKey: "nav.messages", href: "/parents/messages" },
-  { id: "settings", labelKey: "nav.settings", href: "/parents/settings" },
-];
+export const DASHBOARD_NAV: Record<
+  UserRole,
+  readonly DashboardNavItem[]
+> = {
+  parent: [
+    { id: "overview", labelKey: "nav.overview", href: "/parents/overview" },
+    { id: "children", labelKey: "nav.children", href: "/parents/children" },
+    { id: "messages", labelKey: "nav.messages", href: "/parents/messages" },
+    { id: "settings", labelKey: "nav.settings", href: "/parents/settings" },
+  ],
+  teacher: [
+    { id: "overview", labelKey: "nav.overview", href: "/teachers/overview" },
+    { id: "classes", labelKey: "nav.classes", href: "/teachers/classes" },
+    { id: "profile", labelKey: "nav.profile", href: "/teachers/profile" },
+    { id: "settings", labelKey: "nav.settings", href: "/teachers/settings" },
+  ],
+  student: [
+    { id: "overview", labelKey: "nav.overview", href: "/students/overview" },
+    { id: "settings", labelKey: "nav.settings", href: "/students/settings" },
+  ],
+};
