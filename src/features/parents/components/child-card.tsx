@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import type { Child } from "../types";
+import { ChildCardMenu } from "./child-card-menu";
 
 /**
  * One child: name, age, school and their latest grade.
@@ -14,6 +15,9 @@ import type { Child } from "../types";
  * Grades live in a table that does not exist yet, so the row states that rather
  * than showing a placeholder mark. Once grading lands, this becomes
  * `child.latestGrade` and the "no grades" branch goes away.
+ *
+ * The edit/delete menu is a client island; this component itself stays on the
+ * server.
  */
 export function ChildCard({ child }: { child: Child }) {
   const t = useTranslations("Dashboard");
@@ -21,12 +25,15 @@ export function ChildCard({ child }: { child: Child }) {
   return (
     <article className="h-full rounded-lg border border-border bg-background p-5 shadow-sm">
       <header className="flex items-start justify-between gap-3">
-        <h2 className="text-base font-semibold text-foreground">
-          {child.name}
-        </h2>
-        <p className="shrink-0 text-sm text-muted-foreground">
-          {t("children.card.age", { years: child.age })}
-        </p>
+        <div className="min-w-0">
+          <h2 className="text-base font-semibold text-foreground">
+            {child.name}
+          </h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {t("children.card.age", { years: child.age })}
+          </p>
+        </div>
+        <ChildCardMenu child={child} />
       </header>
 
       <dl className="mt-4 divide-y divide-border border-t border-border">

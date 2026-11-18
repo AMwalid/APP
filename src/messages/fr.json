@@ -173,18 +173,24 @@
         "age": "{years, plural, one {# an} other {# ans}}",
         "school": "École",
         "latestGrade": "Dernière note",
-        "noGrade": "Aucune note pour le moment"
+        "noGrade": "Aucune note pour le moment",
+        "actions": "Options de {name}",
+        "edit": "Modifier",
+        "delete": "Supprimer"
       },
       "empty": {
         "title": "Aucun enfant ajouté pour l'instant",
         "body": "Ajoutez votre premier enfant pour suivre ses résultats et sa présence au même endroit."
       },
-      "addChildDialog": {
+      "form": {
         "title": "Ajouter un enfant",
+        "titleEdit": "Modifier les informations de l'enfant",
         "description": "Renseignez les informations de votre enfant pour l'ajouter à votre compte.",
+        "descriptionEdit": "Mettez à jour les informations de votre enfant, puis enregistrez les modifications.",
         "close": "Fermer",
         "cancel": "Annuler",
         "submit": "Enregistrer l'enfant",
+        "submitEdit": "Enregistrer les modifications",
         "submitBusy": "Enregistrement…",
         "fields": {
           "name": {
@@ -209,10 +215,21 @@
           "ageRange": "L'âge doit être compris entre 3 et 25 ans.",
           "schoolRequired": "Saisissez le nom de l'école.",
           "schoolTooShort": "Ce nom d'école est trop court.",
-          "schoolTooLong": "Ce nom d'école est trop long.",
-          "notSignedIn": "Votre session a expiré. Reconnectez-vous pour continuer.",
-          "saveFailed": "Impossible d'enregistrer les informations de l'enfant. Réessayez."
+          "schoolTooLong": "Ce nom d'école est trop long."
         }
+      },
+      "errors": {
+        "notSignedIn": "Votre session a expiré. Reconnectez-vous pour continuer.",
+        "notFound": "Cet enfant est introuvable. Actualisez la page et réessayez.",
+        "createFailed": "Impossible d'enregistrer les informations de l'enfant. Réessayez.",
+        "updateFailed": "Impossible d'enregistrer les modifications. Réessayez.",
+        "deleteFailed": "Impossible de supprimer l'enfant. Réessayez."
+      },
+      "deleteDialog": {
+        "title": "Supprimer « {name} » ?",
+        "description": "Cet enfant sera définitivement supprimé. Cette action est irréversible.",
+        "confirm": "Supprimer l'enfant",
+        "deleting": "Suppression…"
       }
     },
     "overview": {

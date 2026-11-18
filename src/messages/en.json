@@ -173,18 +173,24 @@
         "age": "{years, plural, one {# year old} other {# years old}}",
         "school": "School",
         "latestGrade": "Latest grade",
-        "noGrade": "No grades yet"
+        "noGrade": "No grades yet",
+        "actions": "Options for {name}",
+        "edit": "Edit",
+        "delete": "Delete"
       },
       "empty": {
         "title": "No children added yet",
         "body": "Add your first child to follow their results and attendance in one place."
       },
-      "addChildDialog": {
+      "form": {
         "title": "Add a child",
+        "titleEdit": "Edit child details",
         "description": "Enter your child's details to add them to your account.",
+        "descriptionEdit": "Update your child's details, then save your changes.",
         "close": "Close",
         "cancel": "Cancel",
         "submit": "Save child",
+        "submitEdit": "Save changes",
         "submitBusy": "Saving…",
         "fields": {
           "name": {
@@ -209,10 +215,21 @@
           "ageRange": "The age must be between 3 and 25.",
           "schoolRequired": "Enter the school name.",
           "schoolTooShort": "That school name is too short.",
-          "schoolTooLong": "That school name is too long.",
-          "notSignedIn": "Your session expired. Sign in again to continue.",
-          "saveFailed": "Couldn't save the child's details. Please try again."
+          "schoolTooLong": "That school name is too long."
         }
+      },
+      "errors": {
+        "notSignedIn": "Your session expired. Sign in again to continue.",
+        "notFound": "That child could not be found. Refresh the page and try again.",
+        "createFailed": "Couldn't save the child's details. Please try again.",
+        "updateFailed": "Couldn't save the changes. Please try again.",
+        "deleteFailed": "Couldn't delete the child. Please try again."
+      },
+      "deleteDialog": {
+        "title": "Delete {name}?",
+        "description": "This child will be permanently deleted. This can't be undone.",
+        "confirm": "Delete child",
+        "deleting": "Deleting…"
       }
     },
     "overview": {

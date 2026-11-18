@@ -61,30 +61,30 @@ export type ChildRow = {
 };
 
 /**
- * What `createChild` hands back.
+ * What the child actions hand back: `createChild`, `updateChild`, `deleteChild`.
  *
- * Failures are data, not exceptions, so the form keeps its locale and can show
+ * Failures are data, not exceptions, so the dialog keeps its locale and can show
  * a translated message. `fieldErrors` is partial because a single failed submit
- * may only concern one field.
+ * may only concern one field, and absent for delete, which has no fields.
  */
-export type AddChildResult =
+export type ChildResult =
   | { status: "success" }
   | {
       status: "error";
-      fieldErrors?: Partial<Record<AddChildField, string>>;
+      fieldErrors?: Partial<Record<ChildFormField, string>>;
       formError?: string;
     };
 
 /**
- * The "add child" form state.
+ * The create/edit child form state.
  *
  * `age` is a string here because that is what an `<input>` produces; the schema
- * validates it and the submit handler converts it once. See `./schemas`.
+ * validates it and the action converts it once. See `./schemas`.
  */
-export type AddChildValues = {
+export type ChildFormValues = {
   name: string;
   age: string;
   school: string;
 };
 
-export type AddChildField = keyof AddChildValues;
+export type ChildFormField = keyof ChildFormValues;

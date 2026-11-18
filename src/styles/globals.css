@@ -26,6 +26,7 @@
   --color-destructive: #dc2626;
   --color-destructive-deep: #b91c1c;
   --color-destructive-soft: #fef2f2;
+  --color-destructive-foreground: #ffffff;
 
   /* Radius — the prototype's `rounded` and `rounded-md`. */
   --radius-nav: 0.25rem;
