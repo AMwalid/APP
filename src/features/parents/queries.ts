@@ -1,4 +1,8 @@
-import type { Child, ParentOverview } from "./types";
+import "server-only";
+
+import { getCurrentUser } from "@/lib/supabase/session";
+import { createClient } from "@/lib/supabase/server";
+import type { Child, ChildRow, ParentOverview } from "./types";
 
 /**
  * The parent overview.
@@ -59,29 +63,46 @@ export async function getParentOverview(): Promise<ParentOverview> {
 }
 
 /**
- * The parent's children.
+ * The parent's children (PAR-03), oldest first.
  *
- * Placeholder until the schema exists: PAR-03 reads the children linked to the
- * signed-in guardian, their school and their most recent graded work. The
- * `*Key` fields are translation keys; `age` is a number (see `./types`).
+ * RLS already limits the table to the signed-in parent; the explicit
+ * `parent_id` filter is defence in depth and the one the index covers. A signed
+ * out visitor gets an empty list rather than an error — the page is behind the
+ * middleware, so this only happens if a session expires mid-navigation.
+ *
+ * A failed query returns `[]` and logs the code: a broken list is not worth
+ * crashing the page over, but it must not be silent either.
+ *
+ * `toChild` exists because the Supabase client is untyped until
+ * `src/types/database.ts` is generated; it keeps the cast in one place.
  */
 export async function getChildren(): Promise<Child[]> {
-  return [
-    {
-      id: "c1",
-      nameKey: "children.items.c1.name",
-      age: 9,
-      schoolKey: "children.items.c1.school",
-      gradeValueKey: "children.items.c1.gradeValue",
-      gradeCaptionKey: "children.items.c1.gradeCaption",
-    },
-    {
-      id: "c2",
-      nameKey: "children.items.c2.name",
-      age: 12,
-      schoolKey: "children.items.c2.school",
-      gradeValueKey: "children.items.c2.gradeValue",
-      gradeCaptionKey: "children.items.c2.gradeCaption",
-    },
-  ];
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return [];
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("children")
+    .select("id, name, age, school")
+    .eq("parent_id", user.id)
+    .order("created_at", { ascending: true });
+
+  if (error) {
+    console.error("[parents] getChildren failed", error.code ?? error.message);
+    return [];
+  }
+
+  return (data as ChildRow[]).map(toChild);
+}
+
+function toChild(row: ChildRow): Child {
+  return {
+    id: row.id,
+    name: row.name,
+    age: row.age,
+    school: row.school,
+  };
 }

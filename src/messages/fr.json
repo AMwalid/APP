@@ -172,21 +172,12 @@
       "card": {
         "age": "{years, plural, one {# an} other {# ans}}",
         "school": "École",
-        "latestGrade": "Dernière note"
+        "latestGrade": "Dernière note",
+        "noGrade": "Aucune note pour le moment"
       },
-      "items": {
-        "c1": {
-          "name": "Yasmine Benali",
-          "school": "École Émir Abdelkader",
-          "gradeValue": "17/20",
-          "gradeCaption": "Maths · la semaine dernière"
-        },
-        "c2": {
-          "name": "Adam Benali",
-          "school": "École Émir Abdelkader",
-          "gradeValue": "14/20",
-          "gradeCaption": "Sciences · la semaine dernière"
-        }
+      "empty": {
+        "title": "Aucun enfant ajouté pour l'instant",
+        "body": "Ajoutez votre premier enfant pour suivre ses résultats et sa présence au même endroit."
       },
       "addChildDialog": {
         "title": "Ajouter un enfant",
@@ -194,6 +185,7 @@
         "close": "Fermer",
         "cancel": "Annuler",
         "submit": "Enregistrer l'enfant",
+        "submitBusy": "Enregistrement…",
         "fields": {
           "name": {
             "label": "Nom complet",
@@ -217,7 +209,9 @@
           "ageRange": "L'âge doit être compris entre 3 et 25 ans.",
           "schoolRequired": "Saisissez le nom de l'école.",
           "schoolTooShort": "Ce nom d'école est trop court.",
-          "schoolTooLong": "Ce nom d'école est trop long."
+          "schoolTooLong": "Ce nom d'école est trop long.",
+          "notSignedIn": "Votre session a expiré. Reconnectez-vous pour continuer.",
+          "saveFailed": "Impossible d'enregistrer les informations de l'enfant. Réessayez."
         }
       }
     },

@@ -2,8 +2,9 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { FormAlert } from "@/components/shared/form-alert";
 import { Button } from "@/components/ui/button";
 import { DialogFooter } from "@/components/ui/dialog";
 import {
@@ -15,6 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { createChild } from "../actions";
 import { createAddChildSchema } from "../schemas";
 import type { AddChildValues } from "../types";
 
@@ -31,25 +33,45 @@ type AddChildFormProps = {
  * that to a visitor who never opens the dialog. `AddChildDialog` loads it with
  * `next/dynamic` once the dialog mounts.
  *
- * Validation mirrors the auth forms — a zod schema built from translated
- * messages, so errors read in the page's language. `noValidate` keeps the
- * browser's unlocalised bubbles out of the way.
+ * Validation runs twice with the same schema: here for the user, and again in
+ * `createChild` because the browser is not a trust boundary. `noValidate` keeps
+ * the browser's unlocalised bubbles out of the way.
  *
- * Nothing is persisted yet; the values are logged and the dialog closes.
+ * Field errors from the action are pushed back into the same `FormMessage`
+ * slots the client-side check uses, so a server rejection looks identical to a
+ * local one. Only the form-level message (expired session, failed insert) needs
+ * its own slot.
  */
 export function AddChildForm({ onDone }: AddChildFormProps) {
   const t = useTranslations("Dashboard");
   const schema = useMemo(() => createAddChildSchema(t), [t]);
+  const [formError, setFormError] = useState<string | null>(null);
 
   const form = useForm<AddChildValues>({
     resolver: zodResolver(schema),
     defaultValues: { name: "", age: "", school: "" },
   });
 
-  const onSubmit = form.handleSubmit((values) => {
-    // TODO(PAR-03): replace with createChild() once child profiles are writable.
-    console.log("add-child", { ...values, age: Number(values.age) });
-    onDone();
+  const onSubmit = form.handleSubmit(async (values) => {
+    setFormError(null);
+
+    const result = await createChild(values);
+
+    if (result.status === "success") {
+      // Radix unmounts the content, so there is no stale state to reset.
+      onDone();
+      return;
+    }
+
+    if (result.fieldErrors) {
+      for (const [field, message] of Object.entries(result.fieldErrors)) {
+        form.setError(field as keyof AddChildValues, { message });
+      }
+    }
+
+    if (result.formError) {
+      setFormError(result.formError);
+    }
   });
 
   const isSubmitting = form.formState.isSubmitting;
@@ -126,12 +148,16 @@ export function AddChildForm({ onDone }: AddChildFormProps) {
           )}
         />
 
+        {formError ? <FormAlert tone="error">{formError}</FormAlert> : null}
+
         <DialogFooter className="pt-1">
           <Button type="button" variant="outline" size="md" onClick={onDone}>
             {t("children.addChildDialog.cancel")}
           </Button>
           <Button type="submit" size="md" disabled={isSubmitting}>
-            {t("children.addChildDialog.submit")}
+            {isSubmitting
+              ? t("children.addChildDialog.submitBusy")
+              : t("children.addChildDialog.submit")}
           </Button>
         </DialogFooter>
       </form>

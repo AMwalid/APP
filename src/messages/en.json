@@ -172,21 +172,12 @@
       "card": {
         "age": "{years, plural, one {# year old} other {# years old}}",
         "school": "School",
-        "latestGrade": "Latest grade"
+        "latestGrade": "Latest grade",
+        "noGrade": "No grades yet"
       },
-      "items": {
-        "c1": {
-          "name": "Yasmine Benali",
-          "school": "Emir Abdelkader School",
-          "gradeValue": "17/20",
-          "gradeCaption": "Math · last week"
-        },
-        "c2": {
-          "name": "Adam Benali",
-          "school": "Emir Abdelkader School",
-          "gradeValue": "14/20",
-          "gradeCaption": "Science · last week"
-        }
+      "empty": {
+        "title": "No children added yet",
+        "body": "Add your first child to follow their results and attendance in one place."
       },
       "addChildDialog": {
         "title": "Add a child",
@@ -194,6 +185,7 @@
         "close": "Close",
         "cancel": "Cancel",
         "submit": "Save child",
+        "submitBusy": "Saving…",
         "fields": {
           "name": {
             "label": "Full name",
@@ -217,7 +209,9 @@
           "ageRange": "The age must be between 3 and 25.",
           "schoolRequired": "Enter the school name.",
           "schoolTooShort": "That school name is too short.",
-          "schoolTooLong": "That school name is too long."
+          "schoolTooLong": "That school name is too long.",
+          "notSignedIn": "Your session expired. Sign in again to continue.",
+          "saveFailed": "Couldn't save the child's details. Please try again."
         }
       }
     },

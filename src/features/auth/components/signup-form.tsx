@@ -20,7 +20,7 @@ import { signup } from "../actions";
 import { createSignupSchema } from "../schemas";
 import type { AuthField, SignupValues } from "../types";
 import { AuthCard } from "./auth-card";
-import { FormAlert } from "./form-alert";
+import { FormAlert } from "@/components/shared/form-alert";
 
 /**
  * Signup form.

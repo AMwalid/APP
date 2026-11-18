@@ -1,27 +1,10 @@
-import "server-only";
-
-import { createClient } from "@/lib/supabase/server";
-
 /**
- * The signed-in user, or null.
+ * Auth queries.
  *
- * Pages read the session through this query rather than importing the Supabase
- * client directly: only `queries.ts` / `actions.ts` may touch the data layer
- * (ARCHITECTURE §5.5).
- *
- * `getUser()` verifies the token with Supabase instead of trusting the cookie,
- * so this doubles as the server-side permission check for protected pages.
+ * `getCurrentUser` is defined in `lib/supabase/session` and re-exported here so
+ * `@/features/auth` keeps the public API the layout already uses. The body moved
+ * out because a feature barrel is the wrong import target for session plumbing:
+ * it also re-exports client components, and server files that reach it through a
+ * Server Action pull those into the browser bundle.
  */
-export async function getCurrentUser() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  if (error) {
-    return null;
-  }
-
-  return user;
-}
+export { getCurrentUser } from "@/lib/supabase/session";

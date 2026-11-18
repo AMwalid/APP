@@ -25,6 +25,17 @@ export type AddChildErrorKey =
 /** Satisfied by `useTranslations("Dashboard")`. */
 export type Translate = (key: AddChildErrorKey) => string;
 
+/**
+ * Messages for a failed action, as opposed to a failed field.
+ *
+ * Kept apart from `AddChildErrorKey` because they are not schema rules: one is
+ * "the session went away between opening the dialog and pressing save", the
+ * other is "Postgres refused the insert". Neither belongs in a zod message.
+ */
+export type AddChildFormErrorKey =
+  | "children.addChildDialog.errors.notSignedIn"
+  | "children.addChildDialog.errors.saveFailed";
+
 export function createAddChildSchema(t: Translate) {
   return z.object({
     name: z

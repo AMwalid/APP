@@ -10,6 +10,10 @@ import type { Child } from "../types";
  * start edge and the value on the end edge in both directions — no `text-left`.
  *
  * The age comes from `child.age` and is pluralised by the message, not here.
+ *
+ * Grades live in a table that does not exist yet, so the row states that rather
+ * than showing a placeholder mark. Once grading lands, this becomes
+ * `child.latestGrade` and the "no grades" branch goes away.
  */
 export function ChildCard({ child }: { child: Child }) {
   const t = useTranslations("Dashboard");
@@ -18,7 +22,7 @@ export function ChildCard({ child }: { child: Child }) {
     <article className="h-full rounded-lg border border-border bg-background p-5 shadow-sm">
       <header className="flex items-start justify-between gap-3">
         <h2 className="text-base font-semibold text-foreground">
-          {t(child.nameKey)}
+          {child.name}
         </h2>
         <p className="shrink-0 text-sm text-muted-foreground">
           {t("children.card.age", { years: child.age })}
@@ -31,20 +35,15 @@ export function ChildCard({ child }: { child: Child }) {
             {t("children.card.school")}
           </dt>
           <dd className="text-end text-sm font-medium text-foreground">
-            {t(child.schoolKey)}
+            {child.school}
           </dd>
         </div>
         <div className="flex items-baseline justify-between gap-3 py-2.5">
           <dt className="text-sm text-muted-foreground">
             {t("children.card.latestGrade")}
           </dt>
-          <dd className="text-end">
-            <span className="block text-sm font-semibold text-foreground">
-              {t(child.gradeValueKey)}
-            </span>
-            <span className="block text-xs text-muted-foreground">
-              {t(child.gradeCaptionKey)}
-            </span>
+          <dd className="text-end text-sm text-muted-foreground">
+            {t("children.card.noGrade")}
           </dd>
         </div>
       </dl>

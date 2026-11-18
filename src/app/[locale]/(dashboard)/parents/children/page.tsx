@@ -4,9 +4,9 @@ import { AddChildDialog, ChildCard, getChildren } from "@/features/parents";
 /**
  * PAR-03 — the parent's children.
  *
- * One card per child: name, age, school and their latest grade. The "Add child"
- * button is intentionally inert — it is the visual anchor for the creation flow,
- * which arrives as a dialog once child profiles are writable.
+ * One card per child: name, age, school and their latest grade. The list comes
+ * from `children`, filtered by RLS and by `parent_id`, so a parent only ever
+ * sees their own.
  *
  * The grid lives here rather than in the feature because it is page composition,
  * the same way the overview page maps its own cards.
@@ -37,13 +37,29 @@ export default async function ParentChildrenPage({
         <AddChildDialog />
       </header>
 
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {childList.map((child) => (
-          <li key={child.id}>
-            <ChildCard child={child} />
-          </li>
-        ))}
-      </ul>
+      {childList.length === 0 ? (
+        /*
+          A new parent has no children yet, and an empty grid under an "Add
+          child" button reads as a page that failed to load. This is the one
+          state where the dialog is the answer, so it says so.
+        */
+        <div className="rounded-lg border border-dashed border-border bg-surface-muted p-8 text-center">
+          <h2 className="text-base font-semibold text-foreground">
+            {t("children.empty.title")}
+          </h2>
+          <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
+            {t("children.empty.body")}
+          </p>
+        </div>
+      ) : (
+        <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {childList.map((child) => (
+            <li key={child.id}>
+              <ChildCard child={child} />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

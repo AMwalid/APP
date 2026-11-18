@@ -20,7 +20,7 @@ import { login } from "../actions";
 import { createLoginSchema } from "../schemas";
 import type { AuthField, LoginValues } from "../types";
 import { AuthCard } from "./auth-card";
-import { FormAlert } from "./form-alert";
+import { FormAlert } from "@/components/shared/form-alert";
 
 const DEFAULT_TARGET = "/dashboard";
 
