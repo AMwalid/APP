@@ -243,6 +243,10 @@
         "gradeLevel": "Grade level",
         "students": "Students",
         "noStudents": "No students yet",
+        "studentsCount": "{count, plural, =0 {no students} one {# student} other {# students}}",
+        "open": "Open {name}",
+        "manageRoster": "Manage the roster for {name}",
+        "manageRosterShort": "Manage roster",
         "actions": "Options for {name}",
         "edit": "Edit",
         "delete": "Delete"
@@ -299,6 +303,67 @@
         "description": "This class will be permanently deleted. This can't be undone.",
         "confirm": "Delete class",
         "deleting": "Deleting…"
+      }
+    },
+    "classDetails": {
+      "back": "Back to classes",
+      "subject": "Subject",
+      "gradeLevel": "Grade level",
+      "roster": {
+        "title": "Class roster",
+        "count": "{count, plural, =0 {no students} one {# student} other {# students}}",
+        "columns": {
+          "name": "Student",
+          "email": "Email",
+          "enrolled": "Enrolled",
+          "actions": "Actions"
+        },
+        "empty": {
+          "title": "No students in this class",
+          "body": "Use \"Add student\" to find a registered student and add them to the roster."
+        },
+        "actions": "Options for {name}",
+        "remove": "Remove from class",
+        "unnamed": "Unnamed student",
+        "noEmail": "No email on file"
+      },
+      "add": {
+        "trigger": "Add student",
+        "close": "Close",
+        "title": "Add a student to this class",
+        "description": "Search by the student's name or email, pick a result, then add them.",
+        "query": {
+          "label": "Student name or email",
+          "placeholder": "e.g. Amin, or amin@example.com",
+          "hint": "Type at least two characters to search."
+        },
+        "search": "Search",
+        "searching": "Searching…",
+        "results": "Results",
+        "noResults": "No registered student matched that name or email.",
+        "cancel": "Cancel",
+        "submit": "Add student",
+        "submitting": "Adding…",
+        "errors": {
+          "queryRequired": "Enter a student name or email.",
+          "queryTooShort": "Type at least two characters.",
+          "queryTooLong": "That search is too long."
+        }
+      },
+      "remove": {
+        "title": "Remove {name} from this class?",
+        "description": "The student is removed from this class only. Their account and details stay intact.",
+        "confirm": "Remove student",
+        "removing": "Removing…"
+      },
+      "errors": {
+        "notSignedIn": "Your session expired. Sign in again to continue.",
+        "notTeacher": "Only teacher accounts can manage class rosters.",
+        "notFound": "That class could not be found. Refresh the page and try again.",
+        "studentNotFound": "That student could not be found. Search again and try once more.",
+        "alreadyEnrolled": "That student is already in this class.",
+        "enrollFailed": "Couldn't add the student. Please try again.",
+        "removeFailed": "Couldn't remove the student. Please try again."
       }
     },
     "settings": {

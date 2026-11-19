@@ -5,9 +5,21 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { z } from "zod";
 import { getViewer } from "@/features/profile";
 import { createClient } from "@/lib/supabase/server";
-import { createClassSchema } from "./schemas";
-import type { ClassFormErrorKey } from "./schemas";
-import type { ClassFormField, ClassFormValues, ClassResult } from "./types";
+import { getClassById, getStudentById } from "./queries";
+import {
+  createClassSchema,
+  createEnrollmentSchema,
+  createSearchQuerySchema,
+} from "./schemas";
+import type { ClassFormErrorKey, EnrollmentErrorKey } from "./schemas";
+import type {
+  ClassFormField,
+  ClassFormValues,
+  ClassResult,
+  EnrollResult,
+  StudentOption,
+  StudentProfileRow,
+} from "./types";
 
 /**
  * Teacher class Server Actions (TCH-02).
@@ -45,6 +57,18 @@ const NOT_FOUND: ClassFormErrorKey = "classes.errors.notFound";
 const CREATE_FAILED: ClassFormErrorKey = "classes.errors.createFailed";
 const UPDATE_FAILED: ClassFormErrorKey = "classes.errors.updateFailed";
 const DELETE_FAILED: ClassFormErrorKey = "classes.errors.deleteFailed";
+
+const ENROLL_SESSION_EXPIRED: EnrollmentErrorKey =
+  "classDetails.errors.notSignedIn";
+const ENROLL_NOT_TEACHER: EnrollmentErrorKey =
+  "classDetails.errors.notTeacher";
+const ENROLL_NOT_FOUND: EnrollmentErrorKey = "classDetails.errors.notFound";
+const STUDENT_NOT_FOUND: EnrollmentErrorKey =
+  "classDetails.errors.studentNotFound";
+const ALREADY_ENROLLED: EnrollmentErrorKey =
+  "classDetails.errors.alreadyEnrolled";
+const ENROLL_FAILED: EnrollmentErrorKey = "classDetails.errors.enrollFailed";
+const REMOVE_FAILED: EnrollmentErrorKey = "classDetails.errors.removeFailed";
 
 function toFieldErrors(
   error: z.ZodError<ClassFormValues>,
@@ -208,6 +232,178 @@ export async function deleteClass(id: string): Promise<ClassResult> {
   }
 
   await revalidateClasses();
+
+  return { status: "success" };
+}
+
+/* -------------------------------------------------------------------------- */
+/* Roster (TCH-03)                                                            */
+/* -------------------------------------------------------------------------- */
+
+/** The grid card's count and the detail page's roster both have to refresh. */
+async function revalidateClass(classId: string) {
+  const locale = await getLocale();
+
+  revalidatePath(`/${locale}/teachers/classes`);
+  revalidatePath(`/${locale}/teachers/classes/${classId}`);
+}
+
+/**
+ * Read-only search for the Add Student dialog.
+ *
+ * An invalid query answers `[]` rather than an error: the button is disabled
+ * until the query is long enough, so there is no user-facing message to show.
+ * The RPC itself repeats the teacher check and bounds the result set.
+ */
+export async function searchStudents(query: string): Promise<StudentOption[]> {
+  const t = await translator();
+  const parsed = createSearchQuerySchema(t).safeParse(query);
+
+  if (!parsed.success) {
+    return [];
+  }
+
+  const viewer = await getViewer();
+
+  if (!viewer || viewer.role !== "teacher") {
+    return [];
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("search_students", {
+    needle: parsed.data,
+  });
+
+  if (error) {
+    console.error("[classes] searchStudents failed", error.code ?? error.message);
+    return [];
+  }
+
+  return (data as StudentProfileRow[]).map((row) => ({
+    id: row.id,
+    fullName: row.full_name?.trim() || null,
+    email: row.email,
+  }));
+}
+
+/**
+ * Enroll a registered student in the teacher's class.
+ *
+ * Four checks before the insert: the class id is a uuid, the caller is a
+ * teacher, the class is theirs (`getClassById` filters by teacher_id), and the
+ * student id resolves through the teacher-gated RPC — that last one rejects a
+ * teacher or parent id even though the FK alone would accept it.
+ *
+ * The row itself is still written with the teacher's client, so
+ * `class_enrollments_teacher_all` is the real boundary. A duplicate is a
+ * 23505 on the unique (class_id, student_id) constraint, reported as data so
+ * the dialog can show a translated message.
+ */
+export async function enrollStudent(
+  classId: string,
+  studentId: string,
+): Promise<EnrollResult> {
+  const t = await translator();
+  const parsedClassId = z.uuid().safeParse(classId);
+  const parsedStudentId = createEnrollmentSchema().safeParse({ studentId });
+
+  if (!parsedClassId.success || !parsedStudentId.success) {
+    return { status: "error", formError: t(ENROLL_NOT_FOUND) };
+  }
+
+  const viewer = await getViewer();
+
+  if (!viewer) {
+    return { status: "error", formError: t(ENROLL_SESSION_EXPIRED) };
+  }
+
+  if (viewer.role !== "teacher") {
+    return { status: "error", formError: t(ENROLL_NOT_TEACHER) };
+  }
+
+  const classItem = await getClassById(parsedClassId.data);
+
+  if (!classItem) {
+    return { status: "error", formError: t(ENROLL_NOT_FOUND) };
+  }
+
+  const student = await getStudentById(parsedStudentId.data.studentId);
+
+  if (!student) {
+    return { status: "error", formError: t(STUDENT_NOT_FOUND) };
+  }
+
+  const supabase = await createClient();
+  const { error } = await supabase.from("class_enrollments").insert({
+    class_id: classItem.id,
+    student_id: student.id,
+  });
+
+  if (error) {
+    if (error.code === "23505") {
+      return { status: "error", formError: t(ALREADY_ENROLLED) };
+    }
+
+    console.error("[classes] enrollStudent failed", error.code ?? error.message);
+    return { status: "error", formError: t(ENROLL_FAILED) };
+  }
+
+  await revalidateClass(classItem.id);
+
+  return { status: "success" };
+}
+
+/**
+ * Remove one enrollment. The id and the class id are both in the filter: a
+ * stale row from another class must never be deleted, and RLS checks ownership
+ * of the class through the existing teacher policy.
+ */
+export async function unenrollStudent(
+  classId: string,
+  enrollmentId: string,
+): Promise<EnrollResult> {
+  const t = await translator();
+  const parsedClassId = z.uuid().safeParse(classId);
+  const parsedEnrollmentId = z.uuid().safeParse(enrollmentId);
+
+  if (!parsedClassId.success || !parsedEnrollmentId.success) {
+    return { status: "error", formError: t(ENROLL_NOT_FOUND) };
+  }
+
+  const viewer = await getViewer();
+
+  if (!viewer) {
+    return { status: "error", formError: t(ENROLL_SESSION_EXPIRED) };
+  }
+
+  if (viewer.role !== "teacher") {
+    return { status: "error", formError: t(ENROLL_NOT_TEACHER) };
+  }
+
+  const classItem = await getClassById(parsedClassId.data);
+
+  if (!classItem) {
+    return { status: "error", formError: t(ENROLL_NOT_FOUND) };
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("class_enrollments")
+    .delete()
+    .eq("id", parsedEnrollmentId.data)
+    .eq("class_id", classItem.id)
+    .select("id");
+
+  if (error) {
+    console.error("[classes] unenrollStudent failed", error.code ?? error.message);
+    return { status: "error", formError: t(REMOVE_FAILED) };
+  }
+
+  if (!data || data.length === 0) {
+    return { status: "error", formError: t(ENROLL_NOT_FOUND) };
+  }
+
+  await revalidateClass(classItem.id);
 
   return { status: "success" };
 }

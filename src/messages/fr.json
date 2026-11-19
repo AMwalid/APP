@@ -243,6 +243,10 @@
         "gradeLevel": "Niveau",
         "students": "Élèves",
         "noStudents": "Aucun élève pour l'instant",
+        "studentsCount": "{count, plural, =0 {aucun élève} one {# élève} other {# élèves}}",
+        "open": "Ouvrir {name}",
+        "manageRoster": "Gérer la liste des élèves de {name}",
+        "manageRosterShort": "Gérer la liste",
         "actions": "Options de {name}",
         "edit": "Modifier",
         "delete": "Supprimer"
@@ -299,6 +303,67 @@
         "description": "Cette classe sera définitivement supprimée. Cette action est irréversible.",
         "confirm": "Supprimer la classe",
         "deleting": "Suppression…"
+      }
+    },
+    "classDetails": {
+      "back": "Retour aux classes",
+      "subject": "Matière",
+      "gradeLevel": "Niveau",
+      "roster": {
+        "title": "Liste des élèves",
+        "count": "{count, plural, =0 {aucun élève} one {# élève} other {# élèves}}",
+        "columns": {
+          "name": "Élève",
+          "email": "E-mail",
+          "enrolled": "Inscrit le",
+          "actions": "Actions"
+        },
+        "empty": {
+          "title": "Aucun élève dans cette classe",
+          "body": "Utilisez « Ajouter un élève » pour rechercher un élève inscrit et l'ajouter à la liste."
+        },
+        "actions": "Options de {name}",
+        "remove": "Retirer de la classe",
+        "unnamed": "Élève sans nom",
+        "noEmail": "Aucune adresse e-mail"
+      },
+      "add": {
+        "trigger": "Ajouter un élève",
+        "close": "Fermer",
+        "title": "Ajouter un élève à cette classe",
+        "description": "Recherchez par nom ou par e-mail, sélectionnez un résultat, puis ajoutez-le.",
+        "query": {
+          "label": "Nom ou e-mail de l'élève",
+          "placeholder": "Ex. : Amine, ou amine@example.com",
+          "hint": "Saisissez au moins deux caractères pour lancer la recherche."
+        },
+        "search": "Rechercher",
+        "searching": "Recherche…",
+        "results": "Résultats",
+        "noResults": "Aucun élève inscrit ne correspond à ce nom ou cet e-mail.",
+        "cancel": "Annuler",
+        "submit": "Ajouter l'élève",
+        "submitting": "Ajout…",
+        "errors": {
+          "queryRequired": "Saisissez un nom ou une adresse e-mail.",
+          "queryTooShort": "Saisissez au moins deux caractères.",
+          "queryTooLong": "Cette recherche est trop longue."
+        }
+      },
+      "remove": {
+        "title": "Retirer {name} de cette classe ?",
+        "description": "L'élève est retiré de cette classe uniquement. Son compte et ses données restent intacts.",
+        "confirm": "Retirer l'élève",
+        "removing": "Retrait…"
+      },
+      "errors": {
+        "notSignedIn": "Votre session a expiré. Reconnectez-vous pour continuer.",
+        "notTeacher": "Seuls les comptes enseignants peuvent gérer les listes de classe.",
+        "notFound": "Cette classe est introuvable. Actualisez la page et réessayez.",
+        "studentNotFound": "Cet élève est introuvable. Relancez la recherche et réessayez.",
+        "alreadyEnrolled": "Cet élève est déjà inscrit dans cette classe.",
+        "enrollFailed": "Impossible d'ajouter l'élève. Réessayez.",
+        "removeFailed": "Impossible de retirer l'élève. Réessayez."
       }
     },
     "settings": {

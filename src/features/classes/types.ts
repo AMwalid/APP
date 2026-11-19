@@ -1,17 +1,19 @@
 /**
- * Types for teacher classes (TCH-02).
+ * Types for teacher classes (TCH-02) and their rosters (TCH-03).
  *
- * The UI deals in `gradeLevel`; the column is `grade_level`. Keeping the
- * mapping in one place (`queries.ts` / `actions.ts`) means the components never
- * see a snake_case key.
+ * The UI deals in camelCase (`gradeLevel`, `fullName`); the columns are
+ * snake_case. The mapping lives in `queries.ts` / `actions.ts`, so components
+ * never see a raw database row.
  */
 
-/** One class, as the teacher's page renders it. */
+/** One class, as the teacher's pages render it. */
 export type Class = {
   id: string;
   name: string;
   subject: string;
   gradeLevel: string;
+  /** Number of enrolled students, shown on the classes grid. */
+  studentCount: number;
 };
 
 /**
@@ -29,12 +31,37 @@ export type ClassRow = {
   grade_level: string;
 };
 
-/**
- * The create/edit class form state.
- *
- * All three fields are strings because that is what an `<input>` produces. The
- * schema trims and validates them, and the action maps them to columns once.
- */
+/** A row of `public.class_enrollments`. */
+export type EnrollmentRow = {
+  id: string;
+  student_id: string;
+  created_at: string;
+};
+
+/** A row from the `get_students_by_ids` / `search_students` RPCs. */
+export type StudentProfileRow = {
+  id: string;
+  full_name: string | null;
+  email: string;
+};
+
+/** One result in the Add Student search. */
+export type StudentOption = {
+  id: string;
+  fullName: string | null;
+  email: string;
+};
+
+/** One row of the class roster. */
+export type RosterStudent = {
+  enrollmentId: string;
+  studentId: string;
+  fullName: string | null;
+  email: string;
+  enrolledAt: string;
+};
+
+/** The create/edit class form state. */
 export type ClassFormValues = {
   name: string;
   subject: string;
@@ -57,3 +84,8 @@ export type ClassResult =
       fieldErrors?: Partial<Record<ClassFormField, string>>;
       formError?: string;
     };
+
+/** What the enrollment and removal actions hand back. */
+export type EnrollResult =
+  | { status: "success" }
+  | { status: "error"; formError?: string };

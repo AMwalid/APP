@@ -61,3 +61,47 @@ export function createClassSchema(t: Translate) {
       .max(40, { error: t("classes.form.errors.gradeLevelTooLong") }),
   });
 }
+
+/* -------------------------------------------------------------------------- */
+/* Roster (TCH-03)                                                            */
+/* -------------------------------------------------------------------------- */
+
+/** Field rules for the Add Student search. */
+export type EnrollmentFieldErrorKey =
+  | "classDetails.add.errors.queryRequired"
+  | "classDetails.add.errors.queryTooShort"
+  | "classDetails.add.errors.queryTooLong";
+
+/** Satisfied by `useTranslations("Dashboard")`. */
+export type EnrollmentTranslate = (key: EnrollmentFieldErrorKey) => string;
+
+/** Failures that are not field rules, shared by enroll and remove. */
+export type EnrollmentErrorKey =
+  | "classDetails.errors.notSignedIn"
+  | "classDetails.errors.notTeacher"
+  | "classDetails.errors.notFound"
+  | "classDetails.errors.studentNotFound"
+  | "classDetails.errors.alreadyEnrolled"
+  | "classDetails.errors.enrollFailed"
+  | "classDetails.errors.removeFailed";
+
+/** The search box only ever sends a trimmed string to the RPC. */
+export function createSearchQuerySchema(t: EnrollmentTranslate) {
+  return z
+    .string()
+    .trim()
+    .min(1, { error: t("classDetails.add.errors.queryRequired") })
+    .min(2, { error: t("classDetails.add.errors.queryTooShort") })
+    .max(120, { error: t("classDetails.add.errors.queryTooLong") });
+}
+
+/**
+ * The selected student id is a uuid from the RPC response, never a free-form
+ * value from the request. Validating it here keeps a forged Server Action call
+ * away from PostgREST; RLS and the FK are the second and third locks.
+ */
+export function createEnrollmentSchema() {
+  return z.object({
+    studentId: z.uuid(),
+  });
+}

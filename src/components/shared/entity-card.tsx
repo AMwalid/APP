@@ -10,11 +10,14 @@ export type EntityCardRow = {
 };
 
 type EntityCardProps = {
-  title: string;
+  /** Usually a string; a card whose title links to a detail page passes a Link. */
+  title: ReactNode;
   subtitle: string;
   /** The edit/delete menu, when the entity has one. */
   menu?: ReactNode;
   rows: readonly EntityCardRow[];
+  /** An optional trailing action, e.g. "Manage roster" on a class card. */
+  footer?: ReactNode;
 };
 
 /**
@@ -27,7 +30,13 @@ type EntityCardProps = {
  * for free. Each row is `justify-between`, which puts the label on the start
  * edge and the value on the end edge in both directions — no `text-left`.
  */
-export function EntityCard({ title, subtitle, menu, rows }: EntityCardProps) {
+export function EntityCard({
+  title,
+  subtitle,
+  menu,
+  rows,
+  footer,
+}: EntityCardProps) {
   return (
     <article className="h-full rounded-lg border border-border bg-background p-5 shadow-sm">
       <header className="flex items-start justify-between gap-3">
@@ -58,6 +67,8 @@ export function EntityCard({ title, subtitle, menu, rows }: EntityCardProps) {
           </div>
         ))}
       </dl>
+
+      {footer ? <div className="mt-3 border-t border-border pt-3">{footer}</div> : null}
     </article>
   );
 }
