@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Link } from "@/lib/i18n/navigation";
 import type { RosterStudent } from "../types";
 import { RosterRowMenu } from "./roster-row-menu";
 
@@ -77,7 +78,18 @@ export function RosterList({
                 {dateFormat.format(new Date(student.enrolledAt))}
               </td>
               <td className="px-2 py-2 text-end">
-                <RosterRowMenu classId={classId} student={student} />
+                <div className="flex items-center justify-end gap-1">
+                  <Link
+                    href={`/teachers/classes/${classId}/students/${student.enrollmentId}`}
+                    aria-label={t("gradebook.viewGradesFor", {
+                      name: student.fullName ?? student.email,
+                    })}
+                    className="inline-flex items-center rounded-control px-2 py-1.5 text-sm font-medium text-primary-hover transition-colors duration-150 ease-standard hover:bg-surface-subtle hover:text-primary-deep"
+                  >
+                    {t("gradebook.viewGrades")}
+                  </Link>
+                  <RosterRowMenu classId={classId} student={student} />
+                </div>
               </td>
             </tr>
           ))}

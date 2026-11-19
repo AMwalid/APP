@@ -462,11 +462,75 @@
       "card": {
         "gradeLevel": "Grade level",
         "teacher": "Teacher",
-        "teacherUnknown": "Teacher not named"
+        "teacherUnknown": "Teacher not named",
+        "open": "Open {name}",
+        "viewGrades": "Grades",
+        "viewGradesFor": "View grades for {name}"
       },
       "empty": {
         "title": "No classes yet",
         "body": "You aren't enrolled in any classes yet. Ask your teacher for an invite."
+      }
+    },
+    "gradebook": {
+      "backToClass": "Back to class",
+      "backToOverview": "Back to overview",
+      "teacherTitle": "Grades for {name}",
+      "studentTitle": "My grades in {name}",
+      "subtitle": "Grades recorded in {name}.",
+      "listTitle": "Grade list",
+      "viewGrades": "Grades",
+      "viewGradesFor": "View grades for {name}",
+      "columns": {
+        "title": "Title",
+        "score": "Score",
+        "maxScore": "Max score",
+        "percentage": "Percentage",
+        "date": "Date"
+      },
+      "empty": {
+        "title": "No grades yet",
+        "body": "Grades for this class will appear here once they are added."
+      },
+      "add": {
+        "trigger": "Add Grade",
+        "close": "Close",
+        "title": "Add Grade",
+        "description": "Enter the assessment title, score and maximum score.",
+        "fields": {
+          "title": {
+            "label": "Title",
+            "placeholder": "e.g. Midterm Exam"
+          },
+          "score": {
+            "label": "Score",
+            "placeholder": "e.g. 18"
+          },
+          "maxScore": {
+            "label": "Max score",
+            "placeholder": "e.g. 20"
+          }
+        },
+        "errors": {
+          "titleRequired": "Enter the assessment title.",
+          "titleTooShort": "The title is too short.",
+          "titleTooLong": "The title is too long.",
+          "scoreRequired": "Enter the score.",
+          "scoreInvalid": "Enter a valid score with at most two decimals.",
+          "maxScoreRequired": "Enter the maximum score.",
+          "maxScoreInvalid": "Enter a valid maximum score with at most two decimals.",
+          "maxScoreTooSmall": "The maximum score must be greater than zero.",
+          "scoreExceedsMax": "The score cannot exceed the maximum score."
+        },
+        "cancel": "Cancel",
+        "submit": "Save Grade",
+        "submitBusy": "Saving…"
+      },
+      "errors": {
+        "notSignedIn": "Your session expired. Sign in again to continue.",
+        "notTeacher": "Only teacher accounts can add grades.",
+        "notFound": "We couldn't find this class or student.",
+        "createFailed": "Could not save the grade. Please try again."
       }
     }
   },

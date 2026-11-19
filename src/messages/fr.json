@@ -462,11 +462,75 @@
       "card": {
         "gradeLevel": "Niveau scolaire",
         "teacher": "Enseignant",
-        "teacherUnknown": "Enseignant non renseigné"
+        "teacherUnknown": "Enseignant non renseigné",
+        "open": "Ouvrir la classe {name}",
+        "viewGrades": "Notes",
+        "viewGradesFor": "Voir les notes de {name}"
       },
       "empty": {
         "title": "Aucune classe pour le moment",
         "body": "Vous n'êtes inscrit à aucune classe pour le moment. Demandez à votre enseignant de vous ajouter à une classe."
+      }
+    },
+    "gradebook": {
+      "backToClass": "Retour à la classe",
+      "backToOverview": "Retour à l'aperçu",
+      "teacherTitle": "Notes de {name}",
+      "studentTitle": "Mes notes en {name}",
+      "subtitle": "Les notes enregistrées dans {name}.",
+      "listTitle": "Liste des notes",
+      "viewGrades": "Notes",
+      "viewGradesFor": "Voir les notes de {name}",
+      "columns": {
+        "title": "Titre",
+        "score": "Note",
+        "maxScore": "Note maximale",
+        "percentage": "Pourcentage",
+        "date": "Date"
+      },
+      "empty": {
+        "title": "Aucune note pour le moment",
+        "body": "Les notes de cette classe apparaîtront ici dès qu'elles seront ajoutées."
+      },
+      "add": {
+        "trigger": "Ajouter une note",
+        "close": "Fermer",
+        "title": "Ajouter une note",
+        "description": "Saisissez le titre de l'évaluation, la note et la note maximale.",
+        "fields": {
+          "title": {
+            "label": "Titre",
+            "placeholder": "Ex. : Interrogation de mi-trimestre"
+          },
+          "score": {
+            "label": "Note",
+            "placeholder": "Ex. : 18"
+          },
+          "maxScore": {
+            "label": "Note maximale",
+            "placeholder": "Ex. : 20"
+          }
+        },
+        "errors": {
+          "titleRequired": "Saisissez le titre de l'évaluation.",
+          "titleTooShort": "Le titre est trop court.",
+          "titleTooLong": "Le titre est trop long.",
+          "scoreRequired": "Saisissez la note.",
+          "scoreInvalid": "Saisissez une note valide avec au plus deux décimales.",
+          "maxScoreRequired": "Saisissez la note maximale.",
+          "maxScoreInvalid": "Saisissez une note maximale valide avec au plus deux décimales.",
+          "maxScoreTooSmall": "La note maximale doit être supérieure à zéro.",
+          "scoreExceedsMax": "La note ne peut pas dépasser la note maximale."
+        },
+        "cancel": "Annuler",
+        "submit": "Enregistrer la note",
+        "submitBusy": "Enregistrement…"
+      },
+      "errors": {
+        "notSignedIn": "Votre session a expiré. Reconnectez-vous pour continuer.",
+        "notTeacher": "Seuls les comptes enseignants peuvent ajouter des notes.",
+        "notFound": "Impossible de trouver cette classe ou cet élève.",
+        "createFailed": "Impossible d'enregistrer la note. Réessayez."
       }
     }
   },

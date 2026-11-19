@@ -462,11 +462,75 @@
       "card": {
         "gradeLevel": "المستوى الدراسي",
         "teacher": "الأستاذ",
-        "teacherUnknown": "لم يُحدّد الأستاذ"
+        "teacherUnknown": "لم يُحدّد الأستاذ",
+        "open": "افتح قسم {name}",
+        "viewGrades": "الدرجات",
+        "viewGradesFor": "عرض درجات {name}"
       },
       "empty": {
         "title": "لا توجد أقسام بعد",
         "body": "لم تُسجّل في أي قسم بعد. اطلب من أستاذك أن يضيفك إلى قسمه."
+      }
+    },
+    "gradebook": {
+      "backToClass": "العودة إلى القسم",
+      "backToOverview": "العودة إلى نظرة عامة",
+      "teacherTitle": "درجات {name}",
+      "studentTitle": "درجاتي في {name}",
+      "subtitle": "الدرجات المسجّلة في {name}.",
+      "listTitle": "قائمة الدرجات",
+      "viewGrades": "الدرجات",
+      "viewGradesFor": "عرض درجات {name}",
+      "columns": {
+        "title": "العنوان",
+        "score": "الدرجة",
+        "maxScore": "الدرجة القصوى",
+        "percentage": "النسبة",
+        "date": "التاريخ"
+      },
+      "empty": {
+        "title": "لا توجد درجات بعد",
+        "body": "ستظهر درجات هذا القسم هنا بمجرد إضافتها."
+      },
+      "add": {
+        "trigger": "إضافة درجة",
+        "close": "إغلاق",
+        "title": "إضافة درجة",
+        "description": "أدخل عنوان التقييم والدرجة والدرجة القصوى.",
+        "fields": {
+          "title": {
+            "label": "العنوان",
+            "placeholder": "مثال: اختبار منتصف الفصل"
+          },
+          "score": {
+            "label": "الدرجة",
+            "placeholder": "مثال: 18"
+          },
+          "maxScore": {
+            "label": "الدرجة القصوى",
+            "placeholder": "مثال: 20"
+          }
+        },
+        "errors": {
+          "titleRequired": "أدخل عنوان التقييم.",
+          "titleTooShort": "العنوان قصير جدًا.",
+          "titleTooLong": "العنوان طويل جدًا.",
+          "scoreRequired": "أدخل الدرجة.",
+          "scoreInvalid": "أدخل درجة صحيحة بحد أقصى منزلتين عشريتين.",
+          "maxScoreRequired": "أدخل الدرجة القصوى.",
+          "maxScoreInvalid": "أدخل درجة قصوى صحيحة بحد أقصى منزلتين عشريتين.",
+          "maxScoreTooSmall": "يجب أن تكون الدرجة القصوى أكبر من صفر.",
+          "scoreExceedsMax": "لا يمكن أن تتجاوز الدرجة الدرجة القصوى."
+        },
+        "cancel": "إلغاء",
+        "submit": "حفظ الدرجة",
+        "submitBusy": "جارٍ الحفظ…"
+      },
+      "errors": {
+        "notSignedIn": "انتهت جلستك. سجّل الدخول من جديد للمتابعة.",
+        "notTeacher": "يمكن لحسابات الأساتذة فقط إضافة الدرجات.",
+        "notFound": "تعذّر العثور على هذا القسم أو الطالب.",
+        "createFailed": "تعذّر حفظ الدرجة. حاول مرة أخرى."
       }
     }
   },
