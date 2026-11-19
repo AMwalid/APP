@@ -235,6 +235,72 @@
         "deleting": "Suppression…"
       }
     },
+    "classes": {
+      "title": "Mes classes",
+      "subtitle": "Créez vos classes et gardez leurs informations au même endroit.",
+      "addClass": "Créer une classe",
+      "card": {
+        "gradeLevel": "Niveau",
+        "students": "Élèves",
+        "noStudents": "Aucun élève pour l'instant",
+        "actions": "Options de {name}",
+        "edit": "Modifier",
+        "delete": "Supprimer"
+      },
+      "empty": {
+        "title": "Aucune classe pour l'instant",
+        "body": "Créez votre première classe pour commencer à ajouter des élèves et des devoirs."
+      },
+      "form": {
+        "title": "Créer une classe",
+        "titleEdit": "Modifier la classe",
+        "description": "Ajoutez le nom, la matière et le niveau de la classe.",
+        "descriptionEdit": "Mettez à jour les informations de la classe, puis enregistrez.",
+        "close": "Fermer",
+        "cancel": "Annuler",
+        "submit": "Créer la classe",
+        "submitEdit": "Enregistrer les modifications",
+        "submitBusy": "Enregistrement…",
+        "fields": {
+          "name": {
+            "label": "Nom de la classe",
+            "placeholder": "Ex. : Mathématiques 3AS — Groupe A"
+          },
+          "subject": {
+            "label": "Matière",
+            "placeholder": "Ex. : Mathématiques"
+          },
+          "gradeLevel": {
+            "label": "Niveau",
+            "placeholder": "Ex. : 3AS"
+          }
+        },
+        "errors": {
+          "nameRequired": "Saisissez le nom de la classe.",
+          "nameTooShort": "Ce nom est trop court.",
+          "nameTooLong": "Ce nom est trop long.",
+          "subjectRequired": "Saisissez la matière.",
+          "subjectTooShort": "Cette matière est trop courte.",
+          "subjectTooLong": "Cette matière est trop longue.",
+          "gradeLevelRequired": "Saisissez le niveau.",
+          "gradeLevelTooLong": "Ce niveau est trop long."
+        }
+      },
+      "errors": {
+        "notSignedIn": "Votre session a expiré. Reconnectez-vous pour continuer.",
+        "notTeacher": "Seuls les comptes enseignants peuvent gérer des classes.",
+        "notFound": "Cette classe est introuvable. Actualisez la page et réessayez.",
+        "createFailed": "Impossible d'enregistrer la classe. Réessayez.",
+        "updateFailed": "Impossible d'enregistrer les modifications. Réessayez.",
+        "deleteFailed": "Impossible de supprimer la classe. Réessayez."
+      },
+      "deleteDialog": {
+        "title": "Supprimer « {name} » ?",
+        "description": "Cette classe sera définitivement supprimée. Cette action est irréversible.",
+        "confirm": "Supprimer la classe",
+        "deleting": "Suppression…"
+      }
+    },
     "settings": {
       "title": "Paramètres du compte",
       "subtitle": "Gérez le nom et le rôle affichés dans votre tableau de bord.",

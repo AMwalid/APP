@@ -235,6 +235,72 @@
         "deleting": "Deleting…"
       }
     },
+    "classes": {
+      "title": "My classes",
+      "subtitle": "Create your classes and keep their details in one place.",
+      "addClass": "Create class",
+      "card": {
+        "gradeLevel": "Grade level",
+        "students": "Students",
+        "noStudents": "No students yet",
+        "actions": "Options for {name}",
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "empty": {
+        "title": "No classes yet",
+        "body": "Create your first class to start adding students and assignments."
+      },
+      "form": {
+        "title": "Create a class",
+        "titleEdit": "Edit class",
+        "description": "Add the class name, subject and grade level.",
+        "descriptionEdit": "Update the class details, then save your changes.",
+        "close": "Close",
+        "cancel": "Cancel",
+        "submit": "Create class",
+        "submitEdit": "Save changes",
+        "submitBusy": "Saving…",
+        "fields": {
+          "name": {
+            "label": "Class name",
+            "placeholder": "e.g. Mathematics 3AS — Group A"
+          },
+          "subject": {
+            "label": "Subject",
+            "placeholder": "e.g. Mathematics"
+          },
+          "gradeLevel": {
+            "label": "Grade level",
+            "placeholder": "e.g. 3AS"
+          }
+        },
+        "errors": {
+          "nameRequired": "Enter the class name.",
+          "nameTooShort": "That name is too short.",
+          "nameTooLong": "That name is too long.",
+          "subjectRequired": "Enter the subject.",
+          "subjectTooShort": "That subject is too short.",
+          "subjectTooLong": "That subject is too long.",
+          "gradeLevelRequired": "Enter the grade level.",
+          "gradeLevelTooLong": "That grade level is too long."
+        }
+      },
+      "errors": {
+        "notSignedIn": "Your session expired. Sign in again to continue.",
+        "notTeacher": "Only teacher accounts can manage classes.",
+        "notFound": "That class could not be found. Refresh the page and try again.",
+        "createFailed": "Couldn't save the class. Please try again.",
+        "updateFailed": "Couldn't save the changes. Please try again.",
+        "deleteFailed": "Couldn't delete the class. Please try again."
+      },
+      "deleteDialog": {
+        "title": "Delete {name}?",
+        "description": "This class will be permanently deleted. This can't be undone.",
+        "confirm": "Delete class",
+        "deleting": "Deleting…"
+      }
+    },
     "settings": {
       "title": "Account settings",
       "subtitle": "Manage the name and role shown across your dashboard.",
