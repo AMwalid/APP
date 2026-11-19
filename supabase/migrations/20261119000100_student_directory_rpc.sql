@@ -15,6 +15,12 @@
 --
 -- `search_path = ''` forces every name to be schema-qualified, so a hostile
 -- search_path cannot redirect the lookups.
+--
+-- The grants revoke from BOTH `public` and `anon`. Supabase's default
+-- privileges grant EXECUTE on new functions in `public` to `anon` explicitly,
+-- so `revoke ... from public` alone leaves `anon` able to call the function
+-- (it returns zero rows because of the `is_teacher()` gate, but it should not
+-- be reachable at all).
 
 create function public.search_students(needle text)
 returns table (id uuid, full_name text, email text)
@@ -37,7 +43,7 @@ as $$
   limit 8;
 $$;
 
-revoke all on function public.search_students(text) from public;
+revoke all on function public.search_students(text) from public, anon;
 grant execute on function public.search_students(text) to authenticated;
 
 -- The roster query needs names and emails for ids it already knows. Bounded at
@@ -58,5 +64,5 @@ as $$
   limit 100;
 $$;
 
-revoke all on function public.get_students_by_ids(uuid[]) from public;
+revoke all on function public.get_students_by_ids(uuid[]) from public, anon;
 grant execute on function public.get_students_by_ids(uuid[]) to authenticated;
