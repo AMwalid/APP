@@ -455,6 +455,19 @@
           "caption": "Submissions to review"
         }
       }
+    },
+    "studentOverview": {
+      "title": "Student overview",
+      "subtitle": "Your enrolled classes and subjects, all in one place.",
+      "card": {
+        "gradeLevel": "Grade level",
+        "teacher": "Teacher",
+        "teacherUnknown": "Teacher not named"
+      },
+      "empty": {
+        "title": "No classes yet",
+        "body": "You aren't enrolled in any classes yet. Ask your teacher for an invite."
+      }
     }
   },
   "Navigation": {

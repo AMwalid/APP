@@ -17,6 +17,29 @@ export type Class = {
 };
 
 /**
+ * One class in the student's dashboard (STU-01).
+ *
+ * The teacher's name is nullable: a class can outlive a missing profile row,
+ * and the card falls back to a translated label instead of hiding the class.
+ */
+export type StudentClass = {
+  id: string;
+  name: string;
+  subject: string;
+  gradeLevel: string;
+  teacherName: string | null;
+};
+
+/** A row from the `get_student_classes` definer function. */
+export type StudentClassRow = {
+  id: string;
+  name: string;
+  subject: string;
+  grade_level: string;
+  teacher_name: string | null;
+};
+
+/**
  * A row of `public.classes`, as returned by the query.
  *
  * Hand-written from `supabase/migrations/20261119000000_create_classes_tables.sql`

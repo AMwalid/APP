@@ -455,6 +455,19 @@
           "caption": "Copies à corriger"
         }
       }
+    },
+    "studentOverview": {
+      "title": "Vue d'ensemble de l'élève",
+      "subtitle": "Vos classes inscrites et vos matières au même endroit.",
+      "card": {
+        "gradeLevel": "Niveau scolaire",
+        "teacher": "Enseignant",
+        "teacherUnknown": "Enseignant non renseigné"
+      },
+      "empty": {
+        "title": "Aucune classe pour le moment",
+        "body": "Vous n'êtes inscrit à aucune classe pour le moment. Demandez à votre enseignant de vous ajouter à une classe."
+      }
     }
   },
   "Navigation": {

@@ -8,6 +8,8 @@ import type {
   ClassRow,
   EnrollmentRow,
   RosterStudent,
+  StudentClass,
+  StudentClassRow,
   StudentOption,
   StudentProfileRow,
 } from "./types";
@@ -88,6 +90,43 @@ export async function getClassById(id: string): Promise<Class | null> {
   const counts = await getStudentCounts([row.id]);
 
   return toClass(row, counts.get(row.id) ?? 0);
+}
+
+/**
+ * The student's enrolled classes (STU-01), oldest class first.
+ *
+ * A student can read their own enrollments but not `classes` or another
+ * account's `profiles`, so the joined read goes through the narrow definer
+ * function in `20261119000200_student_classes_rpc.sql`. That function checks the
+ * caller's role and filters by `auth.uid()`; repeating the role check here keeps
+ * a non-student from even calling it, the same defence in depth as the teacher
+ * queries.
+ *
+ * A failed lookup returns `[]` and logs the code, matching `getClasses()`: the
+ * page shows its empty state rather than crashing on a transient problem.
+ */
+export async function getStudentClasses(): Promise<StudentClass[]> {
+  const viewer = await getViewer();
+
+  if (!viewer || viewer.role !== "student") {
+    return [];
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("get_student_classes");
+
+  if (error) {
+    console.error("[classes] getStudentClasses failed", error.code ?? error.message);
+    return [];
+  }
+
+  return ((data ?? []) as StudentClassRow[]).map((row) => ({
+    id: row.id,
+    name: row.name,
+    subject: row.subject,
+    gradeLevel: row.grade_level,
+    teacherName: row.teacher_name?.trim() || null,
+  }));
 }
 
 /**
