@@ -3,11 +3,19 @@
 import { revalidatePath } from "next/cache";
 import { getLocale, getTranslations } from "next-intl/server";
 import { z } from "zod";
+import { getViewer } from "@/features/profile";
 import { getCurrentUser } from "@/lib/supabase/session";
 import { createClient } from "@/lib/supabase/server";
 import { createChildSchema } from "./schemas";
-import type { ChildFormErrorKey } from "./schemas";
-import type { ChildFormField, ChildFormValues, ChildResult } from "./types";
+import type { ChildFormErrorKey, LinkErrorKey } from "./schemas";
+import type {
+  ChildFormField,
+  ChildFormValues,
+  ChildResult,
+  LinkResult,
+  StudentOption,
+  StudentSearchResult,
+} from "./types";
 
 /**
  * Parents Server Actions.
@@ -40,6 +48,11 @@ const NOT_FOUND: ChildFormErrorKey = "children.errors.notFound";
 const CREATE_FAILED: ChildFormErrorKey = "children.errors.createFailed";
 const UPDATE_FAILED: ChildFormErrorKey = "children.errors.updateFailed";
 const DELETE_FAILED: ChildFormErrorKey = "children.errors.deleteFailed";
+
+const NOT_PARENT: LinkErrorKey = "children.errors.notParent";
+const SEARCH_INVALID: LinkErrorKey = "children.errors.searchInvalid";
+const SEARCH_FAILED: LinkErrorKey = "children.errors.searchFailed";
+const LINK_FAILED: LinkErrorKey = "children.errors.linkFailed";
 
 function toFieldErrors(
   error: z.ZodError<ChildFormValues>,
@@ -75,6 +88,11 @@ function toChildColumns(data: ChildFormValues) {
 async function revalidateChildren() {
   const locale = await getLocale();
   revalidatePath(`/${locale}/parents/children`);
+}
+
+async function revalidateChildGrades(childId: string) {
+  const locale = await getLocale();
+  revalidatePath(`/${locale}/parents/children/${childId}/grades`);
 }
 
 export async function createChild(
@@ -193,6 +211,109 @@ export async function deleteChild(id: string): Promise<ChildResult> {
   }
 
   await revalidateChildren();
+
+  return { status: "success" };
+}
+
+/**
+ * Find a registered student by email (PAR-04).
+ *
+ * The needle is bounded here as well as in the SQL function: a Server Action is
+ * a POST endpoint, so the browser's 2-character check is never the boundary.
+ * The RPC itself gates on the parent role and returns only id and email.
+ */
+export async function searchStudentsByEmail(
+  needle: string,
+): Promise<StudentSearchResult> {
+  const t = await translator();
+  const parsed = z.string().trim().min(2).max(200).safeParse(needle);
+
+  if (!parsed.success) {
+    return { status: "error", formError: t(SEARCH_INVALID) };
+  }
+
+  const viewer = await getViewer();
+
+  if (!viewer) {
+    return { status: "error", formError: t(SESSION_EXPIRED) };
+  }
+
+  if (viewer.role !== "parent") {
+    return { status: "error", formError: t(NOT_PARENT) };
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("search_student_by_email", {
+    needle: parsed.data,
+  });
+
+  if (error) {
+    console.error("[parents] searchStudentsByEmail failed", error.code ?? error.message);
+    return { status: "error", formError: t(SEARCH_FAILED) };
+  }
+
+  const students: StudentOption[] = (data ?? []).map(
+    (row: { id: string; email: string }) => ({ id: row.id, email: row.email }),
+  );
+
+  return { status: "success", students };
+}
+
+/**
+ * Assert that a child profile belongs to a student account (PAR-04).
+ *
+ * Three locks: uuid validation, the verified parent's role, and a filtered
+ * update on `id` AND `parent_id` that asks for affected rows back. RLS is the
+ * final boundary; the database trigger additionally guarantees the target is a
+ * student profile, even if a client writes to the table directly.
+ */
+export async function linkStudentToChild(
+  childId: string,
+  studentId: string,
+): Promise<LinkResult> {
+  const t = await translator();
+  const child = z.uuid().safeParse(childId);
+  const student = z.uuid().safeParse(studentId);
+
+  if (!child.success || !student.success) {
+    return { status: "error", formError: t(NOT_FOUND) };
+  }
+
+  const viewer = await getViewer();
+
+  if (!viewer) {
+    return { status: "error", formError: t(SESSION_EXPIRED) };
+  }
+
+  if (viewer.role !== "parent") {
+    return { status: "error", formError: t(NOT_PARENT) };
+  }
+
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return { status: "error", formError: t(SESSION_EXPIRED) };
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("children")
+    .update({ student_id: student.data })
+    .eq("id", child.data)
+    .eq("parent_id", user.id)
+    .select("id");
+
+  if (error) {
+    console.error("[parents] linkStudentToChild failed", error.code ?? error.message);
+    return { status: "error", formError: t(LINK_FAILED) };
+  }
+
+  if (!data || data.length === 0) {
+    return { status: "error", formError: t(NOT_FOUND) };
+  }
+
+  await revalidateChildren();
+  await revalidateChildGrades(child.data);
 
   return { status: "success" };
 }

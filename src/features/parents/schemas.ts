@@ -42,6 +42,15 @@ export type ChildFormErrorKey =
   | "children.errors.updateFailed"
   | "children.errors.deleteFailed";
 
+/** Whole-action failures for the student search and the account link. */
+export type LinkErrorKey =
+  | "children.errors.notSignedIn"
+  | "children.errors.notParent"
+  | "children.errors.notFound"
+  | "children.errors.searchInvalid"
+  | "children.errors.searchFailed"
+  | "children.errors.linkFailed";
+
 export function createChildSchema(t: Translate) {
   return z.object({
     name: z

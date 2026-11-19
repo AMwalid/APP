@@ -179,7 +179,12 @@
         "noGrade": "Aucune note pour le moment",
         "actions": "Options de {name}",
         "edit": "Modifier",
-        "delete": "Supprimer"
+        "delete": "Supprimer",
+        "studentAccount": "Compte élève",
+        "linked": "Lié à un compte élève",
+        "notLinked": "Non lié pour le moment",
+        "viewGrades": "Notes",
+        "viewGradesFor": "Voir les notes de {name}"
       },
       "empty": {
         "title": "Aucun enfant ajouté pour l'instant",
@@ -226,13 +231,45 @@
         "notFound": "Cet enfant est introuvable. Actualisez la page et réessayez.",
         "createFailed": "Impossible d'enregistrer les informations de l'enfant. Réessayez.",
         "updateFailed": "Impossible d'enregistrer les modifications. Réessayez.",
-        "deleteFailed": "Impossible de supprimer l'enfant. Réessayez."
+        "deleteFailed": "Impossible de supprimer l'enfant. Réessayez.",
+        "notParent": "Seuls les comptes parents peuvent lier un enfant à un compte élève.",
+        "searchInvalid": "Saisissez une adresse e-mail valide pour la recherche.",
+        "searchFailed": "Impossible de rechercher l'élève. Réessayez.",
+        "linkFailed": "Impossible de lier l'enfant au compte élève. Réessayez."
       },
       "deleteDialog": {
         "title": "Supprimer « {name} » ?",
         "description": "Cet enfant sera définitivement supprimé. Cette action est irréversible.",
         "confirm": "Supprimer l'enfant",
         "deleting": "Suppression…"
+      },
+      "link": {
+        "trigger": "Lier à un compte élève",
+        "title": "Lier {name} à un compte élève",
+        "description": "Recherchez l'élève par son adresse e-mail, puis sélectionnez le compte souhaité.",
+        "searchLabel": "Adresse e-mail de l'élève",
+        "searchPlaceholder": "nom@exemple.com",
+        "searchButton": "Rechercher",
+        "searching": "Recherche…",
+        "noResults": "Aucun élève trouvé avec cette adresse e-mail.",
+        "resultsLabel": "Élèves correspondants",
+        "linkButton": "Lier le compte",
+        "linking": "Liaison…",
+        "close": "Fermer",
+        "cancel": "Annuler"
+      }
+    },
+    "parentGrades": {
+      "back": "Retour aux enfants",
+      "title": "Notes de {name}",
+      "subtitle": "Toutes les notes de cet élève dans ses classes, en lecture seule.",
+      "listTitle": "Liste des notes",
+      "columns": {
+        "class": "Classe"
+      },
+      "empty": {
+        "title": "Aucune note pour le moment",
+        "body": "Les notes de cet élève apparaîtront ici dès que ses enseignants les auront ajoutées."
       }
     },
     "classes": {

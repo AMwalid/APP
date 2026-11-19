@@ -1,8 +1,24 @@
 import "server-only";
 
+import type { Grade } from "@/features/grades";
 import { getCurrentUser } from "@/lib/supabase/session";
 import { createClient } from "@/lib/supabase/server";
 import type { Child, ChildRow, ParentOverview } from "./types";
+
+/** A row of `get_child_grades`: numeric columns again arrive as strings. */
+type ChildGradeRow = {
+  id: string;
+  title: string;
+  score: string;
+  max_score: string;
+  created_at: string;
+  class_id: string;
+  class_name: string;
+  subject: string;
+};
+
+/** The parent's grade rows additionally carry the class they came from. */
+export type ParentGrade = Grade & { classId: string; className: string; subject: string };
 
 /**
  * The parent overview.
@@ -86,7 +102,7 @@ export async function getChildren(): Promise<Child[]> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("children")
-    .select("id, name, age, school")
+    .select("id, name, age, school, student_id")
     .eq("parent_id", user.id)
     .order("created_at", { ascending: true });
 
@@ -104,5 +120,73 @@ function toChild(row: ChildRow): Child {
     name: row.name,
     age: row.age,
     school: row.school,
+    studentId: row.student_id,
   };
+}
+
+/**
+ * One child owned by the signed-in parent, or null (PAR-04).
+ *
+ * The grades route uses this as its second lock: a child id that belongs to
+ * another parent is indistinguishable from one that does not exist, because
+ * both RLS and the explicit parent_id filter return no row.
+ */
+export async function getChildById(id: string): Promise<Child | null> {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return null;
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("children")
+    .select("id, name, age, school, student_id")
+    .eq("id", id)
+    .eq("parent_id", user.id)
+    .maybeSingle();
+
+  if (error) {
+    console.error("[parents] getChildById failed", error.code ?? error.message);
+    return null;
+  }
+
+  return data ? toChild(data as ChildRow) : null;
+}
+
+/**
+ * All grades across all classes for the parent's linked child (PAR-04).
+ *
+ * There is no role check here on purpose: `get_child_grades` is the boundary and
+ * verifies both `children.parent_id = auth.uid()` and the parent role before it
+ * returns anything. The caller has already proved the child belongs to them;
+ * this function cannot be used to reach another parent's child.
+ */
+export async function getChildGrades(childId: string): Promise<ParentGrade[]> {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return [];
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("get_child_grades", {
+    child_id: childId,
+  });
+
+  if (error) {
+    console.error("[parents] getChildGrades failed", error.code ?? error.message);
+    return [];
+  }
+
+  return ((data ?? []) as ChildGradeRow[]).map((row) => ({
+    id: row.id,
+    title: row.title,
+    score: Number(row.score),
+    maxScore: Number(row.max_score),
+    createdAt: row.created_at,
+    classId: row.class_id,
+    className: row.class_name,
+    subject: row.subject,
+  }));
 }

@@ -2,19 +2,30 @@ import { useTranslations } from "next-intl";
 import type { Grade } from "../types";
 
 /**
- * The grades of one enrollment, shared by the teacher and student views.
+ * The grades of one enrollment, shared by the teacher, student and parent views.
  *
- * A table because it is tabular data with four labelled columns. There are no
- * per-row controls here: the student must not see the teacher's actions, and the
- * teacher's only write is the Add Grade dialog in the page header. Numbers get
- * `dir="ltr"` and tabular figures so they stay readable inside an RTL page.
+ * A table because it is tabular data with labelled columns. There are no
+ * per-row controls here: the student and parent must not see the teacher's
+ * actions, and the teacher's only write is the Add Grade dialog in the page
+ * header. Numbers get `dir="ltr"` and tabular figures so they stay readable
+ * inside an RTL page.
+ *
+ * `showClass` is off everywhere except the parent's cross-class page; the
+ * teacher and student tables keep their original five columns. Likewise the
+ * empty state can be overridden so the parent page gets its own wording.
  */
 export function GradeList({
   grades,
   locale,
+  showClass = false,
+  emptyTitle,
+  emptyBody,
 }: {
   grades: readonly Grade[];
   locale: string;
+  showClass?: boolean;
+  emptyTitle?: string;
+  emptyBody?: string;
 }) {
   const t = useTranslations("Dashboard");
 
@@ -22,10 +33,10 @@ export function GradeList({
     return (
       <div className="rounded-lg border border-dashed border-border bg-surface-muted p-8 text-center">
         <h2 className="text-base font-semibold text-foreground">
-          {t("gradebook.empty.title")}
+          {emptyTitle ?? t("gradebook.empty.title")}
         </h2>
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-          {t("gradebook.empty.body")}
+          {emptyBody ?? t("gradebook.empty.body")}
         </p>
       </div>
     );
@@ -45,6 +56,11 @@ export function GradeList({
       <table className="w-full border-collapse text-sm">
         <thead className="bg-surface-muted">
           <tr>
+            {showClass ? (
+              <th scope="col" className="px-4 py-3 text-start font-medium text-muted-foreground">
+                {t("parentGrades.columns.class")}
+              </th>
+            ) : null}
             <th scope="col" className="px-4 py-3 text-start font-medium text-muted-foreground">
               {t("gradebook.columns.title")}
             </th>
@@ -65,6 +81,16 @@ export function GradeList({
         <tbody className="divide-y divide-border">
           {grades.map((grade) => (
             <tr key={grade.id}>
+              {showClass ? (
+                <td className="px-4 py-3 font-medium text-foreground">
+                  <span className="block">{grade.className}</span>
+                  {grade.subject ? (
+                    <span className="block text-xs text-muted-foreground">
+                      {grade.subject}
+                    </span>
+                  ) : null}
+                </td>
+              ) : null}
               <td className="px-4 py-3 font-medium text-foreground">
                 {grade.title}
               </td>

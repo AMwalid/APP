@@ -179,7 +179,12 @@
         "noGrade": "No grades yet",
         "actions": "Options for {name}",
         "edit": "Edit",
-        "delete": "Delete"
+        "delete": "Delete",
+        "studentAccount": "Student account",
+        "linked": "Linked to a student account",
+        "notLinked": "Not linked yet",
+        "viewGrades": "Grades",
+        "viewGradesFor": "View grades for {name}"
       },
       "empty": {
         "title": "No children added yet",
@@ -226,13 +231,45 @@
         "notFound": "That child could not be found. Refresh the page and try again.",
         "createFailed": "Couldn't save the child's details. Please try again.",
         "updateFailed": "Couldn't save the changes. Please try again.",
-        "deleteFailed": "Couldn't delete the child. Please try again."
+        "deleteFailed": "Couldn't delete the child. Please try again.",
+        "notParent": "Only parent accounts can link a child to a student account.",
+        "searchInvalid": "Enter a valid email address to search.",
+        "searchFailed": "Couldn't search for the student. Please try again.",
+        "linkFailed": "Couldn't link the child to the student account. Please try again."
       },
       "deleteDialog": {
         "title": "Delete {name}?",
         "description": "This child will be permanently deleted. This can't be undone.",
         "confirm": "Delete child",
         "deleting": "Deleting…"
+      },
+      "link": {
+        "trigger": "Link to Student Account",
+        "title": "Link {name} to a student account",
+        "description": "Search for the student by email, then select the account to link.",
+        "searchLabel": "Student email",
+        "searchPlaceholder": "name@example.com",
+        "searchButton": "Search",
+        "searching": "Searching…",
+        "noResults": "No student found with that email address.",
+        "resultsLabel": "Matching students",
+        "linkButton": "Link account",
+        "linking": "Linking…",
+        "close": "Close",
+        "cancel": "Cancel"
+      }
+    },
+    "parentGrades": {
+      "back": "Back to children",
+      "title": "Grades for {name}",
+      "subtitle": "All of this student's grades across every class, read-only.",
+      "listTitle": "Grade list",
+      "columns": {
+        "class": "Class"
+      },
+      "empty": {
+        "title": "No grades yet",
+        "body": "This student's grades will appear here once their teachers add them."
       }
     },
     "classes": {

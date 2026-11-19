@@ -23,6 +23,12 @@ export type Grade = {
   score: number;
   maxScore: number;
   createdAt: string;
+  /**
+   * Only set for the parent's cross-class view. Teacher and student pages show
+   * grades for a single class, so they have no need for a class column.
+   */
+  className?: string;
+  subject?: string;
 };
 
 /** A row of `public.grades`, as returned by PostgREST. */
