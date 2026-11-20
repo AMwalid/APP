@@ -102,6 +102,14 @@
     "copyright": "© {year} IBNI. Tous droits réservés."
   },
   "Auth": {
+    "panel": {
+      "quote": "Former les leaders de demain. Aujourd'hui."
+    },
+    "social": {
+      "divider": "ou continuer avec",
+      "google": "Google",
+      "apple": "Apple"
+    },
     "Login": {
       "metaTitle": "Connexion — IBNI",
       "title": "Bon retour",

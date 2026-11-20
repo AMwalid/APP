@@ -21,6 +21,7 @@ import { createSignupSchema } from "../schemas";
 import type { AuthField, SignupValues } from "../types";
 import { AuthCard } from "./auth-card";
 import { FormAlert } from "@/components/shared/form-alert";
+import { AuthSocialButtons } from "./auth-social-buttons";
 
 /**
  * Signup form.
@@ -140,6 +141,7 @@ export function SignupForm() {
           </form>
         </Form>
       )}
+      {!confirmSent ? <AuthSocialButtons /> : null}
     </AuthCard>
   );
 }

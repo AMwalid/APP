@@ -102,6 +102,14 @@
     "copyright": "© {year} IBNI. جميع الحقوق محفوظة."
   },
   "Auth": {
+    "panel": {
+      "quote": "نصنع قادة الغد. اليوم."
+    },
+    "social": {
+      "divider": "أو تابع باستخدام",
+      "google": "Google",
+      "apple": "Apple"
+    },
     "Login": {
       "metaTitle": "تسجيل الدخول — IBNI",
       "title": "مرحبًا بعودتك",

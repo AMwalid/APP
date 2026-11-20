@@ -29,19 +29,19 @@ export function AuthCard({
   footerHref,
 }: AuthCardProps) {
   return (
-    <section className="rounded-lg border border-border bg-background p-6 shadow-sm sm:p-8">
-      <h1 className="text-2xl font-bold text-balance text-foreground">
+    <section className="rounded-lg bg-background p-8 shadow-panel sm:p-10">
+      <h1 className="text-3xl font-bold text-balance text-foreground">
         {title}
       </h1>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         {subtitle}
       </p>
-      <div className="mt-6">{children}</div>
-      <p className="mt-6 text-center text-sm text-muted-foreground">
+      <div className="mt-8">{children}</div>
+      <p className="mt-8 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 border-t border-border pt-6 text-sm text-muted-foreground">
         {footerText}{" "}
         <Link
           href={footerHref}
-          className="font-medium text-primary-hover underline-offset-4 hover:underline"
+          className="font-semibold text-primary-hover underline-offset-4 hover:underline"
         >
           {footerLinkLabel}
         </Link>

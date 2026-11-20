@@ -21,6 +21,7 @@ import { createLoginSchema } from "../schemas";
 import type { AuthField, LoginValues } from "../types";
 import { AuthCard } from "./auth-card";
 import { FormAlert } from "@/components/shared/form-alert";
+import { AuthSocialButtons } from "./auth-social-buttons";
 
 const DEFAULT_TARGET = "/dashboard";
 
@@ -150,6 +151,7 @@ export function LoginForm({ nextPath }: LoginFormProps) {
           </Button>
         </form>
       </Form>
+      <AuthSocialButtons />
     </AuthCard>
   );
 }

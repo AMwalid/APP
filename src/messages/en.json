@@ -102,6 +102,14 @@
     "copyright": "© {year} IBNI. All rights reserved."
   },
   "Auth": {
+    "panel": {
+      "quote": "Crafting the Leaders of Tomorrow. Today."
+    },
+    "social": {
+      "divider": "or continue with",
+      "google": "Google",
+      "apple": "Apple"
+    },
     "Login": {
       "metaTitle": "Log in — IBNI",
       "title": "Welcome back",
