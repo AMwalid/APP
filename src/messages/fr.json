@@ -442,6 +442,45 @@
         "saveFailed": "Impossible d'enregistrer votre profil. Veuillez réessayer."
       }
     },
+    "teacherProfile": {
+      "title": "Profil de l'enseignant",
+      "subtitle": "Gardez vos informations d'enseignement à jour. C'est ainsi que vous apparaissez aux classes et aux collègues.",
+      "form": {
+        "fullName": "Nom complet",
+        "fullNamePlaceholder": "ex. Amina Benali",
+        "specialization": "Spécialisation",
+        "specializationPlaceholder": "ex. Mathématiques, Physique",
+        "specializationHint": "Les matières que vous enseignez.",
+        "experienceYears": "Années d'expérience",
+        "experienceYearsPlaceholder": "ex. 5",
+        "experienceYearsHint": "Saisissez un nombre entier entre 0 et 60.",
+        "bio": "À propos de vous",
+        "bioPlaceholder": "Présentez votre parcours et votre approche pédagogique.",
+        "bioHint": "Facultatif. Si vous en écrivez une, utilisez entre 20 et 1000 caractères.",
+        "submit": "Enregistrer le profil",
+        "submitBusy": "Enregistrement…",
+        "success": "Votre profil d'enseignant a été mis à jour.",
+        "errors": {
+          "fullNameRequired": "Saisissez votre nom complet.",
+          "fullNameTooShort": "Ce nom est trop court.",
+          "fullNameTooLong": "Ce nom est trop long.",
+          "specializationRequired": "Saisissez votre spécialisation.",
+          "specializationTooShort": "Cette spécialisation est trop courte.",
+          "specializationTooLong": "Cette spécialisation est trop longue.",
+          "experienceYearsRequired": "Saisissez vos années d'expérience.",
+          "experienceYearsInvalid": "Saisissez un nombre entier.",
+          "experienceYearsRange": "L'expérience doit être comprise entre 0 et 60 ans.",
+          "bioTooShort": "Cette présentation est trop courte. Utilisez au moins 20 caractères.",
+          "bioTooLong": "Cette présentation est trop longue. Utilisez 1000 caractères maximum."
+        }
+      },
+      "errors": {
+        "notSignedIn": "Votre session a expiré. Connectez-vous à nouveau pour continuer.",
+        "notTeacher": "Seuls les enseignants peuvent modifier ce profil.",
+        "notFound": "Votre profil n'est pas encore configuré. Déconnectez-vous, reconnectez-vous, puis réessayez.",
+        "saveFailed": "Impossible d'enregistrer votre profil d'enseignant. Veuillez réessayer."
+      }
+    },
     "overview": {
       "title": "Aperçu du parent",
       "subtitle": "Un instantané des progrès de votre enfant et des nouvelles de l'école.",

@@ -442,6 +442,45 @@
         "saveFailed": "تعذّر حفظ ملفك الشخصي. حاول مرة أخرى."
       }
     },
+    "teacherProfile": {
+      "title": "ملف الأستاذ",
+      "subtitle": "حافظ على بياناتك التعليمية محدّثة. هكذا تظهر للصفوف والزملاء.",
+      "form": {
+        "fullName": "الاسم الكامل",
+        "fullNamePlaceholder": "مثال: أمينة بن علي",
+        "specialization": "التخصص",
+        "specializationPlaceholder": "مثال: الرياضيات، الفيزياء",
+        "specializationHint": "المواد التي تدرّسها.",
+        "experienceYears": "سنوات الخبرة",
+        "experienceYearsPlaceholder": "مثال: 5",
+        "experienceYearsHint": "أدخل رقمًا صحيحًا بين 0 و60.",
+        "bio": "نبذة عنك",
+        "bioPlaceholder": "عرّف الصفوف بخلفيتك وطريقتك في التدريس.",
+        "bioHint": "اختياري. إن كتبت نبذة، استخدم بين 20 و1000 حرف.",
+        "submit": "حفظ الملف",
+        "submitBusy": "جارٍ الحفظ…",
+        "success": "تم تحديث ملف الأستاذ.",
+        "errors": {
+          "fullNameRequired": "أدخل اسمك الكامل.",
+          "fullNameTooShort": "الاسم قصير جدًا.",
+          "fullNameTooLong": "الاسم طويل جدًا.",
+          "specializationRequired": "أدخل تخصصك.",
+          "specializationTooShort": "التخصص قصير جدًا.",
+          "specializationTooLong": "التخصص طويل جدًا.",
+          "experienceYearsRequired": "أدخل سنوات الخبرة.",
+          "experienceYearsInvalid": "أدخل رقمًا صحيحًا.",
+          "experienceYearsRange": "يجب أن تكون الخبرة بين 0 و60 سنة.",
+          "bioTooShort": "النبذة قصيرة جدًا. استخدم 20 حرفًا على الأقل.",
+          "bioTooLong": "النبذة طويلة جدًا. استخدم 1000 حرف كحد أقصى."
+        }
+      },
+      "errors": {
+        "notSignedIn": "انتهت جلستك. سجّل الدخول من جديد للمتابعة.",
+        "notTeacher": "يمكن للأساتذة فقط تعديل هذا الملف.",
+        "notFound": "لم يُنشأ ملفك الشخصي بعد. سجّل الخروج ثم الدخول مجددًا وحاول مرة أخرى.",
+        "saveFailed": "تعذّر حفظ ملف الأستاذ. حاول مرة أخرى."
+      }
+    },
     "overview": {
       "title": "نظرة عامة لولي الأمر",
       "subtitle": "لمحة سريعة عن تقدّم طفلك وأخبار المدرسة.",

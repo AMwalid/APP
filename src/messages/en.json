@@ -442,6 +442,45 @@
         "saveFailed": "Couldn't save your profile. Please try again."
       }
     },
+    "teacherProfile": {
+      "title": "Teacher profile",
+      "subtitle": "Keep your teaching details up to date. This is how you appear to classes and colleagues.",
+      "form": {
+        "fullName": "Full name",
+        "fullNamePlaceholder": "e.g. Amina Benali",
+        "specialization": "Specialization",
+        "specializationPlaceholder": "e.g. Mathematics, Physics",
+        "specializationHint": "The subjects you teach.",
+        "experienceYears": "Years of experience",
+        "experienceYearsPlaceholder": "e.g. 5",
+        "experienceYearsHint": "Enter a whole number between 0 and 60.",
+        "bio": "About you",
+        "bioPlaceholder": "Tell classes a little about your background and teaching approach.",
+        "bioHint": "Optional. If you add one, use between 20 and 1000 characters.",
+        "submit": "Save profile",
+        "submitBusy": "Saving…",
+        "success": "Your teacher profile has been updated.",
+        "errors": {
+          "fullNameRequired": "Enter your full name.",
+          "fullNameTooShort": "That name is too short.",
+          "fullNameTooLong": "That name is too long.",
+          "specializationRequired": "Enter your specialization.",
+          "specializationTooShort": "That specialization is too short.",
+          "specializationTooLong": "That specialization is too long.",
+          "experienceYearsRequired": "Enter your years of experience.",
+          "experienceYearsInvalid": "Enter a whole number.",
+          "experienceYearsRange": "Experience must be between 0 and 60 years.",
+          "bioTooShort": "That bio is too short. Use at least 20 characters.",
+          "bioTooLong": "That bio is too long. Use at most 1000 characters."
+        }
+      },
+      "errors": {
+        "notSignedIn": "Your session expired. Sign in again to continue.",
+        "notTeacher": "Only teachers can edit this profile.",
+        "notFound": "Your profile isn't set up yet. Sign out and back in, then try again.",
+        "saveFailed": "Couldn't save your teacher profile. Please try again."
+      }
+    },
     "overview": {
       "title": "Parent overview",
       "subtitle": "A snapshot of your child's progress and school updates.",

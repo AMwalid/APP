@@ -1,7 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
-import { ComingSoon } from "@/components/shared/coming-soon";
+import { TeacherProfileView } from "@/features/teacher-profile";
 
-/** TCH-01 CV-style teacher profile lands here. */
+/** TCH-01: the teacher's editable profile. */
 export default async function TeacherProfilePage({
   params,
 }: {
@@ -10,5 +10,5 @@ export default async function TeacherProfilePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <ComingSoon locale={locale} sectionKey="nav.profile" />;
+  return <TeacherProfileView />;
 }
