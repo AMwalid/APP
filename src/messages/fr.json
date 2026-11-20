@@ -41,7 +41,7 @@
       "title": "IBNI en chiffres",
       "items": {
         "students": {
-          "value": "10\u00a0000+",
+          "value": "10 000+",
           "label": "élèves actifs"
         },
         "teachers": {
@@ -64,7 +64,7 @@
       "items": {
         "track": {
           "title": "Suivi des progrès",
-          "description": "Suivez l'assiduité, les notes et le comportement en temps réel\u00a0: plus rien d'important n'attend le bulletin."
+          "description": "Suivez l'assiduité, les notes et le comportement en temps réel : plus rien d'important n'attend le bulletin."
         },
         "communicate": {
           "title": "Communication directe",
@@ -77,7 +77,7 @@
       }
     },
     "Cta": {
-      "title": "Prêt à transformer l'expérience scolaire\u00a0?",
+      "title": "Prêt à transformer l'expérience scolaire ?",
       "subtitle": "Rejoignez des milliers de parents, d'élèves, d'enseignants et d'établissements qui construisent déjà une meilleure journée d'école sur IBNI.",
       "button": "Commencer"
     }
@@ -116,16 +116,16 @@
       "subtitle": "Connectez-vous pour accéder à votre compte IBNI.",
       "submit": "Se connecter",
       "submitting": "Connexion…",
-      "noAccount": "Pas encore de compte\u00a0?",
+      "noAccount": "Pas encore de compte ?",
       "signupLink": "Créer un compte"
     },
     "Signup": {
       "metaTitle": "Créer un compte — IBNI",
       "title": "Créez votre compte",
-      "subtitle": "Commencez par votre adresse e-mail et un mot de passe\u00a0; vous pourrez compléter votre profil plus tard.",
+      "subtitle": "Commencez par votre adresse e-mail et un mot de passe ; vous pourrez compléter votre profil plus tard.",
       "submit": "Créer le compte",
       "submitting": "Création du compte…",
-      "haveAccount": "Vous avez déjà un compte\u00a0?",
+      "haveAccount": "Vous avez déjà un compte ?",
       "loginLink": "Se connecter",
       "passwordHint": "Utilisez au moins 8 caractères.",
       "checkEmail": "Vérifiez votre adresse e-mail pour confirmer votre compte, puis connectez-vous."
@@ -647,6 +647,747 @@
         "ar": "Arabe",
         "fr": "Français",
         "en": "Anglais"
+      }
+    }
+  },
+  "Marketing": {
+    "parents": {
+      "metaTitle": "Pour les parents — IBNI",
+      "title": "Comment IBNI aide les parents",
+      "subtitle": "Accompagnez le parcours scolaire de votre enfant avec IBNI. Trouvez les meilleures écoles, échangez avec des enseignants qualifiés et suivez sa progression au même endroit.",
+      "heroPrimary": "S'inscrire comme parent",
+      "heroSecondary": "Réserver une démo",
+      "stats": [
+        {
+          "id": "active",
+          "icon": "users",
+          "value": "10 k+",
+          "label": "Parents actifs"
+        },
+        {
+          "id": "success",
+          "icon": "star",
+          "value": "95 %",
+          "label": "Taux de réussite"
+        },
+        {
+          "id": "support",
+          "icon": "clock",
+          "value": "24 h/24",
+          "label": "Assistance disponible"
+        }
+      ],
+      "valueProps": [
+        {
+          "id": "quality",
+          "icon": "graduation",
+          "title": "Un enseignement de qualité",
+          "description": "Trouvez les meilleurs établissements pour votre enfant",
+          "content": "Accédez à des informations complètes sur les écoles, leurs programmes et leurs résultats pour choisir en connaissance de cause.",
+          "features": [
+            "Fiches détaillées et avis sur les écoles",
+            "Indicateurs de performance et classements",
+            "Programmes et filières",
+            "Aperçu des activités extrascolaires"
+          ]
+        },
+        {
+          "id": "teachers",
+          "icon": "userCheck",
+          "title": "Des enseignants experts",
+          "description": "Échangez avec des éducateurs qualifiés et expérimentés",
+          "content": "Parcourez les profils des enseignants, consultez leurs qualifications et trouvez la personne idéale pour votre enfant.",
+          "features": [
+            "Diplômes vérifiés",
+            "Méthodes et style d'enseignement",
+            "Témoignages d'élèves",
+            "Horaires flexibles"
+          ]
+        },
+        {
+          "id": "tracking",
+          "icon": "book",
+          "title": "Suivi de la progression",
+          "description": "Suivez le parcours scolaire de votre enfant",
+          "content": "Suivez sa progression, ses notes, ses absences et ses résultats en temps réel pour mieux l'accompagner.",
+          "features": [
+            "Notes en temps réel",
+            "Suivi des absences",
+            "Analyses de performance",
+            "Recommandations personnalisées"
+          ]
+        }
+      ],
+      "testimonialsTitle": "Ce que les parents disent d'IBNI",
+      "testimonials": [
+        {
+          "id": "sarah",
+          "quote": "IBNI a transformé ma façon de gérer la scolarité de mes enfants. Le suivi de la progression est inestimable !",
+          "author": "Sarah M.",
+          "role": "Maman de deux enfants"
+        },
+        {
+          "id": "mohammed",
+          "quote": "Trouver la bonne école a été beaucoup plus facile grâce aux outils de comparaison d'IBNI.",
+          "author": "Mohammed A.",
+          "role": "Papa de trois enfants"
+        }
+      ],
+      "featuresTitle": "Fonctionnalités clés pour les parents",
+      "featureAction": "En savoir plus",
+      "features": [
+        {
+          "id": "par-01",
+          "icon": "users",
+          "title": "Un tableau de bord par enfant",
+          "description": "Toute la journée scolaire en une seule vue.",
+          "items": [
+            "Absences et comportement d'un coup d'œil",
+            "Résultats scolaires au même endroit",
+            "Messages et avis de l'école regroupés"
+          ]
+        },
+        {
+          "id": "par-02",
+          "icon": "star",
+          "title": "Les alertes qui comptent",
+          "description": "Soyez prévenu dès qu'il faut réagir.",
+          "items": [
+            "Notes faibles et signalements",
+            "Changements d'emploi du temps",
+            "Annonces importantes de l'école"
+          ]
+        },
+        {
+          "id": "par-03",
+          "icon": "book",
+          "title": "Un profil qui grandit avec lui",
+          "description": "Conservez son parcours au fil des années.",
+          "items": [
+            "Historique scolaire chronologique",
+            "Points forts et axes à améliorer",
+            "Réussites et étapes franchies"
+          ]
+        },
+        {
+          "id": "par-04",
+          "icon": "school",
+          "title": "Trouver la bonne école",
+          "description": "Comparez des établissements vérifiés.",
+          "items": [
+            "Profils d'établissements vérifiés",
+            "Programmes, infrastructures et coordonnées",
+            "Recherche par lieu et spécialisation"
+          ]
+        },
+        {
+          "id": "par-05",
+          "icon": "userCheck",
+          "title": "Rencontrer le bon enseignant",
+          "description": "Parcourez des profils détaillés et vérifiés.",
+          "items": [
+            "Expérience, matières et spécialités",
+            "Avis et retours d'élèves",
+            "Disponibilités et approche pédagogique"
+          ]
+        },
+        {
+          "id": "par-06",
+          "icon": "users",
+          "title": "Échanger avec l'école en toute sécurité",
+          "description": "Toutes vos conversations au même endroit.",
+          "items": [
+            "Messagerie directe et sécurisée",
+            "Historique des échanges conservé",
+            "Actualités de l'école réunies"
+          ]
+        },
+        {
+          "id": "par-07",
+          "icon": "shopping",
+          "title": "La boutique à portée de main",
+          "description": "Achetez l'essentiel en quelques gestes.",
+          "items": [
+            "Livres et fournitures scolaires",
+            "Cours et soutien scolaire",
+            "Ressources pédagogiques sélectionnées"
+          ]
+        },
+        {
+          "id": "par-08",
+          "icon": "building",
+          "title": "S'inscrire et payer localement",
+          "description": "Des démarches adaptées à l'Algérie.",
+          "items": [
+            "Inscription aux services scolaires",
+            "Paiement des frais et des cours",
+            "Moyens de paiement adaptés"
+          ]
+        },
+        {
+          "id": "par-09",
+          "icon": "star",
+          "title": "Plus lorsque vous en avez besoin",
+          "description": "Allez plus loin avec des outils avancés.",
+          "items": [
+            "Analyses de performance approfondies",
+            "Recommandations personnalisées",
+            "Historique étendu et support prioritaire"
+          ]
+        }
+      ],
+      "cta": {
+        "title": "Prêt à améliorer la scolarité de votre enfant ?",
+        "subtitle": "Rejoignez des milliers de parents qui utilisent déjà IBNI pour trouver les meilleures ressources pour leurs enfants.",
+        "primary": "S'inscrire maintenant",
+        "secondary": "Réserver une démo"
+      }
+    },
+    "teachers": {
+      "metaTitle": "Pour les enseignants — IBNI",
+      "title": "Comment IBNI aide les enseignants",
+      "subtitle": "Développez votre carrière avec IBNI. Échangez avec vos élèves, gérez vos classes et valorisez votre expertise au même endroit.",
+      "heroPrimary": "S'inscrire comme enseignant",
+      "heroSecondary": "Réserver une démo",
+      "valueProps": [
+        {
+          "id": "connect",
+          "icon": "users",
+          "title": "Rencontrer les élèves",
+          "description": "Touchez ceux qui ont besoin de votre expertise",
+          "content": "Créez un profil professionnel pour présenter votre expertise et entrer en contact avec des élèves qui cherchent un enseignant comme vous.",
+          "features": [
+            "Un profil qui met en valeur votre expérience",
+            "Visibilité auprès des familles de votre région",
+            "Contact direct avec les bons élèves"
+          ]
+        },
+        {
+          "id": "classes",
+          "icon": "book",
+          "title": "Gérer ses classes",
+          "description": "Simplifiez votre quotidien",
+          "content": "Organisez vos classes, suivez la progression des élèves et gérez les devoirs au même endroit pour gagner du temps.",
+          "features": [
+            "Listes et emplois du temps",
+            "Présence et participation",
+            "Devoirs et notes"
+          ]
+        },
+        {
+          "id": "career",
+          "icon": "graduation",
+          "title": "Développer sa carrière",
+          "description": "Multipliez les opportunités",
+          "content": "Échangez avec des écoles, des établissements et des élèves pour élargir vos opportunités et votre réseau professionnel.",
+          "features": [
+            "Opportunités auprès d'établissements vérifiés",
+            "Un portfolio de vos réussites",
+            "Un réseau professionnel qui grandit"
+          ]
+        }
+      ],
+      "featuresTitle": "Fonctionnalités clés pour les enseignants",
+      "featureAction": "En savoir plus",
+      "features": [
+        {
+          "id": "tch-01",
+          "icon": "userCheck",
+          "title": "Un profil qui parle pour vous",
+          "description": "Présentez votre expérience comme elle le mérite.",
+          "items": [
+            "Profil enseignant façon CV",
+            "Matières et niveaux",
+            "Qualifications et avis"
+          ]
+        },
+        {
+          "id": "tch-02",
+          "icon": "users",
+          "title": "Gestion des classes",
+          "description": "Pilotez vos classes depuis un seul espace.",
+          "items": [
+            "Créer et organiser des classes",
+            "Tenir les listes à jour",
+            "Partager des supports avec une classe"
+          ]
+        },
+        {
+          "id": "tch-03",
+          "icon": "book",
+          "title": "Dossiers des élèves",
+          "description": "Suivez les détails qui comptent.",
+          "items": [
+            "Présence et participation",
+            "Devoirs et résultats",
+            "Notes sur la progression individuelle"
+          ]
+        },
+        {
+          "id": "tch-04",
+          "icon": "target",
+          "title": "Rapports et analyses",
+          "description": "Transformez les données en décisions.",
+          "items": [
+            "Rapports personnalisés",
+            "Vues de progression et de performance",
+            "Synthèses exportables"
+          ]
+        },
+        {
+          "id": "tch-05",
+          "icon": "users",
+          "title": "Communication avec les parents",
+          "description": "Tenez les familles informées.",
+          "items": [
+            "Messages sécurisés aux parents",
+            "Actualités sur la progression",
+            "Historique unique des échanges"
+          ]
+        },
+        {
+          "id": "tch-06",
+          "icon": "star",
+          "title": "Calcul des notes",
+          "description": "Laissez les chiffres se calculer.",
+          "items": [
+            "Calcul automatique des notes",
+            "Coefficients personnalisés",
+            "Résultats cohérents entre les classes"
+          ]
+        },
+        {
+          "id": "tch-07",
+          "icon": "book",
+          "title": "Génération de tests",
+          "description": "Créez une évaluation en quelques minutes.",
+          "items": [
+            "Banques de questions prêtes à l'emploi",
+            "Quiz et tests personnalisés",
+            "Résultats centralisés"
+          ]
+        },
+        {
+          "id": "tch-08",
+          "icon": "clock",
+          "title": "Planification des cours",
+          "description": "Sachez ce que vous enseignez, et quand.",
+          "items": [
+            "Calendrier clair des leçons",
+            "Planification des classes et séances",
+            "Rappels des prochains cours"
+          ]
+        },
+        {
+          "id": "tch-09",
+          "icon": "graduation",
+          "title": "Gratuit pour les enseignants",
+          "description": "Commencez avec un compte complet.",
+          "items": [
+            "Gérer classes et élèves gratuitement",
+            "Options premium via les établissements",
+            "Évoluez seulement quand vous le voulez"
+          ]
+        }
+      ],
+      "cta": {
+        "title": "Prêt à développer votre carrière d'enseignant ?",
+        "subtitle": "Rejoignez des milliers d'enseignants qui utilisent déjà IBNI pour échanger avec leurs élèves, gérer leurs classes et avancer.",
+        "primary": "S'inscrire maintenant",
+        "secondary": "Réserver une démo"
+      }
+    },
+    "students": {
+      "metaTitle": "Pour les élèves — IBNI",
+      "title": "Comment IBNI aide les élèves",
+      "subtitle": "Prenez le contrôle de votre parcours avec IBNI. Trouvez les meilleures écoles, échangez avec des enseignants experts et suivez votre progression au même endroit.",
+      "heroPrimary": "S'inscrire comme élève",
+      "heroSecondary": "Réserver une démo",
+      "valueProps": [
+        {
+          "id": "quality",
+          "icon": "graduation",
+          "title": "Un enseignement de qualité",
+          "description": "Trouvez le meilleur établissement pour votre avenir",
+          "content": "Découvrez des écoles qui correspondent à vos centres d'intérêt, à votre façon d'apprendre et à vos objectifs.",
+          "features": [
+            "Profils des écoles et des filières",
+            "Des détails pour comparer",
+            "Informations sur les infrastructures et activités"
+          ]
+        },
+        {
+          "id": "teachers",
+          "icon": "userCheck",
+          "title": "Des enseignants experts",
+          "description": "Échangez avec des éducateurs qualifiés",
+          "content": "Trouvez des enseignants qui vous aideront à progresser, vous guideront personnellement et soutiendront votre apprentissage.",
+          "features": [
+            "Diplômes vérifiés",
+            "Matières et style d'enseignement",
+            "Avis d'autres élèves"
+          ]
+        },
+        {
+          "id": "tracking",
+          "icon": "book",
+          "title": "Suivi de la progression",
+          "description": "Suivez votre parcours scolaire",
+          "content": "Suivez votre progression, vos notes, vos absences et vos résultats en temps réel.",
+          "features": [
+            "Notes et absences",
+            "Progression par matière",
+            "Objectifs et réussites"
+          ]
+        }
+      ],
+      "featuresTitle": "Fonctionnalités clés pour les élèves",
+      "featureAction": "En savoir plus",
+      "features": [
+        {
+          "id": "stu-01",
+          "icon": "users",
+          "title": "Votre propre tableau de bord",
+          "description": "Devoirs, progression et messages au même endroit.",
+          "items": [
+            "Ce qui est à rendre et quand",
+            "Dernières notes et retours",
+            "Actualités de vos classes"
+          ]
+        },
+        {
+          "id": "stu-02",
+          "icon": "star",
+          "title": "Gamification",
+          "description": "De petites victoires qui vous font avancer.",
+          "items": [
+            "Badges pour les étapes franchies",
+            "Déblocages au fil de la progression",
+            "Une série d'efforts visible"
+          ]
+        },
+        {
+          "id": "stu-03",
+          "icon": "target",
+          "title": "Profil d'apprentissage",
+          "description": "Voyez comment vous apprenez, pas seulement vos notes.",
+          "items": [
+            "Points forts et axes faibles",
+            "Progression par matière",
+            "Une image de vos habitudes"
+          ]
+        },
+        {
+          "id": "stu-04",
+          "icon": "lightbulb",
+          "title": "Apprentissage personnalisé",
+          "description": "Des recommandations pensées pour vous.",
+          "items": [
+            "Suggestions adaptées à votre niveau",
+            "Un parcours qui évolue avec vous",
+            "Un focus là où cela compte"
+          ]
+        },
+        {
+          "id": "stu-05",
+          "icon": "book",
+          "title": "Ressources d'apprentissage",
+          "description": "Le matériel dont vous avez besoin, à portée de main.",
+          "items": [
+            "Cours et supports de révision",
+            "Contenus sélectionnés par matière",
+            "Outils recommandés par les enseignants"
+          ]
+        },
+        {
+          "id": "stu-06",
+          "icon": "school",
+          "title": "Accès hors ligne",
+          "description": "Continuez d'apprendre sans connexion.",
+          "items": [
+            "Enregistrer des ressources",
+            "Revoir un cours sans réseau",
+            "Synchronisation au retour en ligne"
+          ]
+        },
+        {
+          "id": "stu-07",
+          "icon": "graduation",
+          "title": "Orientation professionnelle",
+          "description": "Bientôt : préparez la suite.",
+          "items": [
+            "Explorer les parcours possibles",
+            "Relier les apprentissages à vos objectifs",
+            "Des repères pour la suite"
+          ]
+        }
+      ],
+      "cta": {
+        "title": "Prêt à prendre le contrôle de votre scolarité ?",
+        "subtitle": "Rejoignez des milliers d'élèves qui utilisent déjà IBNI pour trouver des ressources et suivre leur progression.",
+        "primary": "S'inscrire maintenant",
+        "secondary": "Réserver une démo"
+      }
+    },
+    "institutions": {
+      "metaTitle": "Pour les établissements — IBNI",
+      "title": "Comment IBNI aide les établissements",
+      "subtitle": "Transformez votre établissement avec IBNI. Échangez avec les élèves, gérez votre école et valorisez vos programmes au même endroit.",
+      "heroPrimary": "Réserver une démo",
+      "heroSecondary": "Créer un compte",
+      "valueProps": [
+        {
+          "id": "connect",
+          "icon": "users",
+          "title": "Rencontrer les élèves",
+          "description": "Touchez les futurs élèves et leurs familles",
+          "content": "Créez une fiche attrayante pour présenter vos programmes, vos infrastructures et vos réussites afin d'attirer les bons élèves.",
+          "features": [
+            "Une fiche qui vous distingue",
+            "Programmes et infrastructures",
+            "Coordonnées fiables pour les familles"
+          ]
+        },
+        {
+          "id": "manage",
+          "icon": "school",
+          "title": "Gestion de l'établissement",
+          "description": "Simplifiez vos processus administratifs",
+          "content": "Gérez les classes, suivez la progression des élèves et traitez les tâches administratives pour vous concentrer sur l'essentiel : l'éducation.",
+          "features": [
+            "Classes, emplois du temps et listes",
+            "Présence et performance",
+            "Annonces et frais de scolarité"
+          ]
+        },
+        {
+          "id": "reputation",
+          "icon": "graduation",
+          "title": "Renforcer votre réputation",
+          "description": "Développez la notoriété de votre établissement",
+          "content": "Présentez vos réussites, les parcours de vos élèves et vos programmes uniques pour bâtir une solide réputation.",
+          "features": [
+            "Réussites et témoignages",
+            "Statut d'établissement vérifié",
+            "Une présence en ligne plus claire"
+          ]
+        }
+      ],
+      "featuresTitle": "Fonctionnalités clés pour les établissements",
+      "featureAction": "En savoir plus",
+      "features": [
+        {
+          "id": "ins-01",
+          "icon": "school",
+          "title": "Fiche établissement",
+          "description": "Présentez votre établissement sous son meilleur jour.",
+          "items": [
+            "Réussites, programmes et infrastructures",
+            "Coordonnées et localisation",
+            "Toutes vos informations publiques au même endroit"
+          ]
+        },
+        {
+          "id": "ins-02",
+          "icon": "userCheck",
+          "title": "Vérification",
+          "description": "Inspirez confiance avec une présence vérifiée.",
+          "items": [
+            "Profils d'établissements vérifiés",
+            "Un signal clair pour les familles",
+            "Des informations tenues à jour"
+          ]
+        },
+        {
+          "id": "ins-03",
+          "icon": "search",
+          "title": "Recherche et découverte",
+          "description": "Soyez trouvé par les bonnes familles.",
+          "items": [
+            "Visible par lieu et par type",
+            "Filtres par spécialisation et langue",
+            "Des fiches cohérentes sur la plateforme"
+          ]
+        },
+        {
+          "id": "ins-04",
+          "icon": "users",
+          "title": "Tableau de bord administratif",
+          "description": "Voyez tout votre établissement d'un coup d'œil.",
+          "items": [
+            "Enseignants, élèves et parents",
+            "Les chiffres clés en une vue",
+            "Un point de départ pour chaque tâche"
+          ]
+        },
+        {
+          "id": "ins-05",
+          "icon": "building",
+          "title": "Administration",
+          "description": "Gérez le quotidien plus facilement.",
+          "items": [
+            "Annonces",
+            "Gestion des frais de scolarité",
+            "Suivi de la performance"
+          ]
+        },
+        {
+          "id": "ins-06",
+          "icon": "target",
+          "title": "Analyses",
+          "description": "Comprenez ce qui fonctionne.",
+          "items": [
+            "Engagement et inscriptions",
+            "Performance opérationnelle",
+            "Des enseignements exploitables"
+          ]
+        },
+        {
+          "id": "ins-07",
+          "icon": "book",
+          "title": "Inscriptions",
+          "description": "Recevez les candidatures via la plateforme.",
+          "items": [
+            "Candidatures centralisées",
+            "Un parcours plus clair",
+            "Moins d'étapes pour les candidats"
+          ]
+        },
+        {
+          "id": "ins-08",
+          "icon": "shopping",
+          "title": "Offres de services",
+          "description": "Proposez davantage via la boutique.",
+          "items": [
+            "Transport et repas",
+            "Soutien scolaire et services annexes",
+            "Tout dans le même marketplace"
+          ]
+        },
+        {
+          "id": "ins-09",
+          "icon": "star",
+          "title": "Formules d'abonnement",
+          "description": "Choisissez l'offre qui vous convient.",
+          "items": [
+            "Tableaux de bord et analyses avancés",
+            "Plus de stockage et marque blanche",
+            "Support technique dédié"
+          ]
+        },
+        {
+          "id": "ins-10",
+          "icon": "lightbulb",
+          "title": "Modules premium",
+          "description": "Étendez la plateforme si besoin.",
+          "items": [
+            "Intégrations API avancées",
+            "Rapports personnalisés",
+            "Formation et gestion de compte dédiées"
+          ]
+        }
+      ],
+      "cta": {
+        "title": "Prêt à transformer votre établissement ?",
+        "subtitle": "Rejoignez des centaines d'établissements qui utilisent déjà IBNI pour recruter des élèves, gérer leur école et renforcer leur réputation.",
+        "primary": "Réserver une démo",
+        "secondary": "Créer un compte"
+      }
+    },
+    "about": {
+      "metaTitle": "À propos d'IBNI — IBNI",
+      "title": "À propos d'IBNI",
+      "subtitle": "Donner aux apprenants les moyens d'agir en les reliant aux bonnes ressources et aux bons services éducatifs.",
+      "who": {
+        "title": "Qui sommes-nous",
+        "paragraphs": [
+          "IBNI est une plateforme numérique conçue pour accompagner les apprenants en les reliant aux ressources et services éducatifs adaptés. Créée par une équipe d'étudiants en marketing des services et en commerce de l'Université de Tlemcen, IBNI comble le fossé entre ceux qui cherchent le savoir et ceux qui le transmettent, par l'innovation et l'accessibilité."
+        ]
+      },
+      "pillars": [
+        {
+          "id": "mission",
+          "title": "Notre mission",
+          "body": "Notre mission est de rendre l'apprentissage plus accessible, personnalisé et efficace grâce à des outils numériques au service des élèves, des enseignants et des apprenants tout au long de la vie.",
+          "icon": "target"
+        },
+        {
+          "id": "vision",
+          "title": "Notre vision",
+          "body": "Nous envisionnons un avenir où chaque apprenant, quel que soit son parcours ou son lieu de vie, accède à des contenus et services adaptés à sa croissance personnelle et professionnelle.",
+          "icon": "lightbulb"
+        }
+      ],
+      "name": {
+        "title": "Le nom IBNI",
+        "paragraphs": [
+          "« IBNI » est un mot arabe qui signifie « construire ». Il traduit notre conviction que l'éducation est un acte de construction : bâtir des apprenants prêts pour demain, une connexion à la fois.",
+          "Former les leaders de demain. Aujourd'hui."
+        ]
+      },
+      "story": {
+        "title": "L'idée derrière IBNI",
+        "paragraphs": [
+          "IBNI est né d'un projet de fin d'études à l'Université de Tlemcen, porté par la volonté de résoudre des défis d'apprentissage concrets. Inspirés par des expériences personnelles et par des manques sur le marché, nous avons transformé notre idée en une initiative numérique en pleine croissance.",
+          "Nous avons constaté que les étudiants peinaient souvent à trouver les ressources, les tuteurs et les services qui correspondaient à leurs besoins. En parallèle, les enseignants qualifiés et les établissements manquaient de moyens efficaces pour rencontrer les élèves. IBNI est né de ce constat : une plateforme où demande et offre se rencontrent facilement."
+        ]
+      },
+      "teamTitle": "Rencontrez l'équipe",
+      "team": [
+        {
+          "id": "walid",
+          "name": "ALLOUCHE MOHAMMED WALID",
+          "role": "Cofondateur & Responsable marketing",
+          "quote": "Je crois que l'éducation doit être accessible à tous, quel que soit le parcours.",
+          "image": "/images/team/ALLOUCHE MOHAMMED WALID.png"
+        },
+        {
+          "id": "ayadi",
+          "name": "AYADI MOHAMMED",
+          "role": "Cofondateur & Responsable des opérations",
+          "quote": "La technologie peut transformer l'éducation lorsqu'elle est pensée pour l'apprenant.",
+          "image": "/images/team/AYADI MOHAMMED.png"
+        },
+        {
+          "id": "cherif",
+          "name": "CHERIF BENMOUSSA BACHIR",
+          "role": "Cofondateur & Responsable technique",
+          "quote": "Créer des liens entre étudiants et enseignants est la clé de meilleurs résultats.",
+          "image": "/images/team/CHERIF BENMOUSSA BACHIR.png"
+        }
+      ],
+      "whyTitle": "Pourquoi choisir IBNI ?",
+      "why": [
+        {
+          "id": "access",
+          "title": "Accessibilité",
+          "description": "Nous rendons l'éducation de qualité accessible à tous, en levant les barrières géographiques et socio-économiques.",
+          "icon": "building"
+        },
+        {
+          "id": "personal",
+          "title": "Personnalisation",
+          "description": "Notre plateforme adapte les parcours aux besoins, aux styles d'apprentissage et aux objectifs de chacun.",
+          "icon": "graduation"
+        },
+        {
+          "id": "innovation",
+          "title": "Innovation",
+          "description": "Nous faisons évoluer la plateforme avec des outils et des approches toujours plus efficaces.",
+          "icon": "book"
+        },
+        {
+          "id": "students",
+          "title": "Par les élèves",
+          "description": "Créée par des étudiants pour des étudiants : nous connaissons les défis des apprenants d'aujourd'hui.",
+          "icon": "heart"
+        }
+      ],
+      "cta": {
+        "title": "Rejoignez-nous pour bâtir une façon plus intelligente d'apprendre",
+        "subtitle": "Prenez part à l'aventure IBNI alors que nous transformons l'éducation par la connexion, l'innovation et l'accessibilité.",
+        "primary": "Commencer",
+        "secondary": "Réserver une démo"
       }
     }
   }
