@@ -21,7 +21,8 @@ type MarketingPageProps = {
     subtitle: string;
     actions: readonly MarketingAction[];
   };
-  children: ReactNode;
+  /** Omit for placeholder pages that are only a hero and a CTA. */
+  children?: ReactNode;
 };
 
 function ActionLink({ action }: { action: MarketingAction }) {
@@ -91,9 +92,11 @@ export function MarketingPage({
         </div>
       </section>
 
-      <div className="container-page py-12">
-        <div className="space-y-16">{children}</div>
-      </div>
+      {children ? (
+        <div className="container-page py-12">
+          <div className="space-y-16">{children}</div>
+        </div>
+      ) : null}
 
       <section className="container-page pb-16">
         <div className="rounded-xl bg-gradient-to-r from-primary-soft to-surface p-8 text-center shadow-header">

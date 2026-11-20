@@ -1389,6 +1389,74 @@
         "primary": "Commencer",
         "secondary": "Réserver une démo"
       }
+    },
+    "comingSoon": {
+      "common": {
+        "ctaTitle": "Et bien d'autres choses à venir",
+        "ctaSubtitle": "En attendant, découvrez IBNI ou créez un compte pour commencer.",
+        "home": "Retour à l'accueil",
+        "signup": "S'inscrire"
+      },
+      "store": {
+        "metaTitle": "La boutique IBNI — IBNI",
+        "title": "La boutique IBNI",
+        "subtitle": "Ressources pédagogiques, cours et fournitures arrivent bientôt."
+      },
+      "bookDemo": {
+        "metaTitle": "Réserver une démo — IBNI",
+        "title": "Réserver une démo",
+        "subtitle": "Planifiez une présentation avec notre équipe. Cette fonctionnalité arrive bientôt."
+      },
+      "contact": {
+        "metaTitle": "Contactez-nous — IBNI",
+        "title": "Contactez-nous",
+        "subtitle": "Nous aimerions avoir de vos nouvelles. Notre formulaire de contact arrive bientôt."
+      },
+      "help": {
+        "metaTitle": "Centre d'aide — IBNI",
+        "title": "Centre d'aide",
+        "subtitle": "Les guides et l'assistance arrivent bientôt."
+      },
+      "findResources": {
+        "metaTitle": "Trouver des ressources — IBNI",
+        "title": "Trouver des ressources",
+        "subtitle": "La recherche d'écoles, d'enseignants et de ressources arrive bientôt."
+      },
+      "userGuide": {
+        "metaTitle": "Guide d'utilisation — IBNI",
+        "title": "Guide d'utilisation",
+        "subtitle": "Des guides pas à pas pour chaque fonctionnalité d'IBNI arrivent bientôt."
+      },
+      "prices": {
+        "metaTitle": "Nos tarifs — IBNI",
+        "title": "Nos tarifs",
+        "subtitle": "Les offres et les tarifs pour chaque profil seront publiés ici prochainement."
+      },
+      "invest": {
+        "metaTitle": "Investir dans IBNI — IBNI",
+        "title": "Investir dans IBNI",
+        "subtitle": "Découvrez comment nous accompagner et investir dans l'avenir de l'éducation. Bientôt disponible."
+      },
+      "features": {
+        "metaTitle": "Fonctionnalités — IBNI",
+        "title": "Fonctionnalités",
+        "subtitle": "Une présentation complète de tout ce qu'IBNI peut faire arrive bientôt."
+      },
+      "careers": {
+        "metaTitle": "Carrières — IBNI",
+        "title": "Carrières",
+        "subtitle": "Rejoignez-nous. Les postes ouverts apparaîtront ici prochainement."
+      },
+      "privacy": {
+        "metaTitle": "Politique de confidentialité — IBNI",
+        "title": "Politique de confidentialité",
+        "subtitle": "Notre politique de confidentialité est en préparation et sera publiée ici prochainement."
+      },
+      "terms": {
+        "metaTitle": "Conditions d'utilisation — IBNI",
+        "title": "Conditions d'utilisation",
+        "subtitle": "Nos conditions d'utilisation sont en préparation et seront publiées ici prochainement."
+      }
     }
   }
 }

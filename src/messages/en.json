@@ -1389,6 +1389,74 @@
         "primary": "Get Started",
         "secondary": "Book a Demo"
       }
+    },
+    "comingSoon": {
+      "common": {
+        "ctaTitle": "More is on the way",
+        "ctaSubtitle": "In the meantime, explore IBNI or create an account to get started.",
+        "home": "Back to Home",
+        "signup": "Sign up"
+      },
+      "store": {
+        "metaTitle": "The IBNI Store — IBNI",
+        "title": "The IBNI Store",
+        "subtitle": "Educational resources, courses, and supplies are coming soon."
+      },
+      "bookDemo": {
+        "metaTitle": "Book a Demo — IBNI",
+        "title": "Book a Demo",
+        "subtitle": "Schedule a walkthrough with our team. This feature is coming soon."
+      },
+      "contact": {
+        "metaTitle": "Contact Us — IBNI",
+        "title": "Contact Us",
+        "subtitle": "We'd love to hear from you. Our contact form is coming soon."
+      },
+      "help": {
+        "metaTitle": "Help Center — IBNI",
+        "title": "Help Center",
+        "subtitle": "Guides and support are on the way."
+      },
+      "findResources": {
+        "metaTitle": "Find Resources — IBNI",
+        "title": "Find Resources",
+        "subtitle": "School, teacher and resource discovery is coming soon."
+      },
+      "userGuide": {
+        "metaTitle": "User Guide — IBNI",
+        "title": "User Guide",
+        "subtitle": "Step-by-step guides for every IBNI feature are on the way."
+      },
+      "prices": {
+        "metaTitle": "Our Prices — IBNI",
+        "title": "Our Prices",
+        "subtitle": "Plans and pricing for every kind of learner will be published here soon."
+      },
+      "invest": {
+        "metaTitle": "Invest in IBNI — IBNI",
+        "title": "Invest in IBNI",
+        "subtitle": "Learn how to partner with us and invest in the future of education. Coming soon."
+      },
+      "features": {
+        "metaTitle": "Features — IBNI",
+        "title": "Features",
+        "subtitle": "A complete overview of everything IBNI can do is coming soon."
+      },
+      "careers": {
+        "metaTitle": "Careers — IBNI",
+        "title": "Careers",
+        "subtitle": "Join our team. Open roles and opportunities will appear here soon."
+      },
+      "privacy": {
+        "metaTitle": "Privacy Policy — IBNI",
+        "title": "Privacy Policy",
+        "subtitle": "Our privacy policy is being prepared and will be published here soon."
+      },
+      "terms": {
+        "metaTitle": "Terms of Service — IBNI",
+        "title": "Terms of Service",
+        "subtitle": "Our terms of service are being prepared and will be published here soon."
+      }
     }
   }
 }
