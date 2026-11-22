@@ -10,7 +10,11 @@ import { Link } from "@/lib/i18n/navigation";
  * so the whole strip mirrors with the document direction. It is hidden below
  * `md`; the mobile sheet carries the same links.
  */
-export async function TopBar() {
+export async function TopBar({
+  isAuthenticated,
+}: {
+  isAuthenticated: boolean;
+}) {
   const t = await getTranslations("Navigation");
 
   return (
@@ -34,17 +38,21 @@ export async function TopBar() {
         <div className="flex items-center gap-3">
           <LocaleSwitcher tone="dark" />
 
-          <span
-            aria-hidden
-            className="h-3 w-px bg-primary-foreground/25"
-          />
+          {isAuthenticated ? null : (
+            <>
+              <span
+                aria-hidden
+                className="h-3 w-px bg-primary-foreground/25"
+              />
 
-          <Link
-            href={NAV_LOGIN.href}
-            className="text-xs font-medium text-primary-foreground/80 transition-colors duration-150 ease-standard hover:text-primary-foreground"
-          >
-            {t(NAV_LOGIN.labelKey)}
-          </Link>
+              <Link
+                href={NAV_LOGIN.href}
+                className="text-xs font-medium text-primary-foreground/80 transition-colors duration-150 ease-standard hover:text-primary-foreground"
+              >
+                {t(NAV_LOGIN.labelKey)}
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@
       "title": "Former les leaders de demain. Aujourd'hui.",
       "subtitle": "Une plateforme éducative complète qui relie parents, élèves, enseignants et établissements en Algérie.",
       "searchLabel": "Rechercher dans IBNI",
-      "searchPlaceholder": "Rechercher des écoles, des enseignants ou des ressources...",
+      "searchPlaceholder": "Rechercher des enseignants par nom ou matière...",
       "searchButton": "Rechercher",
       "primaryCta": "Trouver des établissements",
       "secondaryCta": "Explorer la boutique"
@@ -659,7 +659,8 @@
     "actions": {
       "login": "Connexion",
       "signup": "S'inscrire",
-      "bookDemo": "Réserver une démo"
+      "bookDemo": "Réserver une démo",
+      "dashboard": "Tableau de bord"
     },
     "topBar": {
       "contact": "Nous contacter",
@@ -694,8 +695,8 @@
       "metaTitle": "Pour les parents — IBNI",
       "title": "Comment IBNI aide les parents",
       "subtitle": "Accompagnez le parcours scolaire de votre enfant avec IBNI. Trouvez les meilleures écoles, échangez avec des enseignants qualifiés et suivez sa progression au même endroit.",
-      "heroPrimary": "S'inscrire comme parent",
-      "heroSecondary": "Réserver une démo",
+      "heroPrimary": "Suivre mon enfant",
+      "heroSecondary": "Les cours de mes enfants",
       "stats": [
         {
           "id": "active",
@@ -880,7 +881,10 @@
         "subtitle": "Rejoignez des milliers de parents qui utilisent déjà IBNI pour trouver les meilleures ressources pour leurs enfants.",
         "primary": "S'inscrire maintenant",
         "secondary": "Réserver une démo"
-      }
+      },
+      "searchLabel": "Rechercher un établissement",
+      "searchPlaceholder": "Rechercher une école ou un établissement...",
+      "searchButton": "Rechercher"
     },
     "teachers": {
       "metaTitle": "Pour les enseignants — IBNI",
@@ -1495,6 +1499,11 @@
         "metaTitle": "Conditions d'utilisation — IBNI",
         "title": "Conditions d'utilisation",
         "subtitle": "Nos conditions d'utilisation sont en préparation et seront publiées ici prochainement."
+      },
+      "parentsMyCourses": {
+        "metaTitle": "Les cours de mes enfants — IBNI",
+        "title": "Les cours de mes enfants",
+        "subtitle": "La page des cours de vos enfants arrive bientôt. Découvrez bientôt les cours et ressources pédagogiques."
       }
     },
     "teacherDirectory": {

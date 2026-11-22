@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { HeroSearchForm } from "@/components/shared/hero-search-form";
 import { MarketingPage } from "@/components/shared/marketing-page";
 import {
   MarketingFeatureGrid,
@@ -39,11 +40,20 @@ export default async function ParentsPage({
       title={t("title")}
       subtitle={t("subtitle")}
       heroContent={
-        <MarketingStatBand items={t.raw("stats") as readonly MarketingStat[]} />
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-8">
+          <HeroSearchForm
+            id="parents-search"
+            action={`/${locale}/institutions`}
+            label={t("searchLabel")}
+            placeholder={t("searchPlaceholder")}
+            buttonLabel={t("searchButton")}
+          />
+          <MarketingStatBand items={t.raw("stats") as readonly MarketingStat[]} />
+        </div>
       }
       heroActions={[
-        { label: t("heroPrimary"), href: "/signup" },
-        { label: t("heroSecondary"), href: "/book-demo", variant: "outline" },
+        { label: t("heroPrimary"), href: "/parents/overview" },
+        { label: t("heroSecondary"), href: "/parents/my-courses", variant: "outline" },
       ]}
       cta={{
         title: t("cta.title"),

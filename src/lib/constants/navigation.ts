@@ -199,8 +199,19 @@ export const NAV_CTAS: readonly NavAction[] = [
   },
 ];
 
-/** Every account action, in order. The mobile sheet renders all of them. */
+/** Every signed-out account action, in order. The mobile sheet renders all of them. */
 export const NAV_ACTIONS: readonly NavAction[] = [NAV_LOGIN, ...NAV_CTAS];
+
+/**
+ * The single account action shown to a signed-in visitor. It replaces the
+ * whole login/signup/demo cluster instead of sitting beside it.
+ */
+export const NAV_DASHBOARD: NavAction = {
+  id: "dashboard",
+  labelKey: "actions.dashboard",
+  href: "/dashboard",
+  variant: "primary",
+};
 
 /**
  * Rows shown in a dropdown: the section landing page first, then its children.

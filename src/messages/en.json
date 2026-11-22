@@ -9,7 +9,7 @@
       "title": "Crafting the Leaders of Tomorrow. Today.",
       "subtitle": "A complete education platform connecting parents, students, teachers, and institutions across Algeria.",
       "searchLabel": "Search IBNI",
-      "searchPlaceholder": "Search for schools, teachers, or resources...",
+      "searchPlaceholder": "Search teachers by name or subject...",
       "searchButton": "Search",
       "primaryCta": "Find Institutions",
       "secondaryCta": "Explore Store"
@@ -659,7 +659,8 @@
     "actions": {
       "login": "Log In",
       "signup": "Sign Up",
-      "bookDemo": "Book a Demo"
+      "bookDemo": "Book a Demo",
+      "dashboard": "Dashboard"
     },
     "topBar": {
       "contact": "Contact Us",
@@ -694,8 +695,8 @@
       "metaTitle": "For Parents — IBNI",
       "title": "How IBNI Helps Parents",
       "subtitle": "Empower your child's educational journey with IBNI. Find the best schools, connect with qualified teachers, and track your child's progress all in one place.",
-      "heroPrimary": "Sign up as a Parent",
-      "heroSecondary": "Book a Demo",
+      "heroPrimary": "Track My Kid",
+      "heroSecondary": "My Kids Courses",
       "stats": [
         {
           "id": "active",
@@ -880,7 +881,10 @@
         "subtitle": "Join thousands of parents who are already using IBNI to find the best educational resources for their children.",
         "primary": "Sign Up Now",
         "secondary": "Book a Demo"
-      }
+      },
+      "searchLabel": "Search institutions",
+      "searchPlaceholder": "Search for a school or institution...",
+      "searchButton": "Search"
     },
     "teachers": {
       "metaTitle": "For Teachers — IBNI",
@@ -1495,6 +1499,11 @@
         "metaTitle": "Terms of Service — IBNI",
         "title": "Terms of Service",
         "subtitle": "Our terms of service are being prepared and will be published here soon."
+      },
+      "parentsMyCourses": {
+        "metaTitle": "My Kids' Courses — IBNI",
+        "title": "My Kids' Courses",
+        "subtitle": "Your children's courses page is coming soon. Check back for lessons and learning resources."
       }
     },
     "teacherDirectory": {

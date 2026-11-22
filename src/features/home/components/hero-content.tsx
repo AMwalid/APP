@@ -37,7 +37,7 @@ export async function HeroContent() {
       <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
         {t("subtitle")}
       </p>
-      <HeroSearch />
+      <HeroSearch locale={locale} />
       <HeroActions />
     </div>
   );

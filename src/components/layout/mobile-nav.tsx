@@ -10,6 +10,7 @@ import {
   getMenuEntries,
   isActiveItem,
   isActiveMenuEntry,
+  NAV_DASHBOARD,
   NAV_ITEMS,
   NAV_TOP_LINKS,
 } from "@/lib/constants/navigation";
@@ -24,7 +25,7 @@ import { cn } from "@/lib/utils";
  * disclosures (`aria-expanded`), and the first row of every disclosure is the
  * section landing link.
  */
-export function MobileNav() {
+export function MobileNav({ isAuthenticated }: { isAuthenticated: boolean }) {
   const t = useTranslations("Navigation");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -189,7 +190,11 @@ export function MobileNav() {
 
           <div className="container-page flex flex-col gap-4 py-6">
             <LocaleSwitcher className="self-start" onNavigate={close} />
-            <NavActions fullWidth onNavigate={close} />
+            <NavActions
+              fullWidth
+              onNavigate={close}
+              actions={isAuthenticated ? [NAV_DASHBOARD] : undefined}
+            />
           </div>
         </Dialog.Content>
       </Dialog.Portal>
