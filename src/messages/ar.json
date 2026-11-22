@@ -1496,6 +1496,37 @@
         "title": "شروط الاستخدام",
         "subtitle": "شروط الاستخدام قيد الإعداد وستُنشر هنا قريبًا."
       }
+    },
+    "teacherDirectory": {
+      "heading": "دليل الأساتذة",
+      "searchLabel": "ابحث عن أستاذ",
+      "searchPlaceholder": "ابحث بالاسم أو التخصص أو نبذة...",
+      "specialtyLabel": "التخصص",
+      "specialtyAll": "كل التخصصات",
+      "submit": "بحث",
+      "resultCount": "{count, plural, zero {لا يوجد أساتذة مطابقون} one {أستاذ واحد مطابق} two {أستاذان مطابقان} few {# أساتذة مطابقون} many {# أستاذ مطابق} other {# أستاذ مطابق}}",
+      "empty": "لم نعثر على أساتذة مطابقين. جرّب كلمة بحث أو تخصصًا آخر.",
+      "viewProfile": "عرض الملف",
+      "experience": "{years} سنة خبرة"
+    },
+    "publicTeacherProfile": {
+      "metaTitle": "{name} — ملف أستاذ | IBNI",
+      "metaTitleMissing": "الأستاذ غير موجود — IBNI",
+      "eyebrow": "ملف الأستاذ",
+      "noSpecialization": "لم يتم تحديد التخصص",
+      "experience": "{years} سنة خبرة",
+      "ctaTitle": "هل تود التواصل مع هذا الأستاذ؟",
+      "ctaSubtitle": "أنشئ حسابًا في IBNI للتواصل مع الأساتذة ومتابعة رحلة أسرتك التعليمية.",
+      "ctaAction": "أنشئ حسابًا",
+      "aboutTitle": "نبذة عن الأستاذ",
+      "noBio": "لم يضف هذا الأستاذ نبذة بعد.",
+      "specializationTitle": "التخصص",
+      "experienceTitle": "الخبرة",
+      "noExperience": "لم يتم تحديد سنوات الخبرة بعد.",
+      "contactTitle": "تواصل مع الأستاذ",
+      "contactBody": "التواصل متاح لأعضاء IBNI المسجّلين. أنشئ حسابًا للوصول إلى معلومات التواصل.",
+      "contactCta": "سجّل الآن للتواصل",
+      "back": "العودة إلى دليل الأساتذة"
     }
   }
 }

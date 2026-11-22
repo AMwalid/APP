@@ -1496,6 +1496,37 @@
         "title": "Conditions d'utilisation",
         "subtitle": "Nos conditions d'utilisation sont en préparation et seront publiées ici prochainement."
       }
+    },
+    "teacherDirectory": {
+      "heading": "Annuaire des enseignants",
+      "searchLabel": "Rechercher un enseignant",
+      "searchPlaceholder": "Nom, matière ou mots-clés...",
+      "specialtyLabel": "Spécialité",
+      "specialtyAll": "Toutes les spécialités",
+      "submit": "Rechercher",
+      "resultCount": "{count, plural, =0 {Aucun enseignant trouvé} =1 {1 enseignant trouvé} other {# enseignants trouvés}}",
+      "empty": "Aucun enseignant ne correspond à votre recherche. Essayez un autre mot ou une autre spécialité.",
+      "viewProfile": "Voir le profil",
+      "experience": "{years} ans d'expérience"
+    },
+    "publicTeacherProfile": {
+      "metaTitle": "{name} — Profil d'enseignant | IBNI",
+      "metaTitleMissing": "Enseignant introuvable — IBNI",
+      "eyebrow": "Profil de l'enseignant",
+      "noSpecialization": "Spécialité non renseignée",
+      "experience": "{years} ans d'expérience",
+      "ctaTitle": "Vous souhaitez contacter cet enseignant ?",
+      "ctaSubtitle": "Créez un compte IBNI pour échanger avec les enseignants et suivre le parcours scolaire de votre famille.",
+      "ctaAction": "Créer un compte",
+      "aboutTitle": "À propos",
+      "noBio": "Cet enseignant n'a pas encore rédigé de présentation.",
+      "specializationTitle": "Spécialité",
+      "experienceTitle": "Expérience",
+      "noExperience": "Années d'expérience non renseignées.",
+      "contactTitle": "Contacter l'enseignant",
+      "contactBody": "La mise en contact est réservée aux membres inscrits sur IBNI. Créez un compte pour accéder aux coordonnées.",
+      "contactCta": "S'inscrire pour contacter",
+      "back": "Retour à l'annuaire des enseignants"
     }
   }
 }

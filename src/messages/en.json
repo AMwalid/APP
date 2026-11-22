@@ -1496,6 +1496,37 @@
         "title": "Terms of Service",
         "subtitle": "Our terms of service are being prepared and will be published here soon."
       }
+    },
+    "teacherDirectory": {
+      "heading": "Teacher directory",
+      "searchLabel": "Search teachers",
+      "searchPlaceholder": "Search by name, subject, or keyword...",
+      "specialtyLabel": "Specialization",
+      "specialtyAll": "All specializations",
+      "submit": "Search",
+      "resultCount": "{count, plural, =0 {No teachers found} =1 {1 teacher found} other {# teachers found}}",
+      "empty": "No teachers match your search. Try a different keyword or specialization.",
+      "viewProfile": "View profile",
+      "experience": "{years} years of experience"
+    },
+    "publicTeacherProfile": {
+      "metaTitle": "{name} — Teacher profile | IBNI",
+      "metaTitleMissing": "Teacher not found — IBNI",
+      "eyebrow": "Teacher profile",
+      "noSpecialization": "No specialization listed",
+      "experience": "{years} years of experience",
+      "ctaTitle": "Want to contact this teacher?",
+      "ctaSubtitle": "Create an IBNI account to connect with teachers and follow your family's education journey.",
+      "ctaAction": "Create an account",
+      "aboutTitle": "About",
+      "noBio": "This teacher hasn't added a bio yet.",
+      "specializationTitle": "Specialization",
+      "experienceTitle": "Experience",
+      "noExperience": "Years of experience not listed.",
+      "contactTitle": "Contact this teacher",
+      "contactBody": "Contact is available to registered IBNI members. Create an account to get in touch.",
+      "contactCta": "Sign up to contact",
+      "back": "Back to teacher directory"
     }
   }
 }
