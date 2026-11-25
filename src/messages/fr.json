@@ -162,7 +162,8 @@
       "classes": "Mes classes",
       "profile": "Mon profil",
       "settings": "Paramètres",
-      "institutionDashboard": "Établissements"
+      "institutionDashboard": "Établissements",
+      "store": "Boutique"
     },
     "shell": {
       "signedInAs": "Connecté en tant que",
@@ -653,6 +654,63 @@
           "updateSuccess": "Profil de l’établissement mis à jour."
         }
       }
+    },
+    "store": {
+      "title": "Annonces de la boutique",
+      "subtitle": "Publiez les cours, livres et fournitures que vous proposez aux familles IBNI.",
+      "createTitle": "Ajouter un produit",
+      "createSubtitle": "Les familles qui parcourent la boutique publique verront tout ce que vous publiez ici.",
+      "form": {
+        "title": "Titre du produit",
+        "titlePlaceholder": "ex. Cours de révision d’algèbre niveau 2",
+        "type": "Type de produit",
+        "typeCourse": "Cours",
+        "typeBook": "Livre",
+        "typeSupply": "Fourniture",
+        "price": "Prix (DZD)",
+        "pricePlaceholder": "ex. 1500",
+        "priceHint": "Chiffres uniquement. Jusqu’à deux décimales.",
+        "description": "Description",
+        "descriptionPlaceholder": "Expliquez ce qui est inclus et à qui s’adresse le produit.",
+        "descriptionHint": "Jusqu’à 2000 caractères. Ce texte apparaît sur votre carte publique.",
+        "submitCreate": "Créer le produit",
+        "submitUpdate": "Enregistrer les modifications",
+        "submitBusy": "Enregistrement...",
+        "success": "Produit enregistré.",
+        "errors": {
+          "titleRequired": "Le titre du produit est obligatoire.",
+          "titleTooShort": "Le titre doit contenir au moins 2 caractères.",
+          "titleTooLong": "Le titre ne doit pas dépasser 140 caractères.",
+          "typeRequired": "Choisissez un type de produit.",
+          "typeInvalid": "Choisissez un type de produit valide.",
+          "priceRequired": "Le prix est obligatoire.",
+          "priceInvalid": "Saisissez un prix valide avec au plus deux décimales.",
+          "priceTooHigh": "Le prix est trop élevé.",
+          "descriptionRequired": "La description est obligatoire.",
+          "descriptionTooShort": "La description doit contenir au moins 2 caractères.",
+          "descriptionTooLong": "La description ne doit pas dépasser 2000 caractères.",
+          "unknown": "Impossible d’enregistrer ce produit. Veuillez réessayer.",
+          "notFound": "Produit introuvable.",
+          "createSuccess": "Produit créé.",
+          "updateSuccess": "Produit mis à jour.",
+          "deleteSuccess": "Produit supprimé."
+        }
+      },
+      "list": {
+        "title": "Vos produits",
+        "subtitle": "Modifiez ou retirez les annonces que vous ne proposez plus.",
+        "empty": "Vous n’avez pas encore publié de produit.",
+        "edit": "Modifier",
+        "cancelEdit": "Annuler la modification",
+        "delete": "Supprimer",
+        "deleteTitle": "Supprimer ce produit ?",
+        "deleteBody": "« {title} » sera retiré de la boutique publique. Cette action est irréversible.",
+        "confirmDelete": "Supprimer le produit",
+        "deleteBusy": "Suppression...",
+        "cancelDelete": "Annuler",
+        "close": "Fermer",
+        "deleteError": "Impossible de supprimer ce produit. Veuillez réessayer."
+      }
     }
   },
   "Navigation": {
@@ -728,6 +786,19 @@
     }
   },
   "Marketing": {
+    "store": {
+      "metaTitle": "Boutique IBNI — IBNI",
+      "title": "La boutique IBNI",
+      "subtitle": "Cours, livres et fournitures scolaires proposés par des enseignants et établissements vérifiés.",
+      "heroPrimary": "Créer un compte",
+      "heroSecondary": "Trouver des enseignants",
+      "cta": {
+        "title": "Vendez vos ressources pédagogiques",
+        "subtitle": "Les enseignants et les établissements peuvent publier cours, livres et fournitures pour les familles algériennes.",
+        "primary": "S’inscrire",
+        "secondary": "Réserver une démo"
+      }
+    },
     "parents": {
       "metaTitle": "Pour les parents — IBNI",
       "title": "Comment IBNI aide les parents",
@@ -1477,11 +1548,6 @@
         "home": "Retour à l'accueil",
         "signup": "S'inscrire"
       },
-      "store": {
-        "metaTitle": "La boutique IBNI — IBNI",
-        "title": "La boutique IBNI",
-        "subtitle": "Ressources pédagogiques, cours et fournitures arrivent bientôt."
-      },
       "bookDemo": {
         "metaTitle": "Réserver une démo — IBNI",
         "title": "Réserver une démo",
@@ -1582,6 +1648,18 @@
       "resultCount": "{count, plural, =0 {Aucun établissement trouvé} one {# établissement trouvé} other {# établissements trouvés}}",
       "empty": "Aucun établissement ne correspond à votre recherche. Essayez un autre nom ou une autre ville.",
       "location": "Lieu"
+    },
+    "storeDirectory": {
+      "heading": "Découvrir la boutique",
+      "searchLabel": "Rechercher un produit",
+      "searchPlaceholder": "Rechercher par titre de produit",
+      "submit": "Rechercher",
+      "resultCount": "{count, plural, =0 {Aucun produit trouvé} one {# produit trouvé} other {# produits trouvés}}",
+      "empty": "Aucun produit ne correspond à votre recherche. Essayez un autre titre.",
+      "typeCourse": "Cours",
+      "typeBook": "Livre",
+      "typeSupply": "Fourniture",
+      "soldBy": "Vendu par"
     }
   }
 }

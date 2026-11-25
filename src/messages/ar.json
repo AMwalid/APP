@@ -162,7 +162,8 @@
       "classes": "أقسامي",
       "profile": "ملفي الشخصي",
       "settings": "الإعدادات",
-      "institutionDashboard": "المؤسسات"
+      "institutionDashboard": "المؤسسات",
+      "store": "المتجر"
     },
     "shell": {
       "signedInAs": "مسجّل الدخول باسم",
@@ -653,6 +654,63 @@
           "updateSuccess": "تم تحديث ملف المؤسسة."
         }
       }
+    },
+    "store": {
+      "title": "منتجات المتجر",
+      "subtitle": "انشر الدورات والكتب والمستلزمات التي تقدمها لعائلات إبني.",
+      "createTitle": "إضافة منتج",
+      "createSubtitle": "سترى العائلات التي تتصفح المتجر العام كل ما تنشره هنا.",
+      "form": {
+        "title": "عنوان المنتج",
+        "titlePlaceholder": "مثال: دورة مراجعة الجبر للصف الثاني",
+        "type": "نوع المنتج",
+        "typeCourse": "دورة",
+        "typeBook": "كتاب",
+        "typeSupply": "مستلزم",
+        "price": "السعر (د.ج)",
+        "pricePlaceholder": "مثال: 1500",
+        "priceHint": "أرقام فقط، بحد أقصى منزلتين عشريتين.",
+        "description": "الوصف",
+        "descriptionPlaceholder": "وضّح ما يتضمنه المنتج ولمن هو مناسب.",
+        "descriptionHint": "حتى 2000 حرف. يظهر هذا الوصف في بطاقتك العامة.",
+        "submitCreate": "إنشاء المنتج",
+        "submitUpdate": "حفظ التغييرات",
+        "submitBusy": "جارٍ الحفظ...",
+        "success": "تم حفظ المنتج.",
+        "errors": {
+          "titleRequired": "عنوان المنتج مطلوب.",
+          "titleTooShort": "يجب أن يكون العنوان حرفين على الأقل.",
+          "titleTooLong": "يجب ألا يتجاوز العنوان 140 حرفاً.",
+          "typeRequired": "اختر نوع المنتج.",
+          "typeInvalid": "اختر نوع منتج صالحاً.",
+          "priceRequired": "السعر مطلوب.",
+          "priceInvalid": "أدخل سعراً صالحاً بحد أقصى منزلتين عشريتين.",
+          "priceTooHigh": "السعر مرتفع جداً.",
+          "descriptionRequired": "الوصف مطلوب.",
+          "descriptionTooShort": "يجب أن يكون الوصف حرفين على الأقل.",
+          "descriptionTooLong": "يجب ألا يتجاوز الوصف 2000 حرف.",
+          "unknown": "تعذّر حفظ هذا المنتج. يرجى المحاولة مرة أخرى.",
+          "notFound": "لم يتم العثور على المنتج.",
+          "createSuccess": "تم إنشاء المنتج.",
+          "updateSuccess": "تم تحديث المنتج.",
+          "deleteSuccess": "تم حذف المنتج."
+        }
+      },
+      "list": {
+        "title": "منتجاتك",
+        "subtitle": "عدّل المنتجات أو احذف ما لم تعد تقدمه.",
+        "empty": "لم تنشر أي منتج بعد.",
+        "edit": "تعديل",
+        "cancelEdit": "إلغاء التعديل",
+        "delete": "حذف",
+        "deleteTitle": "حذف هذا المنتج؟",
+        "deleteBody": "سيتم حذف «{title}» من المتجر العام. لا يمكن التراجع عن هذا الإجراء.",
+        "confirmDelete": "حذف المنتج",
+        "deleteBusy": "جارٍ الحذف...",
+        "cancelDelete": "إلغاء",
+        "close": "إغلاق",
+        "deleteError": "تعذّر حذف هذا المنتج. يرجى المحاولة مرة أخرى."
+      }
     }
   },
   "Navigation": {
@@ -728,6 +786,19 @@
     }
   },
   "Marketing": {
+    "store": {
+      "metaTitle": "متجر إبني — إبني",
+      "title": "متجر إبني",
+      "subtitle": "دورات وكتب ومستلزمات تعليمية من أساتذة ومؤسسات موثّقين.",
+      "heroPrimary": "إنشاء حساب",
+      "heroSecondary": "ابحث عن أساتذة",
+      "cta": {
+        "title": "بع مواردك التعليمية",
+        "subtitle": "يمكن للأساتذة والمؤسسات نشر الدورات والكتب والمستلزمات لعائلات الجزائر.",
+        "primary": "سجّل الآن",
+        "secondary": "احجز عرضاً توضيحياً"
+      }
+    },
     "parents": {
       "metaTitle": "للأولياء — IBNI",
       "title": "كيف تساعد IBNI الأولياء",
@@ -1477,11 +1548,6 @@
         "home": "العودة إلى الرئيسية",
         "signup": "إنشاء حساب"
       },
-      "store": {
-        "metaTitle": "متجر IBNI — IBNI",
-        "title": "متجر IBNI",
-        "subtitle": "المواد التعليمية والدورات والمستلزمات قريبًا."
-      },
       "bookDemo": {
         "metaTitle": "احجز عرضًا — IBNI",
         "title": "احجز عرضًا",
@@ -1582,6 +1648,18 @@
       "resultCount": "{count, plural, =0 {لا توجد مؤسسات} one {مؤسسة واحدة} other {# مؤسسات}}",
       "empty": "لا توجد مؤسسات مطابقة لبحثك. جرّب اسماً أو مدينة أخرى.",
       "location": "الموقع"
+    },
+    "storeDirectory": {
+      "heading": "استكشف المتجر",
+      "searchLabel": "ابحث عن منتج",
+      "searchPlaceholder": "ابحث بعنوان المنتج",
+      "submit": "بحث",
+      "resultCount": "{count, plural, =0 {لا توجد منتجات} one {منتج واحد} other {# منتجات}}",
+      "empty": "لا توجد منتجات مطابقة لبحثك. جرّب عنواناً آخر.",
+      "typeCourse": "دورة",
+      "typeBook": "كتاب",
+      "typeSupply": "مستلزم",
+      "soldBy": "يُباع بواسطة"
     }
   }
 }

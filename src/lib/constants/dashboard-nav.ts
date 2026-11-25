@@ -35,6 +35,7 @@ export const DASHBOARD_NAV: Record<
     { id: "overview", labelKey: "nav.overview", href: "/teachers/overview" },
     { id: "classes", labelKey: "nav.classes", href: "/teachers/classes" },
     { id: "profile", labelKey: "nav.profile", href: "/teachers/profile" },
+    { id: "store", labelKey: "nav.store", href: "/dashboard/store" },
     { id: "settings", labelKey: "nav.settings", href: "/teachers/settings" },
   ],
   student: [
@@ -47,5 +48,6 @@ export const DASHBOARD_NAV: Record<
       labelKey: "nav.institutionDashboard",
       href: "/institutions/dashboard",
     },
+    { id: "store", labelKey: "nav.store", href: "/dashboard/store" },
   ],
 };

@@ -162,7 +162,8 @@
       "classes": "My Classes",
       "profile": "Profile",
       "settings": "Settings",
-      "institutionDashboard": "Institutions"
+      "institutionDashboard": "Institutions",
+      "store": "Store"
     },
     "shell": {
       "signedInAs": "Signed in as",
@@ -653,6 +654,63 @@
           "updateSuccess": "Institution profile updated."
         }
       }
+    },
+    "store": {
+      "title": "Store listings",
+      "subtitle": "Publish the courses, books, and supplies you offer to IBNI families.",
+      "createTitle": "Add a product",
+      "createSubtitle": "Families browsing the public store will see everything you publish here.",
+      "form": {
+        "title": "Product title",
+        "titlePlaceholder": "e.g. Algebra II revision course",
+        "type": "Product type",
+        "typeCourse": "Course",
+        "typeBook": "Book",
+        "typeSupply": "Supply",
+        "price": "Price (DZD)",
+        "pricePlaceholder": "e.g. 1500",
+        "priceHint": "Use digits only. Up to two decimal places.",
+        "description": "Description",
+        "descriptionPlaceholder": "Tell families what is included and who it is for.",
+        "descriptionHint": "Up to 2000 characters. This appears on your public card.",
+        "submitCreate": "Create product",
+        "submitUpdate": "Save changes",
+        "submitBusy": "Saving...",
+        "success": "Product saved.",
+        "errors": {
+          "titleRequired": "Product title is required.",
+          "titleTooShort": "Title must be at least 2 characters.",
+          "titleTooLong": "Title must be 140 characters or fewer.",
+          "typeRequired": "Choose a product type.",
+          "typeInvalid": "Choose a valid product type.",
+          "priceRequired": "Price is required.",
+          "priceInvalid": "Enter a valid price with up to two decimal places.",
+          "priceTooHigh": "Price is too high.",
+          "descriptionRequired": "Description is required.",
+          "descriptionTooShort": "Description must be at least 2 characters.",
+          "descriptionTooLong": "Description must be 2000 characters or fewer.",
+          "unknown": "We couldn't save this product. Please try again.",
+          "notFound": "Product not found.",
+          "createSuccess": "Product created.",
+          "updateSuccess": "Product updated.",
+          "deleteSuccess": "Product deleted."
+        }
+      },
+      "list": {
+        "title": "Your products",
+        "subtitle": "Edit or remove listings you no longer offer.",
+        "empty": "You have not published any products yet.",
+        "edit": "Edit",
+        "cancelEdit": "Cancel edit",
+        "delete": "Delete",
+        "deleteTitle": "Delete this product?",
+        "deleteBody": "\"{title}\" will be removed from the public store. This cannot be undone.",
+        "confirmDelete": "Delete product",
+        "deleteBusy": "Deleting...",
+        "cancelDelete": "Cancel",
+        "close": "Close",
+        "deleteError": "We couldn't delete this product. Please try again."
+      }
     }
   },
   "Navigation": {
@@ -728,6 +786,19 @@
     }
   },
   "Marketing": {
+    "store": {
+      "metaTitle": "IBNI Store — IBNI",
+      "title": "The IBNI Store",
+      "subtitle": "Courses, books, and educational supplies from verified teachers and institutions.",
+      "heroPrimary": "Create an account",
+      "heroSecondary": "Find teachers",
+      "cta": {
+        "title": "Sell your educational resources",
+        "subtitle": "Teachers and institutions can publish courses, books, and supplies for families across Algeria.",
+        "primary": "Sign up",
+        "secondary": "Book a demo"
+      }
+    },
     "parents": {
       "metaTitle": "For Parents — IBNI",
       "title": "How IBNI Helps Parents",
@@ -1477,11 +1548,6 @@
         "home": "Back to Home",
         "signup": "Sign up"
       },
-      "store": {
-        "metaTitle": "The IBNI Store — IBNI",
-        "title": "The IBNI Store",
-        "subtitle": "Educational resources, courses, and supplies are coming soon."
-      },
       "bookDemo": {
         "metaTitle": "Book a Demo — IBNI",
         "title": "Book a Demo",
@@ -1582,6 +1648,18 @@
       "resultCount": "{count, plural, =0 {No institutions found} one {# institution found} other {# institutions found}}",
       "empty": "No institutions match your search. Try a different name or city.",
       "location": "Location"
+    },
+    "storeDirectory": {
+      "heading": "Explore the store",
+      "searchLabel": "Search products",
+      "searchPlaceholder": "Search by product title",
+      "submit": "Search",
+      "resultCount": "{count, plural, =0 {No products found} one {# product found} other {# products found}}",
+      "empty": "No products match your search. Try a different title.",
+      "typeCourse": "Course",
+      "typeBook": "Book",
+      "typeSupply": "Supply",
+      "soldBy": "Sold by"
     }
   }
 }
