@@ -161,7 +161,8 @@
       "messages": "Messages",
       "classes": "My Classes",
       "profile": "Profile",
-      "settings": "Settings"
+      "settings": "Settings",
+      "institutionDashboard": "Institutions"
     },
     "shell": {
       "signedInAs": "Signed in as",
@@ -615,6 +616,42 @@
         "notTeacher": "Only teacher accounts can add grades.",
         "notFound": "We couldn't find this class or student.",
         "createFailed": "Could not save the grade. Please try again."
+      }
+    },
+    "institutionProfile": {
+      "title": "Institution profile",
+      "subtitle": "Keep your public directory listing accurate. These details are visible to families browsing IBNI.",
+      "form": {
+        "name": "Institution name",
+        "namePlaceholder": "e.g. Al-Nour School",
+        "type": "Institution type",
+        "typeSchool": "School",
+        "typeTutoringCenter": "Tutoring Center",
+        "location": "Location",
+        "locationPlaceholder": "e.g. Algiers",
+        "locationHint": "City or area where families can find you.",
+        "description": "Description",
+        "descriptionPlaceholder": "Tell families what makes your institution different.",
+        "descriptionHint": "Up to 2000 characters. This appears on your public card.",
+        "submit": "Save profile",
+        "submitBusy": "Saving...",
+        "success": "Profile saved.",
+        "errors": {
+          "nameRequired": "Institution name is required.",
+          "nameTooShort": "Name must be at least 2 characters.",
+          "nameTooLong": "Name must be 120 characters or fewer.",
+          "typeRequired": "Choose an institution type.",
+          "typeInvalid": "Choose a valid institution type.",
+          "locationRequired": "Location is required.",
+          "locationTooShort": "Location must be at least 2 characters.",
+          "locationTooLong": "Location must be 120 characters or fewer.",
+          "descriptionTooLong": "Description must be 2000 characters or fewer.",
+          "unknown": "We couldn't save your profile. Please try again.",
+          "notFound": "Institution profile not found.",
+          "success": "Profile saved.",
+          "createSuccess": "Institution profile created.",
+          "updateSuccess": "Institution profile updated."
+        }
       }
     }
   },
@@ -1536,6 +1573,15 @@
       "contactBody": "Contact is available to registered IBNI members. Create an account to get in touch.",
       "contactCta": "Sign up to contact",
       "back": "Back to teacher directory"
+    },
+    "institutionDirectory": {
+      "heading": "Explore institutions",
+      "searchLabel": "Search institutions",
+      "searchPlaceholder": "Search by name or location",
+      "submit": "Search",
+      "resultCount": "{count, plural, =0 {No institutions found} one {# institution found} other {# institutions found}}",
+      "empty": "No institutions match your search. Try a different name or city.",
+      "location": "Location"
     }
   }
 }

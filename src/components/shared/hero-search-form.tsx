@@ -10,6 +10,8 @@ type HeroSearchFormProps = {
   label: string;
   placeholder: string;
   buttonLabel: string;
+  /** Current `q`, so a search page can pre-fill the field it just received. */
+  defaultValue?: string;
   className?: string;
 };
 
@@ -27,6 +29,7 @@ export function HeroSearchForm({
   label,
   placeholder,
   buttonLabel,
+  defaultValue,
   className,
 }: HeroSearchFormProps) {
   return (
@@ -48,6 +51,7 @@ export function HeroSearchForm({
           id={id}
           name="q"
           type="search"
+          defaultValue={defaultValue}
           placeholder={placeholder}
           className="h-9 min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
         />

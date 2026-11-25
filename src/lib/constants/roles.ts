@@ -11,4 +11,5 @@ export const ROLE_HOME: Record<UserRole, string> = {
   parent: "/parents/overview",
   teacher: "/teachers/overview",
   student: "/students/overview",
+  institution_admin: "/institutions/dashboard",
 };

@@ -161,7 +161,8 @@
       "messages": "الرسائل",
       "classes": "أقسامي",
       "profile": "ملفي الشخصي",
-      "settings": "الإعدادات"
+      "settings": "الإعدادات",
+      "institutionDashboard": "المؤسسات"
     },
     "shell": {
       "signedInAs": "مسجّل الدخول باسم",
@@ -615,6 +616,42 @@
         "notTeacher": "يمكن لحسابات الأساتذة فقط إضافة الدرجات.",
         "notFound": "تعذّر العثور على هذا القسم أو الطالب.",
         "createFailed": "تعذّر حفظ الدرجة. حاول مرة أخرى."
+      }
+    },
+    "institutionProfile": {
+      "title": "ملف المؤسسة",
+      "subtitle": "حافظ على دقة بياناتك في الدليل العام. هذه التفاصيل يراها الأسر التي تتصفح إبني.",
+      "form": {
+        "name": "اسم المؤسسة",
+        "namePlaceholder": "مثال: مدرسة النور",
+        "type": "نوع المؤسسة",
+        "typeSchool": "مدرسة",
+        "typeTutoringCenter": "مركز تقوية",
+        "location": "الموقع",
+        "locationPlaceholder": "مثال: الجزائر",
+        "locationHint": "المدينة أو المنطقة التي يمكن للأسر العثور فيها عليك.",
+        "description": "الوصف",
+        "descriptionPlaceholder": "عرّف الأسر بما يميز مؤسستك.",
+        "descriptionHint": "حتى 2000 حرف. يظهر هذا النص في بطاقتك العامة.",
+        "submit": "حفظ الملف",
+        "submitBusy": "جارٍ الحفظ...",
+        "success": "تم حفظ الملف.",
+        "errors": {
+          "nameRequired": "اسم المؤسسة مطلوب.",
+          "nameTooShort": "يجب أن يكون الاسم حرفين على الأقل.",
+          "nameTooLong": "يجب ألا يتجاوز الاسم 120 حرفاً.",
+          "typeRequired": "اختر نوع المؤسسة.",
+          "typeInvalid": "اختر نوع مؤسسة صالحاً.",
+          "locationRequired": "الموقع مطلوب.",
+          "locationTooShort": "يجب أن يكون الموقع حرفين على الأقل.",
+          "locationTooLong": "يجب ألا يتجاوز الموقع 120 حرفاً.",
+          "descriptionTooLong": "يجب ألا يتجاوز الوصف 2000 حرف.",
+          "unknown": "تعذّر حفظ الملف. يرجى المحاولة مرة أخرى.",
+          "notFound": "لم يتم العثور على ملف المؤسسة.",
+          "success": "تم حفظ الملف.",
+          "createSuccess": "تم إنشاء ملف المؤسسة.",
+          "updateSuccess": "تم تحديث ملف المؤسسة."
+        }
       }
     }
   },
@@ -1536,6 +1573,15 @@
       "contactBody": "التواصل متاح لأعضاء IBNI المسجّلين. أنشئ حسابًا للوصول إلى معلومات التواصل.",
       "contactCta": "سجّل الآن للتواصل",
       "back": "العودة إلى دليل الأساتذة"
+    },
+    "institutionDirectory": {
+      "heading": "استكشف المؤسسات",
+      "searchLabel": "ابحث عن مؤسسة",
+      "searchPlaceholder": "ابحث بالاسم أو الموقع",
+      "submit": "بحث",
+      "resultCount": "{count, plural, =0 {لا توجد مؤسسات} one {مؤسسة واحدة} other {# مؤسسات}}",
+      "empty": "لا توجد مؤسسات مطابقة لبحثك. جرّب اسماً أو مدينة أخرى.",
+      "location": "الموقع"
     }
   }
 }

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { Link } from "@/lib/i18n/navigation";
+import { HeroSearchForm } from "./hero-search-form";
 
 export type MarketingAction = {
   label: string;
@@ -16,6 +17,15 @@ type MarketingPageProps = {
   /** Sits inside the hero, after the actions — e.g. the stat band. */
   heroContent?: ReactNode;
   heroActions?: readonly MarketingAction[];
+  /** GET search form rendered inside the hero, e.g. the directory search. */
+  heroSearch?: {
+    id: string;
+    action: string;
+    label: string;
+    placeholder: string;
+    buttonLabel: string;
+    defaultValue?: string;
+  };
   cta: {
     title: string;
     subtitle: string;
@@ -53,6 +63,7 @@ export function MarketingPage({
   subtitle,
   heroContent,
   heroActions,
+  heroSearch,
   cta,
   children,
 }: MarketingPageProps) {
@@ -85,6 +96,11 @@ export function MarketingPage({
                 {heroActions.map((action) => (
                   <ActionLink key={action.href} action={action} />
                 ))}
+              </div>
+            ) : null}
+            {heroSearch ? (
+              <div className="mx-auto mt-8 max-w-2xl">
+                <HeroSearchForm {...heroSearch} />
               </div>
             ) : null}
           </div>

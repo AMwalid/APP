@@ -6,11 +6,16 @@
  * `components/` out of `features/`. One list, imported by the profile schema,
  * the settings form, the nav map and the role guards.
  *
- * `institution_admin` and `admin` are deliberately absent: they are not
- * self-service, they arrive with verification, and the database check
- * constraint refuses them until then.
+ * `institution_admin` is assigned after verification (INS-02), never through
+ * signup; the migration's role guard blocks client-side self-promotion. `admin`
+ * remains reserved for platform staff.
  */
-export const USER_ROLES = ["parent", "teacher", "student"] as const;
+export const USER_ROLES = [
+  "parent",
+  "teacher",
+  "student",
+  "institution_admin",
+] as const;
 
 export type UserRole = (typeof USER_ROLES)[number];
 

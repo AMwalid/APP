@@ -41,4 +41,11 @@ export const DASHBOARD_NAV: Record<
     { id: "overview", labelKey: "nav.overview", href: "/students/overview" },
     { id: "settings", labelKey: "nav.settings", href: "/students/settings" },
   ],
+  institution_admin: [
+    {
+      id: "dashboard",
+      labelKey: "nav.institutionDashboard",
+      href: "/institutions/dashboard",
+    },
+  ],
 };

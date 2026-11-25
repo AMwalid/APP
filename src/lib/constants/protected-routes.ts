@@ -22,6 +22,7 @@ export const PROTECTED_PREFIXES = [
   "/students/settings",
   "/students/track-progress",
   "/students/my-courses",
+  "/institutions/dashboard",
   "/teachers/overview",
   "/teachers/classes",
   "/teachers/profile",

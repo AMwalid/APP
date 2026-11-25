@@ -7,8 +7,10 @@ import {
   type MarketingFeature,
   type MarketingValueProp,
 } from "@/components/shared/marketing-sections";
+import { InstitutionDirectory, getPublicInstitutions } from "@/features/institutions";
 
 const NS = "Marketing.institutions";
+const DIRECTORY_NS = "Marketing.institutionDirectory";
 
 export async function generateMetadata({
   params,
@@ -21,14 +23,27 @@ export async function generateMetadata({
   return { title: t("metaTitle"), description: t("subtitle") };
 }
 
+/** Search state lives in the URL, like the teacher directory. */
+type SearchParams = Promise<{ q?: string | string[] }>;
+
+function first(value: string | string[] | undefined): string {
+  return (Array.isArray(value) ? value[0] : value)?.trim() ?? "";
+}
+
 export default async function InstitutionsPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: SearchParams;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations(NS);
+  const directory = await getTranslations(DIRECTORY_NS);
+  const { q } = await searchParams;
+  const needle = first(q);
+  const institutions = await getPublicInstitutions(needle);
 
   return (
     <MarketingPage
@@ -38,6 +53,14 @@ export default async function InstitutionsPage({
         { label: t("heroPrimary"), href: "/book-demo" },
         { label: t("heroSecondary"), href: "/signup", variant: "outline" },
       ]}
+      heroSearch={{
+        id: "institution-hero-search",
+        action: `/${locale}/institutions`,
+        label: directory("searchLabel"),
+        placeholder: directory("searchPlaceholder"),
+        buttonLabel: directory("submit"),
+        defaultValue: needle,
+      }}
       cta={{
         title: t("cta.title"),
         subtitle: t("cta.subtitle"),
@@ -47,6 +70,18 @@ export default async function InstitutionsPage({
         ],
       }}
     >
+      <InstitutionDirectory
+        institutions={institutions}
+        needle={needle}
+        labels={{
+          heading: directory("heading"),
+          searchLabel: directory("searchLabel"),
+          searchPlaceholder: directory("searchPlaceholder"),
+          submit: directory("submit"),
+          resultCount: (count) => directory("resultCount", { count }),
+          empty: directory("empty"),
+        }}
+      />
       <MarketingValueCards
         items={t.raw("valueProps") as readonly MarketingValueProp[]}
       />

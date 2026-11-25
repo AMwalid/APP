@@ -161,7 +161,8 @@
       "messages": "Messages",
       "classes": "Mes classes",
       "profile": "Mon profil",
-      "settings": "Paramètres"
+      "settings": "Paramètres",
+      "institutionDashboard": "Établissements"
     },
     "shell": {
       "signedInAs": "Connecté en tant que",
@@ -615,6 +616,42 @@
         "notTeacher": "Seuls les comptes enseignants peuvent ajouter des notes.",
         "notFound": "Impossible de trouver cette classe ou cet élève.",
         "createFailed": "Impossible d'enregistrer la note. Réessayez."
+      }
+    },
+    "institutionProfile": {
+      "title": "Profil de l’établissement",
+      "subtitle": "Gardez votre fiche publique à jour. Ces informations sont visibles par les familles qui parcourent IBNI.",
+      "form": {
+        "name": "Nom de l’établissement",
+        "namePlaceholder": "ex. École Al-Nour",
+        "type": "Type d’établissement",
+        "typeSchool": "École",
+        "typeTutoringCenter": "Centre de soutien scolaire",
+        "location": "Lieu",
+        "locationPlaceholder": "ex. Alger",
+        "locationHint": "Ville ou quartier où les familles peuvent vous trouver.",
+        "description": "Description",
+        "descriptionPlaceholder": "Présentez ce qui distingue votre établissement.",
+        "descriptionHint": "Jusqu’à 2000 caractères. Ce texte apparaît sur votre fiche publique.",
+        "submit": "Enregistrer",
+        "submitBusy": "Enregistrement...",
+        "success": "Profil enregistré.",
+        "errors": {
+          "nameRequired": "Le nom de l’établissement est obligatoire.",
+          "nameTooShort": "Le nom doit contenir au moins 2 caractères.",
+          "nameTooLong": "Le nom ne doit pas dépasser 120 caractères.",
+          "typeRequired": "Choisissez un type d’établissement.",
+          "typeInvalid": "Choisissez un type d’établissement valide.",
+          "locationRequired": "Le lieu est obligatoire.",
+          "locationTooShort": "Le lieu doit contenir au moins 2 caractères.",
+          "locationTooLong": "Le lieu ne doit pas dépasser 120 caractères.",
+          "descriptionTooLong": "La description ne doit pas dépasser 2000 caractères.",
+          "unknown": "Impossible d’enregistrer votre profil. Veuillez réessayer.",
+          "notFound": "Profil de l’établissement introuvable.",
+          "success": "Profil enregistré.",
+          "createSuccess": "Profil de l’établissement créé.",
+          "updateSuccess": "Profil de l’établissement mis à jour."
+        }
       }
     }
   },
@@ -1536,6 +1573,15 @@
       "contactBody": "La mise en contact est réservée aux membres inscrits sur IBNI. Créez un compte pour accéder aux coordonnées.",
       "contactCta": "S'inscrire pour contacter",
       "back": "Retour à l'annuaire des enseignants"
+    },
+    "institutionDirectory": {
+      "heading": "Découvrir les établissements",
+      "searchLabel": "Rechercher un établissement",
+      "searchPlaceholder": "Rechercher par nom ou lieu",
+      "submit": "Rechercher",
+      "resultCount": "{count, plural, =0 {Aucun établissement trouvé} one {# établissement trouvé} other {# établissements trouvés}}",
+      "empty": "Aucun établissement ne correspond à votre recherche. Essayez un autre nom ou une autre ville.",
+      "location": "Lieu"
     }
   }
 }
