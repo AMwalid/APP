@@ -1,7 +1,7 @@
+import { redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { ComingSoon } from "@/components/shared/coming-soon";
 
-/** PAR-06 direct communication lands here. */
+/** PAR-06 now lives at the shared `/dashboard/messages` inbox. */
 export default async function ParentMessagesPage({
   params,
 }: {
@@ -10,5 +10,5 @@ export default async function ParentMessagesPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <ComingSoon locale={locale} sectionKey="nav.messages" />;
+  redirect(`/${locale}/dashboard/messages`);
 }

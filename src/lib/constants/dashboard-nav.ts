@@ -28,12 +28,13 @@ export const DASHBOARD_NAV: Record<
   parent: [
     { id: "overview", labelKey: "nav.overview", href: "/parents/overview" },
     { id: "children", labelKey: "nav.children", href: "/parents/children" },
-    { id: "messages", labelKey: "nav.messages", href: "/parents/messages" },
+    { id: "messages", labelKey: "nav.messages", href: "/dashboard/messages" },
     { id: "settings", labelKey: "nav.settings", href: "/parents/settings" },
   ],
   teacher: [
     { id: "overview", labelKey: "nav.overview", href: "/teachers/overview" },
     { id: "classes", labelKey: "nav.classes", href: "/teachers/classes" },
+    { id: "messages", labelKey: "nav.messages", href: "/dashboard/messages" },
     { id: "profile", labelKey: "nav.profile", href: "/teachers/profile" },
     { id: "store", labelKey: "nav.store", href: "/dashboard/store" },
     { id: "settings", labelKey: "nav.settings", href: "/teachers/settings" },
@@ -48,6 +49,7 @@ export const DASHBOARD_NAV: Record<
       labelKey: "nav.institutionDashboard",
       href: "/institutions/dashboard",
     },
+    { id: "messages", labelKey: "nav.messages", href: "/dashboard/messages" },
     { id: "store", labelKey: "nav.store", href: "/dashboard/store" },
   ],
 };

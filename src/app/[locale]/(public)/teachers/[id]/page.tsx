@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getCurrentUser } from "@/features/auth";
+import { getProfile } from "@/features/profile";
+import type { TeacherMessageState } from "@/features/messaging";
 import {
   PublicTeacherProfile,
   getPublicTeacher,
@@ -43,5 +46,27 @@ export default async function PublicTeacherProfilePage({
     notFound();
   }
 
-  return <PublicTeacherProfile teacher={teacher} />;
+  const user = await getCurrentUser();
+  const profile = user ? await getProfile() : null;
+
+  let messageState: TeacherMessageState = "guest";
+  if (user) {
+    if (!profile) {
+      messageState = "unavailable";
+    } else if (profile.id === teacher.id) {
+      messageState = "self";
+    } else if (
+      profile.role === "parent" ||
+      profile.role === "teacher" ||
+      profile.role === "institution_admin"
+    ) {
+      messageState = "eligible";
+    } else {
+      messageState = "unavailable";
+    }
+  }
+
+  return (
+    <PublicTeacherProfile teacher={teacher} messageState={messageState} />
+  );
 }

@@ -2,8 +2,9 @@ import { getTranslations } from "next-intl/server";
 import { Briefcase, GraduationCap } from "lucide-react";
 import { MarketingPage } from "@/components/shared/marketing-page";
 import { buttonVariants } from "@/components/ui/button";
+import { MessageTeacherButton } from "@/features/messaging";
+import type { TeacherMessageState } from "@/features/messaging";
 import { Link } from "@/lib/i18n/navigation";
-import { cn } from "@/lib/utils";
 import type { PublicTeacher } from "../types";
 
 /**
@@ -17,8 +18,10 @@ import type { PublicTeacher } from "../types";
  */
 export async function PublicTeacherProfile({
   teacher,
+  messageState,
 }: {
   teacher: PublicTeacher;
+  messageState: TeacherMessageState;
 }) {
   const t = await getTranslations("Marketing.publicTeacherProfile");
 
@@ -97,12 +100,11 @@ export async function PublicTeacherProfile({
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               {t("contactBody")}
             </p>
-            <Link
-              href="/signup"
-              className={cn(buttonVariants({ size: "md" }), "mt-5 w-full")}
-            >
-              {t("contactCta")}
-            </Link>
+            <MessageTeacherButton
+              teacherId={teacher.id}
+              teacherName={teacher.fullName}
+              state={messageState}
+            />
           </section>
 
           <Link

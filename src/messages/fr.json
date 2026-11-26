@@ -426,7 +426,8 @@
         "roles": {
           "parent": "Parent",
           "teacher": "Enseignant",
-          "student": "Élève"
+          "student": "Élève",
+          "institution_admin": "Administrateur d’établissement"
         },
         "submit": "Enregistrer les modifications",
         "submitBusy": "Enregistrement…",
@@ -710,6 +711,38 @@
         "cancelDelete": "Annuler",
         "close": "Fermer",
         "deleteError": "Impossible de supprimer ce produit. Veuillez réessayer."
+      }
+    },
+    "messaging": {
+      "title": "Messages",
+      "subtitle": "Échanges sécurisés avec les enseignants et le personnel scolaire.",
+      "conversations": {
+        "title": "Conversations",
+        "empty": "Aucune conversation pour l’instant. Contactez un enseignant depuis son profil public pour en créer une.",
+        "unknown": "Membre IBNI",
+        "selectPrompt": "Choisissez une conversation pour lire et répondre.",
+        "unread": "{count}"
+      },
+      "thread": {
+        "empty": "Aucun message dans cette conversation. Envoyez le premier.",
+        "you": "Vous"
+      },
+      "composer": {
+        "label": "Écrire un message",
+        "placeholder": "Saisissez votre message...",
+        "hint": "Jusqu’à 2000 caractères.",
+        "send": "Envoyer",
+        "sending": "Envoi..."
+      },
+      "errors": {
+        "receiverRequired": "Choisissez un destinataire.",
+        "receiverInvalid": "Le destinataire est invalide.",
+        "empty": "Écrivez un message avant de l’envoyer.",
+        "tooLong": "Un message ne doit pas dépasser 2000 caractères.",
+        "notAllowed": "La messagerie n’est pas disponible pour votre compte.",
+        "invalidRecipient": "Vous ne pouvez pas contacter cette personne.",
+        "unknown": "Une erreur s’est produite. Veuillez réessayer.",
+        "sendFailed": "Impossible d’envoyer votre message. Veuillez réessayer."
       }
     }
   },
@@ -1636,8 +1669,12 @@
       "experienceTitle": "Expérience",
       "noExperience": "Années d'expérience non renseignées.",
       "contactTitle": "Contacter l'enseignant",
-      "contactBody": "La mise en contact est réservée aux membres inscrits sur IBNI. Créez un compte pour accéder aux coordonnées.",
+      "contactBody": "Les échanges restent dans IBNI. Connectez-vous pour contacter cet enseignant en toute sécurité.",
       "contactCta": "S'inscrire pour contacter",
+      "messageTeacher": "Contacter l'enseignant",
+      "signInToMessage": "Se connecter pour écrire",
+      "messageSelf": "Vous ne pouvez pas vous écrire à vous-même",
+      "messageUnavailable": "La messagerie n’est pas disponible pour votre compte",
       "back": "Retour à l'annuaire des enseignants"
     },
     "institutionDirectory": {

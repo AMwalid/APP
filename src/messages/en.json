@@ -426,7 +426,8 @@
         "roles": {
           "parent": "Parent",
           "teacher": "Teacher",
-          "student": "Student"
+          "student": "Student",
+          "institution_admin": "Institution admin"
         },
         "submit": "Save changes",
         "submitBusy": "Saving…",
@@ -710,6 +711,38 @@
         "cancelDelete": "Cancel",
         "close": "Close",
         "deleteError": "We couldn't delete this product. Please try again."
+      }
+    },
+    "messaging": {
+      "title": "Messages",
+      "subtitle": "Secure conversations with teachers and school staff.",
+      "conversations": {
+        "title": "Conversations",
+        "empty": "No conversations yet. Message a teacher from their public profile to start one.",
+        "unknown": "IBNI member",
+        "selectPrompt": "Choose a conversation to read and reply.",
+        "unread": "{count}"
+      },
+      "thread": {
+        "empty": "No messages in this conversation yet. Send the first one.",
+        "you": "You"
+      },
+      "composer": {
+        "label": "Write a message",
+        "placeholder": "Type your message...",
+        "hint": "Up to 2000 characters.",
+        "send": "Send",
+        "sending": "Sending..."
+      },
+      "errors": {
+        "receiverRequired": "Choose a recipient.",
+        "receiverInvalid": "The recipient is invalid.",
+        "empty": "Write a message before sending.",
+        "tooLong": "A message must be 2000 characters or fewer.",
+        "notAllowed": "Messaging is not available for your account.",
+        "invalidRecipient": "You cannot message this person.",
+        "unknown": "Something went wrong. Please try again.",
+        "sendFailed": "We couldn't send your message. Please try again."
       }
     }
   },
@@ -1636,8 +1669,12 @@
       "experienceTitle": "Experience",
       "noExperience": "Years of experience not listed.",
       "contactTitle": "Contact this teacher",
-      "contactBody": "Contact is available to registered IBNI members. Create an account to get in touch.",
+      "contactBody": "Messages stay inside IBNI. Sign in to contact this teacher securely.",
       "contactCta": "Sign up to contact",
+      "messageTeacher": "Message teacher",
+      "signInToMessage": "Sign in to message",
+      "messageSelf": "You cannot message yourself",
+      "messageUnavailable": "Messaging is not available for your account",
       "back": "Back to teacher directory"
     },
     "institutionDirectory": {

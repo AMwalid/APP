@@ -108,6 +108,7 @@ const eslintConfig = [
     files: [
       "src/features/**/queries.ts",
       "src/features/**/actions.ts",
+      "src/features/messaging/realtime.ts",
       "src/lib/supabase/**",
       "src/middleware.ts",
     ],
