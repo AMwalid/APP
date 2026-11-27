@@ -23,8 +23,8 @@ import type {
  * middleware and the teacher guard, so this only happens if a session expires
  * mid-navigation.
  *
- * A failed query returns `[]` and logs the code: a broken list is not worth
- * crashing the page over, but it must not be silent either.
+ * A failed query throws: an empty list would hide an outage behind the page's
+ * empty state.
  *
  * Counts are fetched with a second query rather than a PostgREST aggregate
  * embed. It is one extra round trip, and it works with any PostgREST version.
@@ -45,8 +45,9 @@ export async function getClasses(): Promise<Class[]> {
     .order("created_at", { ascending: true });
 
   if (error) {
-    console.error("[classes] getClasses failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[classes] getClasses failed: " + (error.code ?? error.message),
+    );
   }
 
   const rows = data as ClassRow[];
@@ -78,8 +79,9 @@ export async function getClassById(id: string): Promise<Class | null> {
     .maybeSingle();
 
   if (error) {
-    console.error("[classes] getClassById failed", error.code ?? error.message);
-    return null;
+    throw new Error(
+      "[classes] getClassById failed: " + (error.code ?? error.message),
+    );
   }
 
   if (!data) {
@@ -102,8 +104,8 @@ export async function getClassById(id: string): Promise<Class | null> {
  * a non-student from even calling it, the same defence in depth as the teacher
  * queries.
  *
- * A failed lookup returns `[]` and logs the code, matching `getClasses()`: the
- * page shows its empty state rather than crashing on a transient problem.
+ * A failed lookup throws, matching `getClasses()`: an empty list would make a
+ * broken lookup look like a student with no classes.
  */
 export async function getStudentClasses(): Promise<StudentClass[]> {
   const viewer = await getViewer();
@@ -116,8 +118,9 @@ export async function getStudentClasses(): Promise<StudentClass[]> {
   const { data, error } = await supabase.rpc("get_student_classes");
 
   if (error) {
-    console.error("[classes] getStudentClasses failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[classes] getStudentClasses failed: " + (error.code ?? error.message),
+    );
   }
 
   return ((data ?? []) as StudentClassRow[]).map((row) => ({
@@ -138,8 +141,8 @@ export async function getStudentClasses(): Promise<StudentClass[]> {
  * `profiles` RLS forbids reading other people's rows, and that is deliberate.
  *
  * A profile missing from the RPC result still gets a row — the FK guarantees
- * the student exists, so an empty name/email here means the lookup failed and
- * the UI falls back to a translated label rather than hiding the enrollment.
+ * the student exists, so an empty name/email here falls back to a translated
+ * label in the UI rather than hiding the enrollment.
  */
 export async function getRoster(classId: string): Promise<RosterStudent[]> {
   const viewer = await getViewer();
@@ -156,8 +159,9 @@ export async function getRoster(classId: string): Promise<RosterStudent[]> {
     .order("created_at", { ascending: true });
 
   if (error) {
-    console.error("[classes] getRoster failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[classes] getRoster failed: " + (error.code ?? error.message),
+    );
   }
 
   const rows = data as EnrollmentRow[];
@@ -178,7 +182,8 @@ export async function getRoster(classId: string): Promise<RosterStudent[]> {
 
 /**
  * A single registered student, used by the enroll action to reject a teacher
- * id or a made-up uuid before the insert. Returns null on a failed lookup.
+ * id or a made-up uuid before the insert. Returns null when there is no profile
+ * row; a failed lookup throws.
  */
 export async function getStudentById(id: string): Promise<StudentOption | null> {
   const profiles = await getStudentProfiles([id]);
@@ -199,8 +204,9 @@ async function getStudentProfiles(
   const { data, error } = await supabase.rpc("get_students_by_ids", { ids });
 
   if (error) {
-    console.error("[classes] get_students_by_ids failed", error.code ?? error.message);
-    return result;
+    throw new Error(
+      "[classes] getStudentProfiles failed: " + (error.code ?? error.message),
+    );
   }
 
   for (const row of data as StudentProfileRow[]) {
@@ -228,8 +234,9 @@ async function getStudentCounts(ids: string[]): Promise<Map<string, number>> {
     .in("class_id", ids);
 
   if (error) {
-    console.error("[classes] getStudentCounts failed", error.code ?? error.message);
-    return counts;
+    throw new Error(
+      "[classes] getStudentCounts failed: " + (error.code ?? error.message),
+    );
   }
 
   for (const row of data as { class_id: string }[]) {

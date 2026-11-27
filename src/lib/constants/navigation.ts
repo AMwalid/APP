@@ -50,7 +50,7 @@ export const NAV_ITEMS: readonly NavItem[] = [
       {
         id: "track-kid",
         labelKey: "items.parents.trackKid",
-        href: "/parents/track-kid",
+        href: "/parents",
       },
       {
         id: "my-courses",
@@ -77,12 +77,12 @@ export const NAV_ITEMS: readonly NavItem[] = [
       {
         id: "track-progress",
         labelKey: "items.students.trackProgress",
-        href: "/students/track-progress",
+        href: "/students",
       },
       {
         id: "my-courses",
         labelKey: "items.students.myCourses",
-        href: "/students/my-courses",
+        href: "/students",
       },
     ],
   },
@@ -111,7 +111,7 @@ export const NAV_ITEMS: readonly NavItem[] = [
       {
         id: "profile",
         labelKey: "items.institutions.profile",
-        href: "/institutions/profile",
+        href: "/institutions",
       },
       {
         id: "dashboard",
@@ -212,6 +212,32 @@ export const NAV_DASHBOARD: NavAction = {
   href: "/dashboard",
   variant: "primary",
 };
+
+/**
+ * Children that only make sense once someone is signed in. Guests still see
+ * the section itself; hiding these rows avoids sending them to a login redirect
+ * from a dropdown that looked like public content.
+ */
+const DASHBOARD_ONLY_HREFS = new Set([
+  "/teachers/profile",
+  "/teachers/classes",
+  "/institutions/dashboard",
+]);
+
+export function getVisibleNavItems(
+  isAuthenticated: boolean,
+): readonly NavItem[] {
+  if (isAuthenticated) {
+    return NAV_ITEMS;
+  }
+
+  return NAV_ITEMS.map((item) => ({
+    ...item,
+    children: item.children?.filter(
+      (child) => !DASHBOARD_ONLY_HREFS.has(child.href),
+    ),
+  }));
+}
 
 /**
  * Rows shown in a dropdown: the section landing page first, then its children.

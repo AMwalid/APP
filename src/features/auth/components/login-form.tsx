@@ -43,7 +43,7 @@ function safeNextPath(value: string | undefined): string {
 }
 
 type LoginFormProps = {
-  /** Path the middleware intercepted, e.g. `/parents/track-kid`. */
+  /** Path the middleware intercepted, e.g. `/parents/children`. */
   nextPath?: string;
 };
 

@@ -15,8 +15,9 @@ export async function getConversations(): Promise<Conversation[]> {
   const { data, error } = await supabase.rpc("get_conversations");
 
   if (error) {
-    console.error("[messaging] getConversations failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[messaging] getConversations failed: " + (error.code ?? error.message),
+    );
   }
 
   return ((data ?? []) as ConversationRow[]).map((row) => ({
@@ -36,8 +37,9 @@ export async function getConversation(peerId: string): Promise<Message[]> {
   });
 
   if (error) {
-    console.error("[messaging] getConversation failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[messaging] getConversation failed: " + (error.code ?? error.message),
+    );
   }
 
   return ((data ?? []) as MessageRow[]).map(toMessage);

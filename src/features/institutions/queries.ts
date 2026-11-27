@@ -31,8 +31,10 @@ export async function getPublicInstitutions(
   });
 
   if (error) {
-    console.error("Failed to load public institutions", error.message);
-    return [];
+    throw new Error(
+      "[institutions] getPublicInstitutions failed: " +
+        (error.code ?? error.message),
+    );
   }
 
   return Array.isArray(data) ? data.map((row) => asPublicInstitution(row)) : [];
@@ -53,10 +55,14 @@ export async function getOwnInstitution(): Promise<InstitutionProfile | null> {
     .eq("owner_id", auth.user.id)
     .maybeSingle<InstitutionRow>();
 
-  if (error || !data) {
-    if (error) {
-      console.error("Failed to load own institution", error.message);
-    }
+  if (error) {
+    throw new Error(
+      "[institutions] getOwnInstitution failed: " +
+        (error.code ?? error.message),
+    );
+  }
+
+  if (!data) {
     return null;
   }
 

@@ -5,9 +5,9 @@ import { ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   getMenuEntries,
+  getVisibleNavItems,
   isActiveItem,
   isActiveMenuEntry,
-  NAV_ITEMS,
 } from "@/lib/constants/navigation";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -31,10 +31,17 @@ const ROW_BASE =
  * is the section landing link. There is no `Viewport`: each panel is absolutely
  * positioned against its own item so it lines up with the trigger.
  */
-export function DesktopNav({ className }: { className?: string }) {
+export function DesktopNav({
+  className,
+  isAuthenticated,
+}: {
+  className?: string;
+  isAuthenticated: boolean;
+}) {
   const t = useTranslations("Navigation");
   const locale = useLocale();
   const pathname = usePathname();
+  const items = getVisibleNavItems(isAuthenticated);
 
   return (
     <NavigationMenu.Root
@@ -45,7 +52,7 @@ export function DesktopNav({ className }: { className?: string }) {
       className={cn("hidden xl:block", className)}
     >
       <NavigationMenu.List className="flex items-center gap-0.5">
-        {NAV_ITEMS.map((item) => {
+        {items.map((item) => {
           const active = isActiveItem(pathname, item);
 
           if (!item.children?.length) {

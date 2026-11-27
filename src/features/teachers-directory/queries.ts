@@ -8,8 +8,8 @@ import { toPublicTeacher, type PublicTeacher, type PublicTeacherRow } from "./ty
  * `role = 'teacher'`; anon clients still cannot SELECT profiles directly
  * because the table's RLS only allows reading one's own row.
  *
- * A failed read degrades to an empty state rather than an exception, matching
- * the other directory-style queries in the app.
+ * A failed read throws rather than rendering an empty directory, which would
+ * make an outage look like a search with no matches.
  */
 
 export type TeacherSearch = {
@@ -28,8 +28,10 @@ export async function getPublicTeachers({
   });
 
   if (error) {
-    console.error("[teachers-directory] search failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[teachers-directory] getPublicTeachers failed: " +
+        (error.code ?? error.message),
+    );
   }
 
   return ((data ?? []) as PublicTeacherRow[]).map(toPublicTeacher);
@@ -47,8 +49,10 @@ export async function getPublicTeacher(id: string): Promise<PublicTeacher | null
   const { data, error } = await supabase.rpc("get_public_teacher", { p_id: id });
 
   if (error) {
-    console.error("[teachers-directory] detail failed", error.code ?? error.message);
-    return null;
+    throw new Error(
+      "[teachers-directory] getPublicTeacher failed: " +
+        (error.code ?? error.message),
+    );
   }
 
   const row = (data ?? [])[0] as PublicTeacherRow | undefined;

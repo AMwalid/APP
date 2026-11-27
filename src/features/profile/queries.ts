@@ -8,10 +8,11 @@ import { isUserRole, type Profile, type ProfileRow, type Viewer } from "./types"
 /**
  * The signed-in user's profile, or null.
  *
- * Null covers three cases that the caller treats the same way: nobody is signed
- * in, the row does not exist (a user created before the trigger and missed by
- * the backfill), and the read failed. All three mean "we have no name for this
- * person", and the top bar falls back to the email for exactly that reason.
+ * Null covers two cases that the caller treats the same way: nobody is signed
+ * in, or the row does not exist (a user created before the trigger and missed by
+ * the backfill). Both mean "we have no name for this person", and the top bar
+ * falls back to the email for exactly that reason. A failed read throws instead
+ * of masquerading as a missing profile.
  *
  * `maybeSingle` rather than `single`: a missing row is an expected state here,
  * not an error, and PostgREST would otherwise answer 406.
@@ -34,8 +35,9 @@ export async function getProfile(): Promise<Profile | null> {
     .maybeSingle();
 
   if (error) {
-    console.error("[profile] getProfile failed", error.code ?? error.message);
-    return null;
+    throw new Error(
+      "[profile] getProfile failed: " + (error.code ?? error.message),
+    );
   }
 
   if (!data) {

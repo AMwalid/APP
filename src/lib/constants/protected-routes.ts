@@ -17,18 +17,13 @@ export const PROTECTED_PREFIXES = [
   "/parents/children",
   "/parents/messages",
   "/parents/settings",
-  "/parents/track-kid",
   "/students/overview",
   "/students/settings",
-  "/students/track-progress",
-  "/students/my-courses",
   "/institutions/dashboard",
   "/teachers/overview",
   "/teachers/classes",
   "/teachers/profile",
   "/teachers/settings",
-  "/institutions/profile",
-  "/institutions/dashboard",
 ] as const;
 
 /**

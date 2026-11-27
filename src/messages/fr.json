@@ -3,6 +3,17 @@
     "title": "IBNI — Plateforme éducative algérienne",
     "description": "Une plateforme éducative algérienne qui relie parents, élèves, enseignants et établissements."
   },
+  "Errors": {
+    "title": "Une erreur est survenue",
+    "description": "Impossible de charger cette page. Réessayez ou revenez à la page d'accueil.",
+    "retry": "Réessayer",
+    "home": "Retour à l'accueil"
+  },
+  "NotFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "home": "Retour à l'accueil"
+  },
   "Home": {
     "Hero": {
       "badge": "IBNI",
@@ -156,6 +167,10 @@
   "Dashboard": {
     "nav": {
       "label": "Sections du tableau de bord",
+      "openMenu": "Ouvrir le menu du tableau de bord",
+      "closeMenu": "Fermer le menu du tableau de bord",
+      "menu": "Menu du tableau de bord",
+      "mainNav": "Sections du tableau de bord",
       "overview": "Aperçu",
       "children": "Enfants",
       "messages": "Messages",
@@ -164,6 +179,10 @@
       "settings": "Paramètres",
       "institutionDashboard": "Établissements",
       "store": "Boutique"
+    },
+    "loading": {
+      "title": "Chargement du tableau de bord",
+      "description": "Préparation de votre tableau de bord…"
     },
     "shell": {
       "signedInAs": "Connecté en tant que",
@@ -522,6 +541,10 @@
             "subject": "Bons progrès en sciences",
             "when": "Il y a 3 jours"
           }
+        },
+        "empty": {
+          "title": "Aucune communication",
+          "body": "Les messages de l'école de votre enfant apparaîtront ici dès leur arrivée."
         }
       }
     },

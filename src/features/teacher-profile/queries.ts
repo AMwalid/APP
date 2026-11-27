@@ -7,9 +7,9 @@ import type { TeacherProfile, TeacherProfileRow } from "./types";
 /**
  * The signed-in teacher's profile, or null.
  *
- * Null means there is no session, no profile row, or the read failed. All three
- * are rendered as empty form defaults; the action then reports the precise
- * outcome on save, the same way `features/profile` handles a missing row.
+ * Null means there is no session or no profile row; both are rendered as empty
+ * form defaults. A failed read throws rather than masquerading as an empty
+ * profile, the same way `features/profile` treats a missing row.
  *
  * RLS already limits the table to the caller's own row; the explicit `id` filter
  * is defence in depth and the one the primary key covers.
@@ -29,8 +29,10 @@ export async function getTeacherProfile(): Promise<TeacherProfile | null> {
     .maybeSingle();
 
   if (error) {
-    console.error("[teacher-profile] getTeacherProfile failed", error.code ?? error.message);
-    return null;
+    throw new Error(
+      "[teacher-profile] getTeacherProfile failed: " +
+        (error.code ?? error.message),
+    );
   }
 
   if (!data) {

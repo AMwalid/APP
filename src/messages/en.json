@@ -3,6 +3,17 @@
     "title": "IBNI — Algeria's Education Platform",
     "description": "An Algerian education platform connecting parents, students, teachers, and institutions."
   },
+  "Errors": {
+    "title": "Something went wrong",
+    "description": "We couldn't load this page. Try again, or return to the home page.",
+    "retry": "Try again",
+    "home": "Back to home"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "home": "Back to home"
+  },
   "Home": {
     "Hero": {
       "badge": "IBNI",
@@ -156,6 +167,10 @@
   "Dashboard": {
     "nav": {
       "label": "Dashboard sections",
+      "openMenu": "Open dashboard menu",
+      "closeMenu": "Close dashboard menu",
+      "menu": "Dashboard menu",
+      "mainNav": "Dashboard sections",
       "overview": "Overview",
       "children": "Children",
       "messages": "Messages",
@@ -164,6 +179,10 @@
       "settings": "Settings",
       "institutionDashboard": "Institutions",
       "store": "Store"
+    },
+    "loading": {
+      "title": "Loading dashboard",
+      "description": "Preparing your dashboard…"
     },
     "shell": {
       "signedInAs": "Signed in as",
@@ -522,6 +541,10 @@
             "subject": "Great progress in science",
             "when": "3 days ago"
           }
+        },
+        "empty": {
+          "title": "No communications yet",
+          "body": "Messages from your child's school will appear here as soon as they arrive."
         }
       }
     },

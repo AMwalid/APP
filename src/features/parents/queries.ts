@@ -86,8 +86,8 @@ export async function getParentOverview(): Promise<ParentOverview> {
  * out visitor gets an empty list rather than an error — the page is behind the
  * middleware, so this only happens if a session expires mid-navigation.
  *
- * A failed query returns `[]` and logs the code: a broken list is not worth
- * crashing the page over, but it must not be silent either.
+ * A failed query throws: an empty list would hide an outage behind the page's
+ * empty state.
  *
  * `toChild` exists because the Supabase client is untyped until
  * `src/types/database.ts` is generated; it keeps the cast in one place.
@@ -107,8 +107,9 @@ export async function getChildren(): Promise<Child[]> {
     .order("created_at", { ascending: true });
 
   if (error) {
-    console.error("[parents] getChildren failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[parents] getChildren failed: " + (error.code ?? error.message),
+    );
   }
 
   return (data as ChildRow[]).map(toChild);
@@ -147,8 +148,9 @@ export async function getChildById(id: string): Promise<Child | null> {
     .maybeSingle();
 
   if (error) {
-    console.error("[parents] getChildById failed", error.code ?? error.message);
-    return null;
+    throw new Error(
+      "[parents] getChildById failed: " + (error.code ?? error.message),
+    );
   }
 
   return data ? toChild(data as ChildRow) : null;
@@ -175,8 +177,9 @@ export async function getChildGrades(childId: string): Promise<ParentGrade[]> {
   });
 
   if (error) {
-    console.error("[parents] getChildGrades failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[parents] getChildGrades failed: " + (error.code ?? error.message),
+    );
   }
 
   return ((data ?? []) as ChildGradeRow[]).map((row) => ({

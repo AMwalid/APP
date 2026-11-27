@@ -43,8 +43,9 @@ export async function getPublicProducts(needle: string): Promise<PublicProduct[]
   });
 
   if (error) {
-    console.error("Failed to load public products", error.message);
-    return [];
+    throw new Error(
+      "[store] getPublicProducts failed: " + (error.code ?? error.message),
+    );
   }
 
   return Array.isArray(data) ? data.map((row) => asPublicProduct(row)) : [];
@@ -68,8 +69,9 @@ export async function getSellerProducts(): Promise<Product[]> {
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("Failed to load seller products", error.message);
-    return [];
+    throw new Error(
+      "[store] getSellerProducts failed: " + (error.code ?? error.message),
+    );
   }
 
   return (data ?? []).map((row) => asSellerProduct(row as ProductRow));

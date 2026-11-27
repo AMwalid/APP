@@ -14,8 +14,8 @@ import type { EnrollmentRef, Grade, GradeRow } from "./types";
  * PostgREST without an ownership check in the page or action.
  *
  * `numeric` columns arrive as strings; converting here keeps components free of
- * database shapes. A failed read logs its code and returns `[]`, matching the
- * other list queries — an empty list is better than a crashed page.
+ * database shapes. A failed read throws rather than returning `[]`, which would
+ * hide an outage behind the page's empty state.
  */
 export async function getGrades(enrollmentId: string): Promise<Grade[]> {
   const user = await getCurrentUser();
@@ -32,8 +32,9 @@ export async function getGrades(enrollmentId: string): Promise<Grade[]> {
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("[grades] getGrades failed", error.code ?? error.message);
-    return [];
+    throw new Error(
+      "[grades] getGrades failed: " + (error.code ?? error.message),
+    );
   }
 
   return (data as GradeRow[]).map((row) => ({
@@ -71,8 +72,9 @@ export async function getTeacherEnrollment(
     .maybeSingle();
 
   if (error) {
-    console.error("[grades] getTeacherEnrollment failed", error.code ?? error.message);
-    return null;
+    throw new Error(
+      "[grades] getTeacherEnrollment failed: " + (error.code ?? error.message),
+    );
   }
 
   if (!data) {
@@ -106,11 +108,10 @@ export async function getStudentEnrollmentForClass(
     .maybeSingle();
 
   if (error) {
-    console.error(
-      "[grades] getStudentEnrollmentForClass failed",
-      error.code ?? error.message,
+    throw new Error(
+      "[grades] getStudentEnrollmentForClass failed: " +
+        (error.code ?? error.message),
     );
-    return null;
   }
 
   if (!data) {

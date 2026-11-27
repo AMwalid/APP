@@ -8,10 +8,10 @@ import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { NavActions } from "@/components/layout/nav-actions";
 import {
   getMenuEntries,
+  getVisibleNavItems,
   isActiveItem,
   isActiveMenuEntry,
   NAV_DASHBOARD,
-  NAV_ITEMS,
   NAV_TOP_LINKS,
 } from "@/lib/constants/navigation";
 import { Link, usePathname } from "@/lib/i18n/navigation";
@@ -28,6 +28,7 @@ import { cn } from "@/lib/utils";
 export function MobileNav({ isAuthenticated }: { isAuthenticated: boolean }) {
   const t = useTranslations("Navigation");
   const pathname = usePathname();
+  const items = getVisibleNavItems(isAuthenticated);
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
 
@@ -104,7 +105,7 @@ export function MobileNav({ isAuthenticated }: { isAuthenticated: boolean }) {
 
           <nav aria-label={t("a11y.mainNav")} className="container-page">
             <ul className="flex flex-col divide-y divide-border border-b border-border">
-              {NAV_ITEMS.map((item) => {
+              {items.map((item) => {
                 const active = isActiveItem(pathname, item);
                 const isExpanded = expanded === item.id;
                 const submenuId = `mobile-submenu-${item.id}`;

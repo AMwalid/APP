@@ -42,7 +42,10 @@ export async function SiteHeader({
             IBNI
           </Link>
 
-          <DesktopNav className="justify-self-center" />
+          <DesktopNav
+            className="justify-self-center"
+            isAuthenticated={isAuthenticated}
+          />
 
           <div className="flex items-center gap-1 justify-self-end sm:gap-2">
             <SearchButton />
