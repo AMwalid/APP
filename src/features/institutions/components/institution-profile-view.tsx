@@ -2,23 +2,27 @@ import { getTranslations } from "next-intl/server";
 import { getOwnInstitution } from "../queries";
 import { InstitutionProfileForm } from "./institution-profile-form";
 
-/** Composition for `/institutions/dashboard`. */
+/** The editable public-profile section of `/institutions/dashboard`. */
 export async function InstitutionProfileView() {
   const t = await getTranslations("Dashboard");
   const institution = await getOwnInstitution();
 
   return (
-    <div className="mx-auto max-w-2xl space-y-6">
-      <header>
-        <h1 className="text-2xl font-bold text-balance text-foreground">
-          {t("institutionProfile.title")}
-        </h1>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-          {t("institutionProfile.subtitle")}
-        </p>
-      </header>
+    <section
+      aria-labelledby="institution-profile-title"
+      className="mx-auto max-w-2xl rounded-xl border border-border bg-background p-6 shadow-sm"
+    >
+      <h2
+        id="institution-profile-title"
+        className="text-lg font-semibold text-foreground"
+      >
+        {t("institutionProfile.title")}
+      </h2>
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+        {t("institutionProfile.subtitle")}
+      </p>
 
-      <section className="rounded-xl border border-border bg-background p-6 shadow-sm">
+      <div className="mt-5">
         <InstitutionProfileForm
           defaultValues={
             institution ?? {
@@ -29,7 +33,7 @@ export async function InstitutionProfileView() {
             }
           }
         />
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

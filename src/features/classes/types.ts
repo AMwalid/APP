@@ -40,6 +40,39 @@ export type StudentClassRow = {
 };
 
 /**
+ * One student's real grade row. Numeric columns arrive as strings from
+ * PostgREST, exactly like the parent and teacher grade mappers.
+ */
+export type StudentGradeRow = {
+  id: string;
+  enrollment_id: string;
+  score: string;
+  max_score: string;
+  created_at: string;
+};
+
+/** An enrolled class with its real grade summary for the overview card. */
+export type StudentClassSummary = StudentClass & {
+  gradeCount: number;
+  /** Already formatted with the active locale, or null when there are no grades. */
+  averageScore: string | null;
+};
+
+export type StudentStat = {
+  id: string;
+  labelKey: string;
+  value: string;
+  captionKey: string;
+  emptyKey?: string;
+  tone?: "neutral" | "positive";
+};
+
+export type StudentOverview = {
+  cards: StudentStat[];
+  classes: StudentClassSummary[];
+};
+
+/**
  * A row of `public.classes`, as returned by the query.
  *
  * Hand-written from `supabase/migrations/20261119000000_create_classes_tables.sql`

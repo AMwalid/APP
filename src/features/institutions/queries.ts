@@ -1,7 +1,14 @@
 import "server-only";
 
+import { getConversations } from "@/features/messaging";
+import { getSellerProducts } from "@/features/store";
 import { createClient } from "@/lib/supabase/server";
-import type { InstitutionProfile, InstitutionRow, PublicInstitution } from "./types";
+import type {
+  InstitutionOverview,
+  InstitutionProfile,
+  InstitutionRow,
+  PublicInstitution,
+} from "./types";
 
 function asPublicInstitution(row: {
   id: unknown;
@@ -71,5 +78,51 @@ export async function getOwnInstitution(): Promise<InstitutionProfile | null> {
     type: data.type,
     location: data.location,
     description: data.description ?? "",
+  };
+}
+
+/**
+ * The institution admin's overview (INS-04/06, scoped to available data).
+ *
+ * Listings come from `products` and conversations from the messaging RPC, both
+ * already filtered to the signed-in owner/participant by RLS. There is no
+ * institution-linked teacher/student enrollment table, so this reports what is
+ * real today instead of inventing engagement or enrollment metrics.
+ */
+export async function getInstitutionOverview(): Promise<InstitutionOverview> {
+  const [products, conversations] = await Promise.all([
+    getSellerProducts(),
+    getConversations(),
+  ]);
+
+  const unreadCount = conversations.reduce(
+    (sum, conversation) => sum + conversation.unreadCount,
+    0,
+  );
+
+  return {
+    cards: [
+      {
+        id: "listings",
+        labelKey: "institutionOverview.cards.listings.label",
+        value: products.length,
+        captionKey: "institutionOverview.cards.listings.caption",
+        tone: "neutral",
+      },
+      {
+        id: "conversations",
+        labelKey: "institutionOverview.cards.conversations.label",
+        value: conversations.length,
+        captionKey: "institutionOverview.cards.conversations.caption",
+        tone: "neutral",
+      },
+      {
+        id: "unread",
+        labelKey: "institutionOverview.cards.unread.label",
+        value: unreadCount,
+        captionKey: "institutionOverview.cards.unread.caption",
+        tone: "positive",
+      },
+    ],
   };
 }

@@ -1,26 +1,30 @@
 /**
  * Types for the parent overview (PAR-01).
  *
- * The placeholder data carries translation keys rather than strings: the demo
- * values ("95%", "Excellent", "Math — Nov 20") are user-visible text and have
- * to exist in all three locales, which a constant in `queries.ts` could not do.
- * When the real schema lands, these fields become plain values instead.
+ * Values are data from Supabase, not translation keys: children, grades and
+ * inbox summaries are real rows. Labels and captions stay as keys so the three
+ * locale catalogs remain identical.
  */
 export type SummaryCardTone = "neutral" | "positive";
 
 export type SummaryCardData = {
   id: string;
   labelKey: string;
-  valueKey: string;
+  value: string;
   captionKey: string;
+  /** Used when a real figure is genuinely unavailable, never for a fake one. */
+  emptyKey?: string;
   tone: SummaryCardTone;
 };
 
 export type Communication = {
   id: string;
-  fromKey: string;
-  subjectKey: string;
-  whenKey: string;
+  from: string;
+  subject: string;
+  /** ISO timestamp, formatted in the component with the active locale. */
+  when: string;
+  /** The real inbox thread, when one exists. */
+  href?: string;
 };
 
 export type ParentOverview = {

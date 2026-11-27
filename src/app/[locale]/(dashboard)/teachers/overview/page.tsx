@@ -1,17 +1,12 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { StatCard } from "@/components/shared/stat-card";
-import { getTeacherOverview } from "@/features/teachers";
+import { getTeacherOverview, TeacherClassPreview } from "@/features/teachers";
 
 /**
- * Teacher dashboard.
+ * Teacher dashboard (TCH-02 / TCH-03).
  *
- * The three figures are the shell of TCH-02 (class management) and TCH-03
- * (student records): they answer "how much is on my plate?" before the teacher
- * opens a class. The query returns the placeholder contract, so this page does
- * not change when the tables land.
- *
- * The role boundary is `teachers/layout.tsx`; the page only composes data and
- * rendering, like the parent overview.
+ * The figures and the class cards are real RLS-scoped reads. The role boundary
+ * is `teachers/layout.tsx`; the page only composes data and rendering.
  */
 export default async function TeacherOverviewPage({
   params,
@@ -49,6 +44,8 @@ export default async function TeacherOverviewPage({
           />
         ))}
       </section>
+
+      <TeacherClassPreview classes={overview.classes} />
     </div>
   );
 }

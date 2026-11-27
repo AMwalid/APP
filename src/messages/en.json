@@ -505,74 +505,83 @@
     },
     "overview": {
       "title": "Parent overview",
-      "subtitle": "A snapshot of your child's progress and school updates.",
+      "subtitle": "A snapshot of your children's progress and school communications.",
       "cards": {
-        "attendance": {
-          "label": "Attendance",
-          "value": "95%",
-          "caption": "This term"
+        "children": {
+          "label": "Children",
+          "caption": "Linked to your account"
         },
-        "behavior": {
-          "label": "Behavior",
-          "value": "Excellent",
-          "caption": "No flags this month"
+        "grades": {
+          "label": "Grades recorded",
+          "caption": "Across your linked children"
         },
-        "nextExam": {
-          "label": "Next exam",
-          "value": "Math — Nov 20",
-          "caption": "Chapter 4: Fractions"
+        "average": {
+          "label": "Average score",
+          "caption": "From recorded grades",
+          "empty": "No grades"
         }
       },
       "communications": {
         "title": "Recent communications",
-        "items": {
-          "m1": {
-            "from": "Mrs. Amrani",
-            "subject": "Math homework for Thursday",
-            "when": "2 hours ago"
-          },
-          "m2": {
-            "from": "School office",
-            "subject": "Parent-teacher meeting on Nov 22",
-            "when": "Yesterday"
-          },
-          "m3": {
-            "from": "Mr. Bensalem",
-            "subject": "Great progress in science",
-            "when": "3 days ago"
-          }
-        },
+        "unknownSender": "Unknown sender",
         "empty": {
           "title": "No communications yet",
-          "body": "Messages from your child's school will appear here as soon as they arrive."
+          "body": "Messages from your children's school will appear here as soon as they arrive."
         }
       }
     },
     "teacherOverview": {
       "title": "Teacher overview",
-      "subtitle": "A quick snapshot of your classes, students and marking queue.",
+      "subtitle": "Your classes, students and grades at a glance.",
       "cards": {
         "students": {
-          "label": "Total students",
-          "caption": "Across all your classes"
+          "label": "Students",
+          "caption": "Enrollments across your classes"
         },
         "classes": {
           "label": "Classes",
-          "caption": "Active this term"
+          "caption": "Classes you teach"
         },
         "grading": {
-          "label": "Pending grading",
-          "caption": "Submissions to review"
+          "label": "Grades recorded",
+          "caption": "In your gradebooks"
+        }
+      },
+      "classes": {
+        "title": "Your classes",
+        "viewAll": "View all classes",
+        "empty": {
+          "title": "No classes yet",
+          "body": "Create a class to start adding students and grades."
         }
       }
     },
     "studentOverview": {
       "title": "Student overview",
-      "subtitle": "Your enrolled classes and subjects, all in one place.",
+      "subtitle": "Your enrolled classes, grades and average, all in one place.",
+      "cards": {
+        "classes": {
+          "label": "Classes",
+          "caption": "Classes you are enrolled in"
+        },
+        "grades": {
+          "label": "Grades recorded",
+          "caption": "Across your classes"
+        },
+        "average": {
+          "label": "Average score",
+          "caption": "From all your grades",
+          "empty": "No grades"
+        }
+      },
       "card": {
         "gradeLevel": "Grade level",
         "teacher": "Teacher",
         "teacherUnknown": "Teacher not named",
+        "grades": "Grades",
+        "gradesCount": "{count, plural, one {# grade} other {# grades}}",
+        "average": "Average",
+        "noGrades": "No grades yet",
         "open": "Open {name}",
         "viewGrades": "Grades",
         "viewGradesFor": "View grades for {name}"
@@ -766,6 +775,24 @@
         "invalidRecipient": "You cannot message this person.",
         "unknown": "Something went wrong. Please try again.",
         "sendFailed": "We couldn't send your message. Please try again."
+      }
+    },
+    "institutionOverview": {
+      "title": "Institution overview",
+      "subtitle": "Your public profile, listings and conversations in one place.",
+      "cards": {
+        "listings": {
+          "label": "Listings",
+          "caption": "Products you offer"
+        },
+        "conversations": {
+          "label": "Conversations",
+          "caption": "Threads you are part of"
+        },
+        "unread": {
+          "label": "Unread messages",
+          "caption": "Waiting in your inbox"
+        }
       }
     }
   },

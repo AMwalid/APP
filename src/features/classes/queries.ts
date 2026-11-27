@@ -10,8 +10,11 @@ import type {
   RosterStudent,
   StudentClass,
   StudentClassRow,
+  StudentGradeRow,
   StudentOption,
+  StudentOverview,
   StudentProfileRow,
+  StudentStat,
 } from "./types";
 
 /**
@@ -130,6 +133,146 @@ export async function getStudentClasses(): Promise<StudentClass[]> {
     gradeLevel: row.grade_level,
     teacherName: row.teacher_name?.trim() || null,
   }));
+}
+
+/**
+ * The student overview (STU-01).
+ *
+ * `get_student_classes` provides the class names through the narrow definer RPC;
+ * this function adds the student's own enrollment and grade rows, both already
+ * limited by RLS to rows belonging to the signed-in student. Averaging happens
+ * here with the active locale so components stay presentational.
+ */
+export async function getStudentOverview(
+  locale: string,
+): Promise<StudentOverview> {
+  const classes = await getStudentClasses();
+
+  if (classes.length === 0) {
+    return {
+      cards: studentStats(locale, classes, []),
+      classes: [],
+    };
+  }
+
+  const supabase = await createClient();
+  const { data: enrollmentRows, error: enrollmentError } = await supabase
+    .from("class_enrollments")
+    .select("id, class_id")
+    .order("created_at", { ascending: true });
+
+  if (enrollmentError) {
+    throw new Error(
+      "[classes] getStudentOverview enrollments failed: " +
+        (enrollmentError.code ?? enrollmentError.message),
+    );
+  }
+
+  const enrollments = (enrollmentRows ?? []) as {
+    id: string;
+    class_id: string;
+  }[];
+  const enrollmentIds = enrollments.map((row) => row.id);
+
+  let grades: StudentGradeRow[] = [];
+
+  if (enrollmentIds.length > 0) {
+    const { data: gradeRows, error: gradeError } = await supabase
+      .from("grades")
+      .select("id, enrollment_id, score, max_score, created_at")
+      .in("enrollment_id", enrollmentIds);
+
+    if (gradeError) {
+      throw new Error(
+        "[classes] getStudentOverview grades failed: " +
+          (gradeError.code ?? gradeError.message),
+      );
+    }
+
+    grades = (gradeRows ?? []) as StudentGradeRow[];
+  }
+
+  const classIdByEnrollment = new Map(
+    enrollments.map((row) => [row.id, row.class_id]),
+  );
+  const summaryByClass = new Map<string, { count: number; total: number }>();
+
+  for (const grade of grades) {
+    const classId = classIdByEnrollment.get(grade.enrollment_id);
+
+    if (!classId) {
+      continue;
+    }
+
+    const summary = summaryByClass.get(classId) ?? { count: 0, total: 0 };
+    summary.count += 1;
+    summary.total += Number(grade.score) / Number(grade.max_score);
+    summaryByClass.set(classId, summary);
+  }
+
+  const percentFormat = new Intl.NumberFormat(locale, {
+    style: "percent",
+    maximumFractionDigits: 0,
+  });
+  const classesWithGrades = classes.map((classItem) => {
+    const summary = summaryByClass.get(classItem.id);
+
+    return {
+      ...classItem,
+      gradeCount: summary?.count ?? 0,
+      averageScore:
+        summary && summary.count > 0
+          ? percentFormat.format(summary.total / summary.count)
+          : null,
+    };
+  });
+
+  return {
+    cards: studentStats(locale, classes, grades),
+    classes: classesWithGrades,
+  };
+}
+
+function studentStats(
+  locale: string,
+  classes: StudentClass[],
+  grades: StudentGradeRow[],
+): StudentStat[] {
+  const numberFormat = new Intl.NumberFormat(locale);
+  const percentFormat = new Intl.NumberFormat(locale, {
+    style: "percent",
+    maximumFractionDigits: 0,
+  });
+  const total = grades.reduce(
+    (sum, grade) => sum + Number(grade.score) / Number(grade.max_score),
+    0,
+  );
+  const average = grades.length === 0 ? null : total / grades.length;
+
+  return [
+    {
+      id: "classes",
+      labelKey: "studentOverview.cards.classes.label",
+      value: numberFormat.format(classes.length),
+      captionKey: "studentOverview.cards.classes.caption",
+      tone: "neutral",
+    },
+    {
+      id: "grades",
+      labelKey: "studentOverview.cards.grades.label",
+      value: numberFormat.format(grades.length),
+      captionKey: "studentOverview.cards.grades.caption",
+      tone: "neutral",
+    },
+    {
+      id: "average",
+      labelKey: "studentOverview.cards.average.label",
+      value: average === null ? "" : percentFormat.format(average),
+      captionKey: "studentOverview.cards.average.caption",
+      emptyKey: "studentOverview.cards.average.empty",
+      tone: "positive",
+    },
+  ];
 }
 
 /**

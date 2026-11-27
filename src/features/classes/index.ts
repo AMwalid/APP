@@ -11,7 +11,13 @@ export { AddStudentDialog } from "./components/add-student-dialog";
 export { ClassCard } from "./components/class-card";
 export { RosterList } from "./components/roster-list";
 export { StudentClassCard } from "./components/student-class-card";
-export { getClassById, getClasses, getRoster, getStudentClasses } from "./queries";
+export {
+  getClassById,
+  getClasses,
+  getRoster,
+  getStudentClasses,
+  getStudentOverview,
+} from "./queries";
 export { createClassSchema } from "./schemas";
 export type { ClassFieldErrorKey, ClassFormErrorKey, Translate } from "./schemas";
 export type {
@@ -23,5 +29,9 @@ export type {
   EnrollResult,
   RosterStudent,
   StudentClass,
+  StudentClassSummary,
+  StudentGradeRow,
   StudentOption,
+  StudentOverview,
+  StudentStat,
 } from "./types";

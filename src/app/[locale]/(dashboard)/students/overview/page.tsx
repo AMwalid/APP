@@ -1,17 +1,13 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { getStudentClasses, StudentClassCard } from "@/features/classes";
+import { StatCard } from "@/components/shared/stat-card";
+import { getStudentOverview, StudentClassCard } from "@/features/classes";
 
 /**
- * STU-01 — the student's classes.
+ * STU-01 — the student's classes and grade summary.
  *
- * One card per enrolled class: name, subject, grade level and the teacher's
- * name. The list comes from a narrow definer function because RLS deliberately
- * stops a student reading `classes` or another account's `profiles`; the query
- * repeats the role check as defence in depth.
- *
- * Like the teacher and parent lists, the grid is page composition rather than a
- * feature component — the feature owns the card and the query, the page owns
- * the header, empty state and layout.
+ * Class names come from a narrow definer function because RLS deliberately
+ * stops a student reading `classes` or another account's `profiles`; the grade
+ * rows are the student's own. The page only composes the query and its cards.
  */
 export default async function StudentOverviewPage({
   params,
@@ -22,7 +18,7 @@ export default async function StudentOverviewPage({
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "Dashboard" });
-  const classList = await getStudentClasses();
+  const overview = await getStudentOverview(locale);
 
   return (
     <div className="space-y-6">
@@ -35,7 +31,22 @@ export default async function StudentOverviewPage({
         </p>
       </header>
 
-      {classList.length === 0 ? (
+      <section
+        aria-label={t("studentOverview.title")}
+        className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+      >
+        {overview.cards.map((card) => (
+          <StatCard
+            key={card.id}
+            label={t(card.labelKey)}
+            value={card.value || (card.emptyKey ? t(card.emptyKey) : "")}
+            caption={t(card.captionKey)}
+            tone={card.tone}
+          />
+        ))}
+      </section>
+
+      {overview.classes.length === 0 ? (
         /*
           A student with no enrollments has no action to take on this page —
           the teacher adds them to a class — so the empty state tells them what
@@ -51,7 +62,7 @@ export default async function StudentOverviewPage({
         </div>
       ) : (
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {classList.map((classItem) => (
+          {overview.classes.map((classItem) => (
             <li key={classItem.id}>
               <StudentClassCard classItem={classItem} />
             </li>

@@ -1,6 +1,7 @@
 import "server-only";
 
 import type { Grade } from "@/features/grades";
+import { getConversations } from "@/features/messaging";
 import { getCurrentUser } from "@/lib/supabase/session";
 import { createClient } from "@/lib/supabase/server";
 import type { Child, ChildRow, ParentOverview } from "./types";
@@ -21,60 +22,73 @@ type ChildGradeRow = {
 export type ParentGrade = Grade & { classId: string; className: string; subject: string };
 
 /**
- * The parent overview.
+ * The parent overview (PAR-01).
  *
- * Placeholder until the schema exists: PAR-01 will read attendance, behaviour,
- * exam dates and school messages for each child from Supabase. The shape is the
- * contract the page and cards already render against, so only the body of this
- * function changes when the tables land — nothing in the UI does.
+ * Every figure comes from a real RLS-scoped read: linked children, their grades
+ * through `get_child_grades`, and the parent's own inbox through
+ * `get_conversations`. There is no attendance or behavior table yet, so this
+ * reports academic performance and communications instead of inventing values.
  *
- * The `*Key` fields are translation keys, not values; see `./types`.
+ * Quantities and percentages are formatted with the active locale here; the
+ * components only translate labels and captions.
  */
-export async function getParentOverview(): Promise<ParentOverview> {
+export async function getParentOverview(locale: string): Promise<ParentOverview> {
+  const [children, conversations] = await Promise.all([
+    getChildren(),
+    getConversations(),
+  ]);
+
+  const gradeGroups = await Promise.all(
+    children
+      .filter((child) => child.studentId)
+      .map((child) => getChildGrades(child.id)),
+  );
+  const grades = gradeGroups.flat();
+
+  const scoreTotal = grades.reduce(
+    (sum, grade) => sum + grade.score / grade.maxScore,
+    0,
+  );
+  const average = grades.length === 0 ? null : scoreTotal / grades.length;
+
+  const numberFormat = new Intl.NumberFormat(locale);
+  const percentFormat = new Intl.NumberFormat(locale, {
+    style: "percent",
+    maximumFractionDigits: 0,
+  });
+
   return {
     cards: [
       {
-        id: "attendance",
-        labelKey: "overview.cards.attendance.label",
-        valueKey: "overview.cards.attendance.value",
-        captionKey: "overview.cards.attendance.caption",
+        id: "children",
+        labelKey: "overview.cards.children.label",
+        value: numberFormat.format(children.length),
+        captionKey: "overview.cards.children.caption",
         tone: "neutral",
       },
       {
-        id: "behavior",
-        labelKey: "overview.cards.behavior.label",
-        valueKey: "overview.cards.behavior.value",
-        captionKey: "overview.cards.behavior.caption",
+        id: "grades",
+        labelKey: "overview.cards.grades.label",
+        value: numberFormat.format(grades.length),
+        captionKey: "overview.cards.grades.caption",
+        tone: "neutral",
+      },
+      {
+        id: "average",
+        labelKey: "overview.cards.average.label",
+        value: average === null ? "" : percentFormat.format(average),
+        captionKey: "overview.cards.average.caption",
+        emptyKey: "overview.cards.average.empty",
         tone: "positive",
       },
-      {
-        id: "nextExam",
-        labelKey: "overview.cards.nextExam.label",
-        valueKey: "overview.cards.nextExam.value",
-        captionKey: "overview.cards.nextExam.caption",
-        tone: "neutral",
-      },
     ],
-    communications: [
-      {
-        id: "m1",
-        fromKey: "overview.communications.items.m1.from",
-        subjectKey: "overview.communications.items.m1.subject",
-        whenKey: "overview.communications.items.m1.when",
-      },
-      {
-        id: "m2",
-        fromKey: "overview.communications.items.m2.from",
-        subjectKey: "overview.communications.items.m2.subject",
-        whenKey: "overview.communications.items.m2.when",
-      },
-      {
-        id: "m3",
-        fromKey: "overview.communications.items.m3.from",
-        subjectKey: "overview.communications.items.m3.subject",
-        whenKey: "overview.communications.items.m3.when",
-      },
-    ],
+    communications: conversations.slice(0, 5).map((conversation) => ({
+      id: conversation.peerId,
+      from: conversation.peerName ?? "",
+      subject: conversation.lastMessage,
+      when: conversation.lastMessageAt,
+      href: `/dashboard/messages?peer=${conversation.peerId}`,
+    })),
   };
 }
 

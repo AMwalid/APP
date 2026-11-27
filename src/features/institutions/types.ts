@@ -8,6 +8,18 @@
 
 export const INSTITUTION_TYPES = ["School", "Tutoring Center"] as const;
 
+export type InstitutionStat = {
+  id: string;
+  labelKey: string;
+  value: number;
+  captionKey: string;
+  tone?: "neutral" | "positive";
+};
+
+export type InstitutionOverview = {
+  cards: InstitutionStat[];
+};
+
 export type PublicInstitution = {
   id: string;
   name: string;

@@ -8,12 +8,9 @@ import {
 /**
  * PAR-01 — Parent dashboard.
  *
- * "Present each child's attendance, behavior, academic performance, and school
- * communications in one view." The child selector is deferred until profiles
- * exist, so this shows a single child's snapshot.
- *
- * The page only composes: data comes from the feature's query, rendering from
- * the feature's components.
+ * Aggregates the parent's real children, their grades and their direct messages.
+ * Attendance and behavior are not in the schema yet, so this page does not
+ * pretend to report them. The page only composes the feature's query and cards.
  */
 export default async function ParentOverviewPage({
   params,
@@ -24,7 +21,7 @@ export default async function ParentOverviewPage({
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "Dashboard" });
-  const overview = await getParentOverview();
+  const overview = await getParentOverview(locale);
 
   return (
     <div className="space-y-6">

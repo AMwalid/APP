@@ -505,74 +505,83 @@
     },
     "overview": {
       "title": "Aperçu du parent",
-      "subtitle": "Un instantané des progrès de votre enfant et des nouvelles de l'école.",
+      "subtitle": "Un aperçu des progrès de vos enfants et de leurs communications scolaires.",
       "cards": {
-        "attendance": {
-          "label": "Présence",
-          "value": "95 %",
-          "caption": "Ce trimestre"
+        "children": {
+          "label": "Enfants",
+          "caption": "Associés à votre compte"
         },
-        "behavior": {
-          "label": "Comportement",
-          "value": "Excellent",
-          "caption": "Aucun signalement ce mois-ci"
+        "grades": {
+          "label": "Notes enregistrées",
+          "caption": "Pour vos enfants associés"
         },
-        "nextExam": {
-          "label": "Prochain examen",
-          "value": "Maths — 20 nov.",
-          "caption": "Chapitre 4 : les fractions"
+        "average": {
+          "label": "Moyenne",
+          "caption": "À partir des notes enregistrées",
+          "empty": "Aucune note"
         }
       },
       "communications": {
         "title": "Communications récentes",
-        "items": {
-          "m1": {
-            "from": "Mme Amrani",
-            "subject": "Devoirs de maths pour jeudi",
-            "when": "Il y a 2 heures"
-          },
-          "m2": {
-            "from": "Le secrétariat",
-            "subject": "Réunion parents-professeurs le 22 nov.",
-            "when": "Hier"
-          },
-          "m3": {
-            "from": "M. Bensalem",
-            "subject": "Bons progrès en sciences",
-            "when": "Il y a 3 jours"
-          }
-        },
+        "unknownSender": "Expéditeur inconnu",
         "empty": {
           "title": "Aucune communication",
-          "body": "Les messages de l'école de votre enfant apparaîtront ici dès leur arrivée."
+          "body": "Les messages des écoles de vos enfants apparaîtront ici dès leur arrivée."
         }
       }
     },
     "teacherOverview": {
       "title": "Vue d'ensemble de l'enseignant",
-      "subtitle": "Un aperçu rapide de vos classes, de vos élèves et des corrections en attente.",
+      "subtitle": "Vos classes, élèves et notes en un coup d’œil.",
       "cards": {
         "students": {
-          "label": "Total des élèves",
-          "caption": "Dans toutes vos classes"
+          "label": "Élèves",
+          "caption": "Inscriptions dans vos classes"
         },
         "classes": {
           "label": "Classes",
-          "caption": "Actives ce trimestre"
+          "caption": "Classes que vous enseignez"
         },
         "grading": {
-          "label": "Corrections en attente",
-          "caption": "Copies à corriger"
+          "label": "Notes enregistrées",
+          "caption": "Dans vos carnets de notes"
+        }
+      },
+      "classes": {
+        "title": "Vos classes",
+        "viewAll": "Voir toutes les classes",
+        "empty": {
+          "title": "Aucune classe pour le moment",
+          "body": "Créez une classe pour commencer à ajouter des élèves et des notes."
         }
       }
     },
     "studentOverview": {
       "title": "Vue d'ensemble de l'élève",
-      "subtitle": "Vos classes inscrites et vos matières au même endroit.",
+      "subtitle": "Vos classes inscrites, vos notes et votre moyenne au même endroit.",
+      "cards": {
+        "classes": {
+          "label": "Classes",
+          "caption": "Classes auxquelles vous êtes inscrit"
+        },
+        "grades": {
+          "label": "Notes enregistrées",
+          "caption": "Dans vos classes"
+        },
+        "average": {
+          "label": "Moyenne",
+          "caption": "À partir de toutes vos notes",
+          "empty": "Aucune note"
+        }
+      },
       "card": {
         "gradeLevel": "Niveau scolaire",
         "teacher": "Enseignant",
         "teacherUnknown": "Enseignant non renseigné",
+        "grades": "Notes",
+        "gradesCount": "{count, plural, one {# note} other {# notes}}",
+        "average": "Moyenne",
+        "noGrades": "Aucune note pour le moment",
         "open": "Ouvrir la classe {name}",
         "viewGrades": "Notes",
         "viewGradesFor": "Voir les notes de {name}"
@@ -766,6 +775,24 @@
         "invalidRecipient": "Vous ne pouvez pas contacter cette personne.",
         "unknown": "Une erreur s’est produite. Veuillez réessayer.",
         "sendFailed": "Impossible d’envoyer votre message. Veuillez réessayer."
+      }
+    },
+    "institutionOverview": {
+      "title": "Vue d'ensemble de l'établissement",
+      "subtitle": "Votre fiche publique, vos offres et vos conversations au même endroit.",
+      "cards": {
+        "listings": {
+          "label": "Offres",
+          "caption": "Produits que vous proposez"
+        },
+        "conversations": {
+          "label": "Conversations",
+          "caption": "Fils de discussion auxquels vous participez"
+        },
+        "unread": {
+          "label": "Messages non lus",
+          "caption": "En attente dans votre boîte de réception"
+        }
       }
     }
   },

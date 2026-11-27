@@ -1,16 +1,22 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/lib/i18n/navigation";
 import type { Communication } from "../types";
 
 /**
- * Recent school communications.
+ * Recent direct messages from the parent's real inbox.
  *
- * Rows are not links: there is no message detail route yet, and a link that
- * goes nowhere is worse than plain text. The subject leads, the sender supports
- * it, and the time sits on the end edge on wide screens, below on narrow ones.
- * An empty list gets its own translated panel instead of a heading-only box.
+ * Each row opens the existing conversation route, so a communication is an
+ * action rather than a dead line of text. The message leads, the sender supports
+ * it, and the localized timestamp sits on the end edge on wide screens. An
+ * empty list gets its own translated panel instead of a heading-only box.
  */
 export function CommunicationsList({ items }: { items: Communication[] }) {
   const t = useTranslations("Dashboard");
+  const locale = useLocale();
+  const dateFormat = new Intl.DateTimeFormat(locale, {
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
 
   return (
     <section
@@ -38,18 +44,27 @@ export function CommunicationsList({ items }: { items: Communication[] }) {
           {items.map((item) => (
             <li
               key={item.id}
-              className="flex flex-col gap-1 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+              className="flex flex-col gap-1 px-5 py-4 transition-colors duration-150 ease-standard hover:bg-surface-muted sm:flex-row sm:items-center sm:justify-between sm:gap-6"
             >
               <div className="min-w-0">
                 <p className="text-sm font-medium text-foreground">
-                  {t(item.subjectKey)}
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="rounded-sm transition-colors duration-150 ease-standard hover:text-primary-hover"
+                    >
+                      {item.subject}
+                    </Link>
+                  ) : (
+                    item.subject
+                  )}
                 </p>
                 <p className="mt-0.5 text-sm text-muted-foreground">
-                  {t(item.fromKey)}
+                  {item.from || t("overview.communications.unknownSender")}
                 </p>
               </div>
               <p className="shrink-0 text-xs text-muted-foreground">
-                {t(item.whenKey)}
+                {dateFormat.format(new Date(item.when))}
               </p>
             </li>
           ))}

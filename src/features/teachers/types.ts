@@ -1,9 +1,10 @@
+import type { Class } from "@/features/classes";
+
 /**
- * Types for the teacher overview (TCH-02 / TCH-03 shell).
+ * Types for the teacher overview (TCH-02 / TCH-03).
  *
- * The placeholder carries translation keys for copy and plain numbers for
- * quantities. The numbers are data, not copy: when the class and student tables
- * land, only the query body changes.
+ * Labels and captions are translation keys; values are real quantities from
+ * Supabase. `classes` is the short preview shown under the figures.
  */
 export type TeacherStatTone = "neutral" | "positive";
 
@@ -17,4 +18,5 @@ export type TeacherStat = {
 
 export type TeacherOverview = {
   cards: TeacherStat[];
+  classes: Class[];
 };

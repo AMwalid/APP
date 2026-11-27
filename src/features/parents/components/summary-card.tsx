@@ -3,11 +3,12 @@ import { StatCard } from "@/components/shared/stat-card";
 import type { SummaryCardData } from "../types";
 
 /**
- * One parent summary figure (attendance, behaviour, next exam).
+ * One real parent summary figure (children, grades, average score).
  *
- * The parent feature keeps its translation-key contract; the shared `StatCard`
- * owns the visuals so the teacher overview renders the same card without
- * importing anything from `features/parents`.
+ * The value is already formatted data from the query; only the label, caption
+ * and the rare "no value" fallback are translated. The shared `StatCard` owns
+ * the visuals so the other overviews render the same card without importing
+ * anything from `features/parents`.
  */
 export function SummaryCard({ card }: { card: SummaryCardData }) {
   const t = useTranslations("Dashboard");
@@ -15,7 +16,7 @@ export function SummaryCard({ card }: { card: SummaryCardData }) {
   return (
     <StatCard
       label={t(card.labelKey)}
-      value={t(card.valueKey)}
+      value={card.value || (card.emptyKey ? t(card.emptyKey) : "")}
       caption={t(card.captionKey)}
       tone={card.tone}
     />
