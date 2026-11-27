@@ -493,8 +493,13 @@
           "experienceYearsInvalid": "Enter a whole number.",
           "experienceYearsRange": "Experience must be between 0 and 60 years.",
           "bioTooShort": "That bio is too short. Use at least 20 characters.",
-          "bioTooLong": "That bio is too long. Use at most 1000 characters."
-        }
+          "bioTooLong": "That bio is too long. Use at most 1000 characters.",
+          "currentInstitutionInvalid": "Choose a school from the list."
+        },
+        "currentInstitution": "Current institution",
+        "currentInstitutionNone": "Not linked to a school",
+        "currentInstitutionOption": "{name} — {location}",
+        "currentInstitutionHint": "Optional. Links your public teacher profile to a verified school."
       },
       "errors": {
         "notSignedIn": "Your session expired. Sign in again to continue.",
@@ -1734,7 +1739,8 @@
       "submit": "Search",
       "resultCount": "{count, plural, =0 {No institutions found} one {# institution found} other {# institutions found}}",
       "empty": "No institutions match your search. Try a different name or city.",
-      "location": "Location"
+      "location": "Location",
+      "viewProfile": "View school"
     },
     "storeDirectory": {
       "heading": "Explore the store",
@@ -1747,6 +1753,23 @@
       "typeBook": "Book",
       "typeSupply": "Supply",
       "soldBy": "Sold by"
+    },
+    "publicInstitutionProfile": {
+      "metaTitle": "{name} — School profile | IBNI",
+      "metaTitleMissing": "School not found — IBNI",
+      "eyebrow": "School profile",
+      "subtitle": "{type} in {location}",
+      "noDescription": "This school hasn't added a description yet.",
+      "ctaTitle": "Looking for the right school?",
+      "ctaSubtitle": "Create an IBNI account to discover verified institutions and the teachers who work there.",
+      "ctaAction": "Create an account",
+      "teachersTitle": "Teachers at this school",
+      "teacherCount": "{count, plural, =0 {No teachers linked yet} =1 {1 teacher linked} other {# teachers linked}}",
+      "emptyTitle": "No teachers linked yet",
+      "emptyBody": "Teachers can link themselves to this school from their IBNI profile. Check back soon.",
+      "viewProfile": "View profile",
+      "experience": "{years} years of experience",
+      "back": "Back to institutions"
     }
   }
 }

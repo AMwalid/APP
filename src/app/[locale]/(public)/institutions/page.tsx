@@ -80,6 +80,7 @@ export default async function InstitutionsPage({
           submit: directory("submit"),
           resultCount: (count) => directory("resultCount", { count }),
           empty: directory("empty"),
+          viewProfile: directory("viewProfile"),
         }}
       />
       <MarketingValueCards

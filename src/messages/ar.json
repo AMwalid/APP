@@ -493,8 +493,13 @@
           "experienceYearsInvalid": "أدخل رقمًا صحيحًا.",
           "experienceYearsRange": "يجب أن تكون الخبرة بين 0 و60 سنة.",
           "bioTooShort": "النبذة قصيرة جدًا. استخدم 20 حرفًا على الأقل.",
-          "bioTooLong": "النبذة طويلة جدًا. استخدم 1000 حرف كحد أقصى."
-        }
+          "bioTooLong": "النبذة طويلة جدًا. استخدم 1000 حرف كحد أقصى.",
+          "currentInstitutionInvalid": "اختر مؤسسة من القائمة."
+        },
+        "currentInstitution": "المؤسسة الحالية",
+        "currentInstitutionNone": "غير مرتبط بمؤسسة",
+        "currentInstitutionOption": "{name} — {location}",
+        "currentInstitutionHint": "اختياري. يربط ملف الأستاذ العام بمؤسسة موثّقة في إبني."
       },
       "errors": {
         "notSignedIn": "انتهت جلستك. سجّل الدخول من جديد للمتابعة.",
@@ -1734,7 +1739,8 @@
       "submit": "بحث",
       "resultCount": "{count, plural, =0 {لا توجد مؤسسات} one {مؤسسة واحدة} other {# مؤسسات}}",
       "empty": "لا توجد مؤسسات مطابقة لبحثك. جرّب اسماً أو مدينة أخرى.",
-      "location": "الموقع"
+      "location": "الموقع",
+      "viewProfile": "عرض المدرسة"
     },
     "storeDirectory": {
       "heading": "استكشف المتجر",
@@ -1747,6 +1753,23 @@
       "typeBook": "كتاب",
       "typeSupply": "مستلزم",
       "soldBy": "يُباع بواسطة"
+    },
+    "publicInstitutionProfile": {
+      "metaTitle": "{name} — ملف مدرسة | IBNI",
+      "metaTitleMissing": "المدرسة غير موجودة — IBNI",
+      "eyebrow": "ملف المدرسة",
+      "subtitle": "{type} في {location}",
+      "noDescription": "لم تضف هذه المدرسة وصفًا بعد.",
+      "ctaTitle": "تبحث عن المدرسة المناسبة؟",
+      "ctaSubtitle": "أنشئ حسابًا في إبني لاكتشاف المؤسسات الموثّقة والأساتذة الذين يعملون فيها.",
+      "ctaAction": "أنشئ حسابًا",
+      "teachersTitle": "الأساتذة في هذه المدرسة",
+      "teacherCount": "{count, plural, zero {لا يوجد أساتذة مرتبطون بعد} one {أستاذ واحد مرتبط} two {أستاذان مرتبطان} few {# أساتذة مرتبطون} many {# أستاذًا مرتبطًا} other {# أستاذ مرتبط}}",
+      "emptyTitle": "لا يوجد أساتذة مرتبطون بعد",
+      "emptyBody": "يمكن للأساتذة ربط أنفسهم بهذه المدرسة من ملفهم في إبني. عُد قريبًا.",
+      "viewProfile": "عرض الملف",
+      "experience": "{years} سنة خبرة",
+      "back": "العودة إلى المؤسسات"
     }
   }
 }

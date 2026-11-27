@@ -24,7 +24,9 @@ export async function getTeacherProfile(): Promise<TeacherProfile | null> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("profiles")
-    .select("id, full_name, specialization, experience_years, bio")
+    .select(
+      "id, full_name, specialization, experience_years, bio, current_institution_id",
+    )
     .eq("id", user.id)
     .maybeSingle();
 
@@ -47,5 +49,6 @@ export async function getTeacherProfile(): Promise<TeacherProfile | null> {
     experienceYears: row.experience_years === null ? "" : String(row.experience_years),
     // Empty means "not written yet", which is what an empty textarea represents.
     bio: row.bio ?? "",
+    currentInstitutionId: row.current_institution_id ?? "",
   };
 }

@@ -493,8 +493,13 @@
           "experienceYearsInvalid": "Saisissez un nombre entier.",
           "experienceYearsRange": "L'expérience doit être comprise entre 0 et 60 ans.",
           "bioTooShort": "Cette présentation est trop courte. Utilisez au moins 20 caractères.",
-          "bioTooLong": "Cette présentation est trop longue. Utilisez 1000 caractères maximum."
-        }
+          "bioTooLong": "Cette présentation est trop longue. Utilisez 1000 caractères maximum.",
+          "currentInstitutionInvalid": "Choisissez un établissement dans la liste."
+        },
+        "currentInstitution": "Établissement actuel",
+        "currentInstitutionNone": "Non rattaché à un établissement",
+        "currentInstitutionOption": "{name} — {location}",
+        "currentInstitutionHint": "Facultatif. Relie votre profil public d'enseignant à un établissement vérifié."
       },
       "errors": {
         "notSignedIn": "Votre session a expiré. Connectez-vous à nouveau pour continuer.",
@@ -1734,7 +1739,8 @@
       "submit": "Rechercher",
       "resultCount": "{count, plural, =0 {Aucun établissement trouvé} one {# établissement trouvé} other {# établissements trouvés}}",
       "empty": "Aucun établissement ne correspond à votre recherche. Essayez un autre nom ou une autre ville.",
-      "location": "Lieu"
+      "location": "Lieu",
+      "viewProfile": "Voir l'établissement"
     },
     "storeDirectory": {
       "heading": "Découvrir la boutique",
@@ -1747,6 +1753,23 @@
       "typeBook": "Livre",
       "typeSupply": "Fourniture",
       "soldBy": "Vendu par"
+    },
+    "publicInstitutionProfile": {
+      "metaTitle": "{name} — Fiche établissement | IBNI",
+      "metaTitleMissing": "Établissement introuvable — IBNI",
+      "eyebrow": "Fiche établissement",
+      "subtitle": "{type} à {location}",
+      "noDescription": "Cet établissement n'a pas encore ajouté de description.",
+      "ctaTitle": "Vous cherchez le bon établissement ?",
+      "ctaSubtitle": "Créez un compte IBNI pour découvrir les établissements vérifiés et les enseignants qui y travaillent.",
+      "ctaAction": "Créer un compte",
+      "teachersTitle": "Enseignants de cet établissement",
+      "teacherCount": "{count, plural, =0 {Aucun enseignant rattaché} =1 {1 enseignant rattaché} other {# enseignants rattachés}}",
+      "emptyTitle": "Aucun enseignant rattaché",
+      "emptyBody": "Les enseignants peuvent se rattacher à cet établissement depuis leur profil IBNI. Revenez bientôt.",
+      "viewProfile": "Voir le profil",
+      "experience": "{years} ans d'expérience",
+      "back": "Retour aux établissements"
     }
   }
 }

@@ -16,12 +16,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import type { InstitutionOption } from "@/features/institutions";
 import { updateTeacherProfile } from "../actions";
 import { createTeacherProfileSchema } from "../schemas";
 import type { TeacherProfileFormValues } from "../types";
 
 type TeacherProfileFormProps = {
   defaultValues: TeacherProfileFormValues;
+  institutions: readonly InstitutionOption[];
 };
 
 /**
@@ -36,7 +38,10 @@ type TeacherProfileFormProps = {
  * stays mounted after a save; the success message is shown only while the form
  * still matches what was saved, and the first keystroke hides it.
  */
-export function TeacherProfileForm({ defaultValues }: TeacherProfileFormProps) {
+export function TeacherProfileForm({
+  defaultValues,
+  institutions,
+}: TeacherProfileFormProps) {
   const t = useTranslations("Dashboard");
   const schema = useMemo(() => createTeacherProfileSchema(t), [t]);
   const [formError, setFormError] = useState<string | null>(null);
@@ -150,6 +155,45 @@ export function TeacherProfileForm({ defaultValues }: TeacherProfileFormProps) {
               </FormControl>
               <FormDescription>
                 {t("teacherProfile.form.experienceYearsHint")}
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="currentInstitutionId"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                {t("teacherProfile.form.currentInstitution")}
+              </FormLabel>
+              <FormControl>
+                {/*
+                  A styled native select: components/ui has no Select primitive
+                  yet, and that generated folder is left untouched. The empty
+                  value means "not linked", which the action stores as NULL.
+                */}
+                <select
+                  {...field}
+                  className="flex h-10 w-full rounded-control border border-border bg-background px-3 py-2 text-sm text-foreground transition-colors duration-150 ease-standard disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive"
+                >
+                  <option value="">
+                    {t("teacherProfile.form.currentInstitutionNone")}
+                  </option>
+                  {institutions.map((institution) => (
+                    <option key={institution.id} value={institution.id}>
+                      {t("teacherProfile.form.currentInstitutionOption", {
+                        name: institution.name,
+                        location: institution.location,
+                      })}
+                    </option>
+                  ))}
+                </select>
+              </FormControl>
+              <FormDescription>
+                {t("teacherProfile.form.currentInstitutionHint")}
               </FormDescription>
               <FormMessage />
             </FormItem>

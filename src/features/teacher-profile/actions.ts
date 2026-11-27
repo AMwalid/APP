@@ -1,12 +1,16 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { z } from "zod";
+import { getSelectableInstitutions } from "@/features/institutions";
 import { getViewer } from "@/features/profile";
 import { createClient } from "@/lib/supabase/server";
 import { createTeacherProfileSchema } from "./schemas";
-import type { TeacherProfileFormErrorKey } from "./schemas";
+import type {
+  TeacherProfileFieldErrorKey,
+  TeacherProfileFormErrorKey,
+} from "./schemas";
 import type {
   TeacherProfileField,
   TeacherProfileFormValues,
@@ -37,6 +41,8 @@ const NOT_TEACHER: TeacherProfileFormErrorKey =
 const NOT_FOUND: TeacherProfileFormErrorKey = "teacherProfile.errors.notFound";
 const SAVE_FAILED: TeacherProfileFormErrorKey =
   "teacherProfile.errors.saveFailed";
+const INVALID_INSTITUTION: TeacherProfileFieldErrorKey =
+  "teacherProfile.form.errors.currentInstitutionInvalid";
 
 function toFieldErrors(
   error: z.ZodError<TeacherProfileFormValues>,
@@ -49,6 +55,7 @@ function toFieldErrors(
     "specialization",
     "experienceYears",
     "bio",
+    "currentInstitutionId",
   ] as const) {
     const first = fieldErrors[field]?.[0];
     if (first) {
@@ -81,6 +88,21 @@ export async function updateTeacherProfile(
     return { status: "error", formError: t(NOT_TEACHER) };
   }
 
+  const currentInstitutionId = parsed.data.currentInstitutionId || null;
+
+  // The dropdown is a convenience, not the boundary. Re-check against the same
+  // bounded directory read so a stale or forged id cannot be written.
+  if (currentInstitutionId) {
+    const institutions = await getSelectableInstitutions();
+
+    if (!institutions.some((item) => item.id === currentInstitutionId)) {
+      return {
+        status: "error",
+        fieldErrors: { currentInstitutionId: t(INVALID_INSTITUTION) },
+      };
+    }
+  }
+
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("profiles")
@@ -90,6 +112,7 @@ export async function updateTeacherProfile(
       experience_years: Number(parsed.data.experienceYears),
       // An empty optional bio is stored as NULL rather than "".
       bio: parsed.data.bio || null,
+      current_institution_id: currentInstitutionId,
     })
     .eq("id", viewer.id)
     .select("id");

@@ -14,6 +14,7 @@ type InstitutionDirectoryProps = {
     submit: string;
     resultCount: (count: number) => string;
     empty: string;
+    viewProfile: string;
   };
 };
 
@@ -64,10 +65,12 @@ export function InstitutionDirectory({
           {institutions.map((institution) => (
             <InstitutionCard
               key={institution.id}
+              id={institution.id}
               name={institution.name}
               type={institution.type}
               location={institution.location}
               description={institution.description}
+              viewProfileLabel={labels.viewProfile}
             />
           ))}
         </div>

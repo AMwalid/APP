@@ -1,12 +1,15 @@
 import "server-only";
 
+import { toPublicTeacher, type PublicTeacher } from "@/features/teachers-directory";
 import { getConversations } from "@/features/messaging";
 import { getSellerProducts } from "@/features/store";
 import { createClient } from "@/lib/supabase/server";
 import type {
+  InstitutionOption,
   InstitutionOverview,
   InstitutionProfile,
   InstitutionRow,
+  InstitutionTeacherRow,
   PublicInstitution,
 } from "./types";
 
@@ -28,6 +31,9 @@ function asPublicInstitution(row: {
   };
 }
 
+/** A UUID-typed argument cannot receive an arbitrary path segment. */
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
 /** Public directory rows, filtered by name or location via a bounded RPC. */
 export async function getPublicInstitutions(
   needle: string,
@@ -45,6 +51,72 @@ export async function getPublicInstitutions(
   }
 
   return Array.isArray(data) ? data.map((row) => asPublicInstitution(row)) : [];
+}
+
+/**
+ * Schools offered to a teacher. The directory RPC is already bounded to 50
+ * alphabetically ordered rows and only verified admins can create listings, so
+ * this is the same list the school cards render.
+ */
+export async function getSelectableInstitutions(): Promise<InstitutionOption[]> {
+  const institutions = await getPublicInstitutions("");
+
+  return institutions.map(({ id, name, location }) => ({ id, name, location }));
+}
+
+/** One public institution for the detail route, or null for a bad/missing id. */
+export async function getPublicInstitution(
+  id: string,
+): Promise<PublicInstitution | null> {
+  if (!UUID.test(id)) {
+    return null;
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("get_public_institution", {
+    p_id: id,
+  });
+
+  if (error) {
+    throw new Error(
+      "[institutions] getPublicInstitution failed: " +
+        (error.code ?? error.message),
+    );
+  }
+
+  const row = Array.isArray(data) ? data[0] : undefined;
+  return row ? asPublicInstitution(row) : null;
+}
+
+/**
+ * Public teachers linked to one institution.
+ *
+ * The definer function exposes only directory-safe columns; a bad id returns an
+ * empty list rather than throwing, because the page has already proved the
+ * school exists.
+ */
+export async function getInstitutionTeachers(
+  institutionId: string,
+): Promise<PublicTeacher[]> {
+  if (!UUID.test(institutionId)) {
+    return [];
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("get_institution_teachers", {
+    p_institution_id: institutionId,
+  });
+
+  if (error) {
+    throw new Error(
+      "[institutions] getInstitutionTeachers failed: " +
+        (error.code ?? error.message),
+    );
+  }
+
+  return (Array.isArray(data) ? data : []).map((row) =>
+    toPublicTeacher(row as InstitutionTeacherRow),
+  );
 }
 
 /** The signed-in owner's institution, or null when they have none yet. */

@@ -1,18 +1,23 @@
 import { getTranslations } from "next-intl/server";
+import { getSelectableInstitutions } from "@/features/institutions";
 import { getTeacherProfile } from "../queries";
 import { TeacherProfileForm } from "./teacher-profile-form";
 
 /**
  * Teacher profile route composition.
  *
- * The page only composes: the values come from the feature's query, the form
- * from its components, and the copy from the messages. A missing profile is not
- * an error state — the form renders with empty defaults and the action reports
- * `notFound` on save, which is the honest outcome.
+ * The page only composes: the values come from the feature's query, the school
+ * list from the institutions feature, the form from this feature's components,
+ * and the copy from the messages. A missing profile is not an error state — the
+ * form renders with empty defaults and the action reports `notFound` on save,
+ * which is the honest outcome.
  */
 export async function TeacherProfileView() {
   const t = await getTranslations("Dashboard");
-  const profile = await getTeacherProfile();
+  const [profile, institutions] = await Promise.all([
+    getTeacherProfile(),
+    getSelectableInstitutions(),
+  ]);
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -27,11 +32,13 @@ export async function TeacherProfileView() {
 
       <section className="rounded-lg border border-border bg-background p-5 sm:p-6">
         <TeacherProfileForm
+          institutions={institutions}
           defaultValues={{
             fullName: profile?.fullName ?? "",
             specialization: profile?.specialization ?? "",
             experienceYears: profile?.experienceYears ?? "",
             bio: profile?.bio ?? "",
+            currentInstitutionId: profile?.currentInstitutionId ?? "",
           }}
         />
       </section>

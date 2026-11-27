@@ -2,8 +2,9 @@
  * Types for the institution directory and the owner-editable profile (INS-01/03).
  *
  * `src/types/database.ts` has not been generated yet, so row shapes are written
- * from `20261122000000_create_institutions_directory.sql` and must stay in sync
- * with it until the Supabase CLI is available.
+ * from `20261122000000_create_institutions_directory.sql` plus the two public
+ * reads added in `20261127000000_link_teachers_to_institutions.sql`. They must
+ * stay in sync with those migrations until the Supabase CLI is available.
  */
 
 export const INSTITUTION_TYPES = ["School", "Tutoring Center"] as const;
@@ -27,6 +28,18 @@ export type PublicInstitution = {
   description: string | null;
   location: string;
   createdAt: string;
+};
+
+/** A directory row reduced to what the teacher profile dropdown needs. */
+export type InstitutionOption = Pick<PublicInstitution, "id" | "name" | "location">;
+
+/** One row returned by `get_institution_teachers`. */
+export type InstitutionTeacherRow = {
+  id: string;
+  full_name: string | null;
+  specialization: string | null;
+  experience_years: number | null;
+  bio: string | null;
 };
 
 export type InstitutionRow = {

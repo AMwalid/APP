@@ -9,8 +9,9 @@ import type { TeacherProfileFormValues } from "./types";
  * call time. The same schema runs in the form and again in the Server Action.
  *
  * The bounds mirror the check constraints in
- * `20261120000100_add_teacher_profile_fields.sql`: the schema protects the form,
- * the constraints protect the table.
+ * `20261120000100_add_teacher_profile_fields.sql`; the school id is checked
+ * again against the selectable list in the action, because the browser is not
+ * a trust boundary.
  */
 
 export type TeacherProfileFieldErrorKey =
@@ -24,7 +25,8 @@ export type TeacherProfileFieldErrorKey =
   | "teacherProfile.form.errors.experienceYearsInvalid"
   | "teacherProfile.form.errors.experienceYearsRange"
   | "teacherProfile.form.errors.bioTooShort"
-  | "teacherProfile.form.errors.bioTooLong";
+  | "teacherProfile.form.errors.bioTooLong"
+  | "teacherProfile.form.errors.currentInstitutionInvalid";
 
 /** Satisfied by `useTranslations("Dashboard")`. */
 export type Translate = (key: TeacherProfileFieldErrorKey) => string;
@@ -35,6 +37,10 @@ export type TeacherProfileFormErrorKey =
   | "teacherProfile.errors.notTeacher"
   | "teacherProfile.errors.notFound"
   | "teacherProfile.errors.saveFailed";
+
+/** A UUID-typed column cannot receive arbitrary form values. */
+const UUID =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 export function createTeacherProfileSchema(t: Translate) {
   return z.object({
@@ -81,5 +87,10 @@ export function createTeacherProfileSchema(t: Translate) {
       .refine((value) => value.length <= 1000, {
         error: t("teacherProfile.form.errors.bioTooLong"),
       }),
+    // Empty means "not linked yet"; a non-empty value must at least be a UUID.
+    // The action also checks that it is one of the institutions offered.
+    currentInstitutionId: z.string().refine((value) => value === "" || UUID.test(value), {
+      error: t("teacherProfile.form.errors.currentInstitutionInvalid"),
+    }),
   }) satisfies z.ZodType<TeacherProfileFormValues>;
 }
