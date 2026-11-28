@@ -178,7 +178,8 @@
       "profile": "Mon profil",
       "settings": "Paramètres",
       "institutionDashboard": "Établissements",
-      "store": "Boutique"
+      "store": "Boutique",
+      "grades": "Notes"
     },
     "loading": {
       "title": "Chargement du tableau de bord",
@@ -566,7 +567,7 @@
       "subtitle": "Vos classes inscrites, vos notes et votre moyenne au même endroit.",
       "cards": {
         "classes": {
-          "label": "Classes",
+          "label": "Classes inscrites",
           "caption": "Classes auxquelles vous êtes inscrit"
         },
         "grades": {
@@ -798,6 +799,18 @@
           "label": "Messages non lus",
           "caption": "En attente dans votre boîte de réception"
         }
+      }
+    },
+    "studentGrades": {
+      "title": "Mes notes",
+      "subtitle": "Toutes vos notes dans toutes les classes, de la plus récente à la plus ancienne.",
+      "listTitle": "Liste des notes",
+      "columns": {
+        "class": "Nom de la classe"
+      },
+      "empty": {
+        "title": "Aucune note pour le moment",
+        "body": "Lorsqu'un enseignant ajoutera une note, elle apparaîtra ici."
       }
     }
   },

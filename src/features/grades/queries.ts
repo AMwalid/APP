@@ -1,9 +1,13 @@
 import "server-only";
 
+import { getStudentClasses } from "@/features/classes";
 import { getViewer } from "@/features/profile";
 import { getCurrentUser } from "@/lib/supabase/session";
 import { createClient } from "@/lib/supabase/server";
-import type { EnrollmentRef, Grade, GradeRow } from "./types";
+import type { EnrollmentRef, Grade, GradeRow, StudentGrade } from "./types";
+
+/** `grades` row plus the enrollment id needed to map it to a class. */
+type GradeEnrollmentRow = GradeRow & { enrollment_id: string };
 
 /**
  * Grades for one enrollment, newest first (GRD-01).
@@ -44,6 +48,108 @@ export async function getGrades(enrollmentId: string): Promise<Grade[]> {
     maxScore: Number(row.max_score),
     createdAt: row.created_at,
   }));
+}
+
+/**
+ * All of the signed-in student's grades across every class, newest first.
+ *
+ * The student already has RLS access to their own enrollments and grades, so no
+ * new definer RPC is needed. Class names are the exception: `classes` is closed
+ * to students, so they come from the existing narrow `get_student_classes`
+ * function through the classes feature's public API.
+ *
+ * The role check stops a non-student from calling this directly, the explicit
+ * `student_id` filter is defence in depth, and the id tie-break makes equal
+ * timestamps deterministic. The 500-row cap mirrors `get_child_grades`.
+ */
+export async function getStudentGrades(): Promise<StudentGrade[]> {
+  const viewer = await getViewer();
+
+  if (!viewer || viewer.role !== "student") {
+    return [];
+  }
+
+  const supabase = await createClient();
+  const { data: enrollmentRows, error: enrollmentError } = await supabase
+    .from("class_enrollments")
+    .select("id, class_id")
+    .eq("student_id", viewer.id);
+
+  if (enrollmentError) {
+    throw new Error(
+      "[grades] getStudentGrades enrollments failed: " +
+        (enrollmentError.code ?? enrollmentError.message),
+    );
+  }
+
+  const enrollments = (enrollmentRows ?? []) as {
+    id: string;
+    class_id: string;
+  }[];
+
+  if (enrollments.length === 0) {
+    return [];
+  }
+
+  const [classes, gradeResult] = await Promise.all([
+    getStudentClasses(),
+    supabase
+      .from("grades")
+      .select("id, title, score, max_score, created_at, enrollment_id")
+      .in(
+        "enrollment_id",
+        enrollments.map((row) => row.id),
+      )
+      .order("created_at", { ascending: false })
+      .order("id", { ascending: false })
+      .limit(500),
+  ]);
+
+  if (gradeResult.error) {
+    throw new Error(
+      "[grades] getStudentGrades grades failed: " +
+        (gradeResult.error.code ?? gradeResult.error.message),
+    );
+  }
+
+  const classById = new Map(classes.map((classItem) => [classItem.id, classItem]));
+
+  // A grade's enrollment always points at one of the student's classes. If the
+  // class RPC ever omits one, throw rather than render a blank class cell.
+  const classByEnrollment = new Map(
+    enrollments.map((row) => {
+      const classItem = classById.get(row.class_id);
+
+      if (!classItem) {
+        throw new Error(
+          "[grades] getStudentGrades missing class for enrollment " + row.id,
+        );
+      }
+
+      return [row.id, classItem] as const;
+    }),
+  );
+
+  return ((gradeResult.data ?? []) as GradeEnrollmentRow[]).map((row) => {
+    const classItem = classByEnrollment.get(row.enrollment_id);
+
+    if (!classItem) {
+      throw new Error(
+        "[grades] getStudentGrades missing enrollment for grade " + row.id,
+      );
+    }
+
+    return {
+      id: row.id,
+      title: row.title,
+      score: Number(row.score),
+      maxScore: Number(row.max_score),
+      createdAt: row.created_at,
+      classId: classItem.id,
+      className: classItem.name,
+      subject: classItem.subject,
+    };
+  });
 }
 
 /**

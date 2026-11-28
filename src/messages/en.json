@@ -178,7 +178,8 @@
       "profile": "Profile",
       "settings": "Settings",
       "institutionDashboard": "Institutions",
-      "store": "Store"
+      "store": "Store",
+      "grades": "Grades"
     },
     "loading": {
       "title": "Loading dashboard",
@@ -566,11 +567,11 @@
       "subtitle": "Your enrolled classes, grades and average, all in one place.",
       "cards": {
         "classes": {
-          "label": "Classes",
+          "label": "Enrolled classes",
           "caption": "Classes you are enrolled in"
         },
         "grades": {
-          "label": "Grades recorded",
+          "label": "Total grades",
           "caption": "Across your classes"
         },
         "average": {
@@ -798,6 +799,18 @@
           "label": "Unread messages",
           "caption": "Waiting in your inbox"
         }
+      }
+    },
+    "studentGrades": {
+      "title": "My grades",
+      "subtitle": "All of your grades across every class, newest first.",
+      "listTitle": "Grade list",
+      "columns": {
+        "class": "Class name"
+      },
+      "empty": {
+        "title": "No grades yet",
+        "body": "Once a teacher adds a grade, it will appear here."
       }
     }
   },

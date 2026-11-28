@@ -18,6 +18,7 @@ export const PROTECTED_PREFIXES = [
   "/parents/messages",
   "/parents/settings",
   "/students/overview",
+  "/students/grades",
   "/students/settings",
   "/institutions/dashboard",
   "/teachers/overview",

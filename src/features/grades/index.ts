@@ -4,6 +4,7 @@ export { GradeList } from "./components/grade-list";
 export {
   getGrades,
   getStudentEnrollmentForClass,
+  getStudentGrades,
   getTeacherEnrollment,
 } from "./queries";
 export { createGradeSchema } from "./schemas";
@@ -14,4 +15,5 @@ export type {
   GradeField,
   GradeFormValues,
   GradeResult,
+  StudentGrade,
 } from "./types";

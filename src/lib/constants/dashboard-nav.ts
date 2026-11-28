@@ -12,8 +12,8 @@ import type { UserRole } from "@/types/roles";
  * guards are what make the role and the URL agree; this map only decides what
  * is visible once they do.
  *
- * The student list is intentionally short: the student dashboard is not built
- * yet, and inventing sections before the product does would be a guess.
+ * The student list contains the pages that exist today: overview, the
+ * read-only all-classes gradebook, and settings.
  */
 export type DashboardNavItem = {
   id: string;
@@ -41,6 +41,7 @@ export const DASHBOARD_NAV: Record<
   ],
   student: [
     { id: "overview", labelKey: "nav.overview", href: "/students/overview" },
+    { id: "grades", labelKey: "nav.grades", href: "/students/grades" },
     { id: "settings", labelKey: "nav.settings", href: "/students/settings" },
   ],
   institution_admin: [

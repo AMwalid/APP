@@ -206,7 +206,7 @@ export async function getStudentOverview(
 
     const summary = summaryByClass.get(classId) ?? { count: 0, total: 0 };
     summary.count += 1;
-    summary.total += Number(grade.score) / Number(grade.max_score);
+    summary.total += gradeRatio(grade);
     summaryByClass.set(classId, summary);
   }
 
@@ -233,6 +233,12 @@ export async function getStudentOverview(
   };
 }
 
+/** Each grade contributes its own percentage, equally weighted. */
+function gradeRatio(grade: StudentGradeRow): number {
+  const maxScore = Number(grade.max_score);
+  return maxScore > 0 ? Number(grade.score) / maxScore : 0;
+}
+
 function studentStats(
   locale: string,
   classes: StudentClass[],
@@ -243,10 +249,7 @@ function studentStats(
     style: "percent",
     maximumFractionDigits: 0,
   });
-  const total = grades.reduce(
-    (sum, grade) => sum + Number(grade.score) / Number(grade.max_score),
-    0,
-  );
+  const total = grades.reduce((sum, grade) => sum + gradeRatio(grade), 0);
   const average = grades.length === 0 ? null : total / grades.length;
 
   return [
